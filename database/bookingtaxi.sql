@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 15, 2013 at 02:49 AM
+-- Generation Time: Jun 15, 2013 at 05:28 AM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `chitietlichhen` (
   `TrangThai` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`MaChiTiet`),
   KEY `MaLichHen` (`MaLichHen`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `chitietlichhen`
@@ -41,7 +41,8 @@ CREATE TABLE IF NOT EXISTS `chitietlichhen` (
 
 INSERT INTO `chitietlichhen` (`MaChiTiet`, `MaLichHen`, `NgayLap`, `TrangThai`) VALUES
 (1, 1, 2, 'Chấp nhận'),
-(2, 2, NULL, 'Hủy');
+(2, 2, NULL, 'Hủy'),
+(3, 3, 5, 'Hủy');
 
 -- --------------------------------------------------------
 
@@ -64,7 +65,9 @@ CREATE TABLE IF NOT EXISTS `hangxe` (
 --
 
 INSERT INTO `hangxe` (`MaXe`, `MaLoaiXe`, `TrangThai`, `GiaCa`, `PhamViHoatDong`) VALUES
-('50v1-2222', 'x4c', 'Đang chờ', 10000, 'TP HCM');
+('50v1-2222', 'x4c', 'Đang chờ', 10000, 'TP HCM'),
+('50v2-3322', 'x8c', 'Đang chạy', 15000, 'TPHCM và các tỉnh lân cận'),
+('57v5-5141', 'x16c', 'Đang chờ', 15000, 'Các tỉnh miền tây');
 
 -- --------------------------------------------------------
 
@@ -88,7 +91,9 @@ CREATE TABLE IF NOT EXISTS `khachhang` (
 
 INSERT INTO `khachhang` (`TaiKhoanKH`, `MatKhau`, `HoTen`, `DienThoai`, `DiaChi`, `Email`) VALUES
 ('dongochai', 'e10adc3949ba59abbe56e057f20f883e', 'Đỗ Ngọc Hải', 1883965050, 'gò vấp, tp HCM', 'lifog721989@gmail.com'),
-('NguyenDucHuy', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Đức Huy', 1268753599, 'Nguyễn Oanh, Gò Vấp, TP HCM', 'huyga@gmail.com');
+('NguyenDucHuy', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Đức Huy', 1268753599, 'Nguyễn Oanh, Gò Vấp, TP HCM', 'huyga@gmail.com'),
+('nguyenhaibang', 'e35cf7b66449df565f93c607d5a81d09', 'Nguyễn Hải Bằng', 1212121213, 'Quận 12', 'haibang_nhc@gmail.com'),
+('nguyenvana', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Văn A', 1282151421, 'F13, Q.Tân Bình, TpHCM', 'nguyenvana@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -106,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `lichhen` (
   PRIMARY KEY (`MaLichHen`),
   KEY `LoaiXe` (`LoaiXe`),
   KEY `TaiKhoanKH` (`TaiKhoanKH`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `lichhen`
@@ -114,7 +119,8 @@ CREATE TABLE IF NOT EXISTS `lichhen` (
 
 INSERT INTO `lichhen` (`MaLichHen`, `TaiKhoanKH`, `LoaiXe`, `Diemdon`, `DiemDen`, `ThoiGian`) VALUES
 (1, 'dongochai', 'x4c', 'F13, Q.Gò Vấp, TP.HCM', 'Đầm Sen', '2013-06-30 07:00:00'),
-(2, 'NguyenDucHuy', 'x8c', 'Nguyễn Oanh Gò Vấp', 'Tân Bình', '2013-06-25 16:17:00');
+(2, 'NguyenDucHuy', 'x8c', 'Nguyễn Oanh Gò Vấp', 'Tân Bình', '2013-06-25 16:17:00'),
+(3, 'nguyenhaibang', 'x16c', 'F13 Gò Vấp', 'Suối Tiên', '2013-06-18 14:00:00');
 
 -- --------------------------------------------------------
 
@@ -134,6 +140,7 @@ CREATE TABLE IF NOT EXISTS `loaixe` (
 --
 
 INSERT INTO `loaixe` (`MaLoaiXe`, `TenLoaiXe`, `GhiChu`) VALUES
+('x16c', 'Xe 16 chỗ', NULL),
 ('x4c', 'Xe 4 chỗ', 'máy lạnh đời mới '),
 ('x8c', 'Xe 8 chỗ', NULL);
 
@@ -178,7 +185,8 @@ CREATE TABLE IF NOT EXISTS `quanly` (
 --
 
 INSERT INTO `quanly` (`TenTaiKhoan`, `HoTen`, `CapBac`, `MatKhau`) VALUES
-('admin', 'Do Ngoc Hai', 2, 'e10adc3949ba59abbe56e057f20f883e');
+('admin', 'Do Ngoc Hai', 2, 'e10adc3949ba59abbe56e057f20f883e'),
+('nguyenduchuy', 'Nguyễn Đức Huy', 1, 'e10adc3949ba59abbe56e057f20f883e');
 
 --
 -- Constraints for dumped tables
@@ -194,18 +202,18 @@ ALTER TABLE `chitietlichhen`
 -- Constraints for table `hangxe`
 --
 ALTER TABLE `hangxe`
-  ADD CONSTRAINT `hangxe_ibfk_5` FOREIGN KEY (`MaLoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `hangxe_ibfk_1` FOREIGN KEY (`MaLoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `hangxe_ibfk_2` FOREIGN KEY (`MaLoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `hangxe_ibfk_3` FOREIGN KEY (`MaLoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `hangxe_ibfk_4` FOREIGN KEY (`MaLoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `hangxe_ibfk_4` FOREIGN KEY (`MaLoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `hangxe_ibfk_5` FOREIGN KEY (`MaLoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `lichhen`
 --
 ALTER TABLE `lichhen`
-  ADD CONSTRAINT `lichhen_ibfk_2` FOREIGN KEY (`TaiKhoanKH`) REFERENCES `khachhang` (`TaiKhoanKH`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `lichhen_ibfk_1` FOREIGN KEY (`LoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `lichhen_ibfk_1` FOREIGN KEY (`LoaiXe`) REFERENCES `loaixe` (`MaLoaiXe`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `lichhen_ibfk_2` FOREIGN KEY (`TaiKhoanKH`) REFERENCES `khachhang` (`TaiKhoanKH`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `quanly`
