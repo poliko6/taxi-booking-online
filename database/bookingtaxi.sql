@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 17, 2013 at 11:51 AM
+-- Generation Time: Jun 17, 2013 at 12:04 PM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -49,7 +49,17 @@ CREATE TABLE IF NOT EXISTS `car_type` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `type` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `car_type`
+--
+
+INSERT INTO `car_type` (`id`, `type`) VALUES
+(1, '4 slots'),
+(2, '8 slots'),
+(3, '16 slots'),
+(4, '25 slots');
 
 -- --------------------------------------------------------
 
@@ -97,7 +107,17 @@ CREATE TABLE IF NOT EXISTS `status` (
   `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `detail` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `detail`) VALUES
+(1, 'free'),
+(2, 'busy'),
+(3, 'cancel'),
+(4, 'accept');
 
 -- --------------------------------------------------------
 
@@ -125,10 +145,20 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 CREATE TABLE IF NOT EXISTS `usertype` (
-  `id` tinyint(4) NOT NULL,
+  `id` tinyint(4) NOT NULL AUTO_INCREMENT,
   `position` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `usertype`
+--
+
+INSERT INTO `usertype` (`id`, `position`) VALUES
+(1, 'super admin'),
+(2, 'dept_manager'),
+(3, 'driver'),
+(4, 'customer');
 
 --
 -- Constraints for dumped tables
