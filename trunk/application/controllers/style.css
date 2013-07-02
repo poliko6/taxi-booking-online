@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+#wrapper{
+	width: 800px;
+}
+#left{
+	width:400px;
+	background-color: #F00;
+	float:left;
+	min-height:500px;
+}
+#right{
+	width:400px;
+	background-color: #C4D9DF;
+	float:left;
+	min-height:500px;
+}
