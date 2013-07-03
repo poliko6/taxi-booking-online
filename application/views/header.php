@@ -11,16 +11,14 @@
         Stylesheets
     ============================================= -->
 	<link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Open+Sans:400,300,600,700" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="style.css" type="text/css" />
-    <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="../css/retina.css" />
-	<link rel="stylesheet" href="../css/colors.php" type="text/css" />
-	<link rel="stylesheet" href="../css/tipsy.css" type="text/css" />
-    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="../css/font-awesome.css" type="text/css" />
-    <link rel="stylesheet" href="../css/prettyPhoto.css" type="text/css" />
-    
-    
-    <link rel="stylesheet" href="c../ss/responsive.css" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url('css/style.css');?>" type="text/css" />
+    <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="<?php echo base_url('css/retina.css');?>" />
+	<link rel="stylesheet" href="<?php echo base_url('css/colors.php');?>" type="text/css" />
+	<link rel="stylesheet" href="<?php echo base_url('css/tipsy.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url('css/font-awesome.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url('css/prettyPhoto.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url('css/responsive.css');?>" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!--[if lt IE 9]>
     	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -30,8 +28,8 @@
     <!-- ============================================
         External JavaScripts
     ============================================= -->
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/plugins.js"></script>
+	<script type="text/javascript" src="<?php echo base_url('js/jquery.js');?>"></script>
+	<script type="text/javascript" src="<?php echo base_url('js/plugins.js');?>"></script>
     
     
     <!-- ============================================
