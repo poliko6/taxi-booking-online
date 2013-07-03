@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 02, 2013 at 12:52 PM
+-- Generation Time: Jul 03, 2013 at 01:53 PM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `customers_temp` (
   `street` smallint(6) DEFAULT NULL,
   `building_type` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `customers_temp`
@@ -124,7 +124,10 @@ INSERT INTO `customers_temp` (`id`, `passenger`, `name`, `contact_number`, `subu
 (1, 4, '123', 1234, 2, 'Unit', 12, 1, 'Business'),
 (2, 5, '1233', 1234, 2, 'Flat', 20, 1, 'Business'),
 (3, 5, '123', 1234, 2, 'Unit', 20, 1, 'Business'),
-(4, 5, 'lifog', 1883965050, 0, 'Unit', 58, 0, 'Business');
+(4, 5, 'lifog', 1883965050, 0, 'Unit', 58, 0, 'Business'),
+(5, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit'),
+(6, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit'),
+(7, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit');
 
 -- --------------------------------------------------------
 
@@ -252,23 +255,32 @@ CREATE TABLE IF NOT EXISTS `order_temp` (
   `street_number` tinyint(4) DEFAULT NULL,
   `street` smallint(6) DEFAULT NULL,
   `building_type` varchar(20) DEFAULT NULL,
+  `business_name` varchar(30) DEFAULT NULL,
   `remember_detail` tinyint(1) DEFAULT NULL,
   `address_to` smallint(6) DEFAULT NULL,
   `car_type` int(11) DEFAULT NULL,
   `node_for_driver` int(11) DEFAULT NULL,
   `ready_to_go` tinyint(1) DEFAULT NULL,
+  `time_to_go` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `order_temp`
 --
 
-INSERT INTO `order_temp` (`id`, `passenger`, `name`, `contact_number`, `address_form`, `unit_or_flat`, `street_number`, `street`, `building_type`, `remember_detail`, `address_to`, `car_type`, `node_for_driver`, `ready_to_go`) VALUES
-(1, 5, '123', 1234, 2, '0', 12, 1, 'Unit', 0, 2, 0, 1, 0),
-(8, 5, '1233', 1234, 2, '0', 20, 1, 'Business', 1, 2, 0, 1, 0),
-(9, 5, '123', 1234, 2, '0', 20, 1, 'Business', 1, 2, 0, 2, 0),
-(10, 5, 'lifog', 32767, 2, 'Unit', 58, 0, 'Business', 1, 2, 0, 2, 0);
+INSERT INTO `order_temp` (`id`, `passenger`, `name`, `contact_number`, `address_form`, `unit_or_flat`, `street_number`, `street`, `building_type`, `business_name`, `remember_detail`, `address_to`, `car_type`, `node_for_driver`, `ready_to_go`, `time_to_go`) VALUES
+(1, 5, '123', 1234, 2, '0', 12, 1, 'Unit', NULL, 0, 2, 0, 1, 0, '2013-07-07 16:00:00'),
+(8, 5, '1233', 1234, 2, '0', 20, 1, 'Business', NULL, 1, 2, 0, 1, 0, '0000-00-00 00:00:00'),
+(9, 5, '123', 1234, 2, '0', 20, 1, 'Business', NULL, 1, 2, 0, 2, 0, '0000-00-00 00:00:00'),
+(10, 5, 'lifog', 32767, 2, 'Unit', 58, 0, 'Business', NULL, 1, 2, 0, 2, 0, '0000-00-00 00:00:00'),
+(11, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
+(12, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
+(13, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
+(14, 5, 'abadon', 1883965050, 1, 'Flat', 25, 1, 'Unit', NULL, 0, 4, 0, 2, 0, '0000-00-00 00:00:00'),
+(15, 4, 'knight', 1883965050, 2, 'Unit', 12, 4, 'Unit', NULL, 0, 6, 0, 2, 0, '2013-07-03 17:00:01'),
+(17, 4, 'cyrax', 1883965050, 2, 'Flat', 25, 3, 'Unit', '', 0, 6, 0, 2, 0, '2013-01-04 17:00:01'),
+(18, 4, 'blademaster', 1883965050, 2, 'Flat', 25, 3, 'Business', 'Microsoft', 0, 5, 0, 2, 0, '2013-01-04 17:00:01');
 
 -- --------------------------------------------------------
 
