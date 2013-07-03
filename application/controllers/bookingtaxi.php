@@ -34,35 +34,46 @@ class Bookingtaxi extends CI_Controller {
 	}
 	public function book()
 	{
-	
-		 $object=array(
-		 "passenger"=>$this->input->post("rad_passenger"),
-		 "name"=>$this->input->post("txt_Name"),
-		 "contact_number"=>$this->input->post("txt_Contact_Number"),
-		 "address_form"=>$this->input->post("ddl_Address_from"),
-		 "unit_or_flat"=>$this->input->post("txt_Unit_or_Flat"),
-		 "street_number"=>$this->input->post("txt_Street"),
-		 "street"=>$this->input->post("street"),
-		 "building_type"=>$this->input->post("rad_Building_Type"),
-		 "remember_detail"=>$this->input->post("chk_Remember_Details"),
-		 "address_to"=>$this->input->post("ddl_Address_to"),
-		 "car_type"=>$this->input->post("rad_Car_Type"),
-		 "node_for_driver"=>$this->input->post("ddl_Notes"),
-		 "ready_to_go"=>$this->input->post("rad_Ready_to_go"),
-		 );
-		 $inform=array(
-		 "passenger"=>$this->input->post("rad_passenger"),
-		 "name"=>$this->input->post("txt_Name"),
-		 "contact_number"=>$this->input->post("txt_Contact_Number"),
-		 "suburb"=>$this->input->post("ddl_Address_from"),
-		 "unit_or_flat"=>$this->input->post("txt_Unit_or_Flat"),
-		 "street_number"=>$this->input->post("txt_Street"),
-		 "street"=>$this->input->post("street"),
-		 "building_type"=>$this->input->post("rad_Building_Type"),
-		 );
-		 $this->load->model("bookingtaxi_model");
-		 $this->bookingtaxi_model->booking($object);
-		 if($this->input->post("chk_Remember_Details")=='1')
+		$this->load->model("bookingtaxi_model");
+		$precount=$this->bookingtaxi_model->count_order_temp();
+		$object=array(
+		"passenger"=>$this->input->post("rad_passenger"),
+		"name"=>$this->input->post("txt_Name"),
+		"contact_number"=>$this->input->post("txt_Contact_Number"),
+		"address_form"=>$this->input->post("ddl_Address_from"),
+		"unit_or_flat"=>$this->input->post("txt_Unit_or_Flat"),
+		"street_number"=>$this->input->post("txt_Street"),
+		"street"=>$this->input->post("street"),
+		"building_type"=>$this->input->post("rad_Building_Type"),
+		"remember_detail"=>$this->input->post("chk_Remember_Details"),
+		"address_to"=>$this->input->post("ddl_Address_to"),
+		"car_type"=>$this->input->post("rad_Car_Type"),
+		"node_for_driver"=>$this->input->post("ddl_Notes"),
+		"ready_to_go"=>$this->input->post("rad_Ready_to_go"),
+		);
+		$inform=array(
+		"passenger"=>$this->input->post("rad_passenger"),
+		"name"=>$this->input->post("txt_Name"),
+		"contact_number"=>$this->input->post("txt_Contact_Number"),
+		"suburb"=>$this->input->post("ddl_Address_from"),
+		"unit_or_flat"=>$this->input->post("txt_Unit_or_Flat"),
+		"street_number"=>$this->input->post("txt_Street"),
+		"street"=>$this->input->post("street"),
+		"building_type"=>$this->input->post("rad_Building_Type"),
+		);
+		$this->bookingtaxi_model->booking($object);
+		$lastcount=$this->bookingtaxi_model->count_order_temp();
+		if($lastcount>$precount)
+		{
+			echo ('booking success!!!');
+			echo '<meta http-equiv="refresh" content="2;http://localhost:81/bookingtaxi/index.php/bookingtaxi.php" />';
+		}
+		else 
+		{
+			echo ('bookingfail!!!');
+			break;
+		}
+		if($this->input->post("chk_Remember_Details")=='1')
 		 {
 		 	$this->bookingtaxi_model->addcustomer_temp($inform);
 		 }

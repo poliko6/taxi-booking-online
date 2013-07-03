@@ -37,6 +37,10 @@
 			$query=$this->db->get();
 			return $query->result_array();
 		}
+		function count_order_temp()
+		{
+			return $this->db->count_all('order_temp');
+		}
 	}
 
 ?>
