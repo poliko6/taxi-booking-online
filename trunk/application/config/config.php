@@ -14,9 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost:81/bookingtaxi';
-$config['css'] = 'styles.css';
-
+$config['base_url']	= 'http://localhost:81/bookingtaxi/test/';
 /*
 |--------------------------------------------------------------------------
 | Index File
