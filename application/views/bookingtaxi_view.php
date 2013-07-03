@@ -8,6 +8,23 @@
 	
 <script>
 $(document).ready(function(){
+	$('.business_name').hide();
+	$('.now').show();
+	$('.later').hide();
+$('.rad_now').click(function(){
+		$('.now').show();
+		$('.later').hide();
+});
+$('.rad_later').click(function(){
+		$('.now').hide();
+		$('.later').show();
+});	
+$('.rad_unit').click(function(){
+		$('.business_name').hide();
+});
+$('.rad_business').click(function(){
+		$('.business_name').show();
+});
 $('.anytype').click(function(){
 		$('.vans').fadeTo('fast','9999');
 });
@@ -16,47 +33,27 @@ $('.wagon').click(function(){
 });
 $('.airport').click(function(){
 	{
-		//document.getElementById('get_address_from').text="Melbourne Airport";
 		document.getElementById('get_address_from').value="3";
 	}
 });
 $('.mcg').click(function(){
 	{
-		//document.getElementById('get_address_from').text="East Melbourne";
 		document.getElementById('get_address_from').value="4";
 	}
 });
 $('.city').click(function(){
 	{
-		//document.getElementById('get_address_from').text="Melbourne";
 		document.getElementById('get_address_from').value="5";
 	}
 });
 $('.docklands').click(function(){
 	{
-		//document.getElementById('get_address_from').text="Docklands";
 		document.getElementById('get_address_from').value="6";
 	}
 });
 
 $('#getstreet').bind("change",function(){
 	 $("#ddl_street").load("bookingtaxi/getstreet", {suburb_id: $(this).val()} );
-	/*var dataString="ddl_Address_from="+$(this).val();
-	$.ajax(
-    {
-    url: "bookingtaxi/getstreet",
-    type: "POST",//Mặc định là GET
-    data:dataString,
-    success:function(result){
-    	var getData=$.parseJSON(result);   
-    		
-     	var id=getData.id;
-     	var name=getData.name;
-    	var data="<select name='ddl_Street'><option value="+id+">"+name+"</option></select>";
-     $('#street').html(data);
-    $('#test').html(result);
-    }  
-    });*/
 });
 });
 </script>
@@ -64,8 +61,44 @@ $('#getstreet').bind("change",function(){
 <body>
 <div id="wrapper">
 <?php
+		
 		$get_address_from='id="get_address_from"';
 		$getstreet='id="getstreet"';
+		
+		
+		/*function int_to_date($int)
+		{
+  		    $time  = gmdate("D,d-m-Y", $int);
+  		 	return $time;
+		}	
+			$maxtime=time()+604800;
+		for($i=time();i<=$maxtime;$i+86400)
+		{
+			echo int_to_date($i);	
+		}*/
+		
+		$now=array(
+		'name'=>'rad_Ready_to_go',
+		'value'=>'Now',
+		'class'=>'rad_now',
+		'checked'=>'TRUE',
+		);
+		$later=array(
+		'name'=>'rad_Ready_to_go',
+		'value'=>'Later',
+		'class'=>'rad_later',
+		);
+		$unit=array(
+		'name'=>'rad_Building_Type',
+		'value'=>'Unit',
+		'class'=>'rad_unit',
+		'checked'=>'TRUE',
+		);
+		$business=array(
+		'name'=>'rad_Building_Type',
+		'value'=>'Business',
+		'class'=>'rad_business',
+		);
 		$anytype=array(
 		'name'=>'rad_Car_Type',
 		'value'=>'AnyType',
@@ -79,36 +112,51 @@ $('#getstreet').bind("change",function(){
 		);
 		$airport=array(
 		'name'=>'rad_Por_Places',
-		'value'=>'airport',
+		'value'=>'3',
 		'class'=>'airport',
 		);
 		$mcg=array(
 		'name'=>'rad_Por_Places',
-		'value'=>'mcg',
+		'value'=>'4',
 		'class'=>'mcg',
 		);
 		$city=array(
 		'name'=>'rad_Por_Places',
-		'value'=>'city',
+		'value'=>'5',
 		'class'=>'city',
 		);
 		$docklands=array(
 		'name'=>'rad_Por_Places',
-		'value'=>'docklands',
+		'value'=>'6',
 		'class'=>'docklands',
 		);
-		
 		$node=array(
 		'1'=>'No Notes',
 		'2'=>'Waiting Out Front',
 					);
-		$liststreet=array();
-		if(isset($street)){
-		foreach ($street as $row) 
-			{				
-				$liststreet[$row->id]=$row->name;
-			}
-		}
+		$hours=array(
+		'01'=>'01','02'=>'02','03'=>'03','04'=>'04','05'=>'05','06'=>'06',
+		'07'=>'07','08'=>'08','09'=>'09','10'=>'10','11'=>'11','12'=>'12',
+		);
+		$minutes=array(
+		'00'=>'00','05'=>'05','10'=>'10','15'=>'15','20'=>'20','25'=>'25',
+		'30'=>'30','35'=>'35','40'=>'40','45'=>'45','50'=>'50','55'=>'55',
+		);
+		$seconds=array(
+		'01'=>'01','02'=>'02','03'=>'03','04'=>'04','05'=>'05','06'=>'06',
+		'07'=>'07','08'=>'08','09'=>'09','10'=>'10','11'=>'11','12'=>'12',
+		);
+		$year=array(
+		'2013'=>'2013','2014'=>'2014','2015'=>'2015','2016'=>'2016',
+		);
+		$month=array(
+		'01'=>'01','02'=>'02','03'=>'03','04'=>'04','05'=>'05','06'=>'06',
+		'07'=>'07','08'=>'08','09'=>'09','10'=>'10','11'=>'11','12'=>'12',
+		);
+		$day=array(
+		'01'=>'01','02'=>'02','03'=>'03','04'=>'04','05'=>'05','06'=>'06',
+		'07'=>'07','08'=>'08','09'=>'09','10'=>'10','11'=>'11','12'=>'12',
+		);
 		$listsuburb=array();
 		foreach ($suburb as $row) 
 			{				
@@ -130,9 +178,11 @@ $('#getstreet').bind("change",function(){
 		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").'</td></tr>';
 		echo '<tr><td>Street Number</td><td>'.form_input("txt_Street").'</td></tr>';	
 		echo '<tr><td>Street</td><td><div id="ddl_street"><select name="street"><option value="">Select state</option></select></div></td></tr>';
-		echo '<tr><td>Building Type</td><td>'.form_radio('rad_Building_Type','Unit',TRUE).'Unit'.'1-4'.form_radio('rad_Building_Type','Business').'Unit'.'</td></tr>';
+		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'</td></tr>';
+		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
 		echo '</table></div>';
+		
 		echo '<div id="right">';
 		echo '<table width="400">';
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
@@ -144,8 +194,10 @@ $('#getstreet').bind("change",function(){
 		echo '<tr><td><div class="vans">No Vans Please</div></td><td><div class="vans">'.form_checkbox('chk_No_Vans', '1', FALSE).'</div></td></tr>';
 		echo '<tr><td>Notes For Driver </td><td>'.form_dropdown('ddl_Notes',$node,'No Notes').'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Ready To Go?</strong></td></tr>';
-		echo '<tr><td>When</td><td>'.form_radio('rad_Ready_to_go','Now',TRUE).'Now'.'1-4'.form_radio('rad_Ready_to_go','Later').'Later'.'</td></tr>';
-		echo '<tr><td colspan="2">You request will be processed immediately. The first available taxi will be sent to your pickup address. </td></tr>';
+		echo '<tr><td>When</td><td>'.form_radio($now).'Now'.form_radio($later).'Later'.'</td></tr>';
+		echo '<tr class="later"><td>Time</td><td>'.form_dropdown('ddl_day',$day).form_dropdown('ddl_month',$month).form_dropdown('ddl_year',$year).'</td></tr>';
+		echo '<tr class="later"><td>Time</td><td>'.form_dropdown('ddl_hours',$hours).':'.form_dropdown('ddl_minutes',$minutes).form_dropdown('ddl_seconds',$seconds).'</td></tr>';
+		echo '<tr class="now"><td colspan="2">You request will be processed immediately. The first available taxi will be sent to your pickup address. </td></tr>';
 		echo '<tr><td colspan="2"><strong>Security Cod</strong></td></tr>
 		<tr><td>Please enter the 2 characters below(not case sensitive)</td><td><input type="text" name="txtCode" /></td></tr>
 		<tr><td colspan="2">Reload Image <img src="images.jpg" width="50" height="50" ></td></tr>
