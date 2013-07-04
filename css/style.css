@@ -1963,6 +1963,11 @@ ul.landing-features li:hover { font-weight: bold; }
 /* ----------------------------------------------------------------
     Portfolio
 -----------------------------------------------------------------*/
+#register
+{
+	width:800px;
+	background-color:#CCC;
+}
 #left_table
 {
 	margin-right:10px;
