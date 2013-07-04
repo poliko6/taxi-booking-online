@@ -15,7 +15,9 @@ class Bookingtaxi extends CI_Controller {
 		
 			$this->load->model("bookingtaxi_model");
 			$data['suburb']=$this->bookingtaxi_model->getsuburb();
+			$this->load->view('header');
 			$this->load->view('bookingtaxi_view',$data);
+			$this->load->view('footer');
 			if(isset($_POST['ddl_Address_from']))
 			{
 				$this->load->model("bookingtaxi_model");
