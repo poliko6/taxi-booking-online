@@ -659,7 +659,7 @@ $('#getstreet').bind("change",function(){
             
                 <div class="container clearfix">
                 
-                    <h1>content <span>/ 2</span></h1>
+                    <h1>Booking <span> taxi</span></h1>
                     
                 </div>
             
@@ -766,12 +766,10 @@ $('#getstreet').bind("change",function(){
 			{				
 				$listsuburb[$row->id]=$row->name;
 			}			
-		
-		echo '<div id="left">';
 		echo form_open('bookingtaxi/book');
-		echo '<table width="400">';
-		echo '<tr><td colspan="2"><strong>'.form_label('How many passengers?').'</strong></td></tr>';
-		echo '<tr><td>'.form_label('Number of People').'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',TRUE).'more'.'</td></tr>';
+		echo '<table width="400" id="left_table">';
+		echo '<tr><td colspan="2">'.form_label('How many passengers?').'</td></tr>';
+		echo '<tr><td>Number of People'.'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',TRUE).'more'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Name & Contact Number').'</strong></td></tr> ';
 		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'</td></tr>';
 		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'</td></tr>';
@@ -785,10 +783,8 @@ $('#getstreet').bind("change",function(){
 		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'</td></tr>';
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
-		echo '</table></div>';
-		
-		echo '<div id="right">';
-		echo '<table width="400">';
+		echo '</table>';
+		echo '<table width="400" id="right_table">';
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
 		echo '<tr><td>Suburb</td><td>'.form_dropdown('ddl_Address_to',$listsuburb,FALSE,$get_address_from).'</td></tr>';
 		echo '<tr><td>OR</td><td>'.form_radio($airport).'AIRPORT'.form_radio($mcg).'MCG'.'</td></tr>';
@@ -806,11 +802,12 @@ $('#getstreet').bind("change",function(){
 		<tr><td>Please enter the 2 characters below(not case sensitive)</td><td><input type="text" name="txtCode" /></td></tr>
 		<tr><td colspan="2">Reload Image <img src="images.jpg" width="50" height="50" ></td></tr>
 		<tr><td colspan="2">Your IP Address will be stored for booking security 113.173.255.160</td></tr>';
-		echo '</table></div>';
+		echo '</table>';
 		echo form_submit('btnOK','Book Now');
-		echo form_fieldset_close();
 		echo form_close('');
+		
 ?>							 
+  
                 <!-- =========a===================================
                     Page Content End
                 ============================================= -->
