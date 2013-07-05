@@ -45,7 +45,7 @@ $('.docklands').click(function(){
 });
 
 $('#getstreet').bind("change",function(){
-	 $("#ddl_street").load("bookingtaxi/getstreet", {suburb_id: $(this).val()} );
+	 $("#street").load("bookingtaxi/getstreet", {suburb_id: $(this).val()} );
 });
 });
 </script>
@@ -779,7 +779,7 @@ $('#getstreet').bind("change",function(){
 		echo '</td></tr>';
 		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").'</td></tr>';
 		echo '<tr><td>Street Number</td><td>'.form_input("txt_Street").'</td></tr>';	
-		echo '<tr><td>Street</td><td><div id="ddl_street"><select name="street"><option value="">Select state</option></select></div></td></tr>';
+		echo '<tr><td>Street</td><td><div id="street"><select name="ddl_Street"><option value="">Select state</option></select></div></td></tr>';
 		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'</td></tr>';
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
