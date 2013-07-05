@@ -644,7 +644,7 @@
 		foreach ($suburb as $row) {
 			$listsuburb[$row->id]=$row->name;
 		}
-		echo form_open('register').'<br>';
+		echo form_open('register/signup').'<br>';
 		echo form_fieldset('');
 		echo form_label('Personal Details').'<br>';
 		echo form_label('Title').form_dropdown('ddl_Title',$title).'<br>'; 
@@ -661,7 +661,7 @@
 		echo form_label('Street Number').form_input("txt_Snumber").'<br>';
 		echo '<div id="street"><select name="ddl_Street"><option>Select Suburb First</option></select></div>';
 		echo form_fieldset_close(); 
-		echo form_submit('btnOK','Book Now');
+		echo form_submit('btnOK','Register');
 		echo form_close('');
 	?>                   	 
 </div>

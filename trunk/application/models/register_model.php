@@ -10,12 +10,8 @@
 		function booking($object)
     		{
     			$this->db->insert('order_temp',$object);    			
-        		//$query =  $this->DB->get('user');  
-				//return $query->result_array();
-        		//$data['query'] =  $query->result(); 	
-				//$this->load->view('userview', $data);
     		}
-		function addcustomer_temp($inform)
+		function addcustomer($inform)
 		{
 			$this->db->insert('customers',$inform);
 		}
@@ -37,9 +33,9 @@
 			$query=$this->db->get();
 			return $query->result_array();
 		}
-		function count_order_temp()
+		function count_customers()
 		{
-			return $this->db->count_all('order_temp');
+			return $this->db->count_all('customers');
 		}
 	}
 

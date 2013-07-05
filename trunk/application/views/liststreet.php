@@ -1,7 +1,4 @@
-	 <select name="street">
-   <!-- <?php foreach($streets as $street) : ?>
-       <option value="<?php echo $street->id; ?>"><?php echo $street->name; ?></option>
-   <?php endforeach; ?>-->
+<select name="ddl_Street">
    <?php foreach($streets as $street)
    echo '<option value='.$street['id'].'>'.$street['name'].'</option>';
     ?>
