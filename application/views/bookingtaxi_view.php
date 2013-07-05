@@ -798,10 +798,11 @@ $('#getstreet').bind("change",function(){
 		echo '<tr class="later"><td>Select Date</td><td>'.form_dropdown('ddl_day',$day).form_dropdown('ddl_month',$month).form_dropdown('ddl_year',$year).'</td></tr>';
 		echo '<tr class="later"><td>Time</td><td>'.form_dropdown('ddl_hours',$hours).':'.form_dropdown('ddl_minutes',$minutes).':'.form_dropdown('ddl_seconds',$seconds).'</td></tr>';
 		echo '<tr class="now"><td colspan="2">You request will be processed immediately. The first available taxi will be sent to your pickup address. </td></tr>';
-		echo '<tr><td colspan="2"><strong>Security Code</strong></td></tr>
-		<tr><td>Please enter the 2 characters below(not case sensitive)</td><td><input type="text" name="txtCode" /></td></tr>
-		<tr><td colspan="2">Reload Image <img src="images.jpg" width="50" height="50" ></td></tr>
-		<tr><td colspan="2">Your IP Address will be stored for booking security 113.173.255.160</td></tr>';
+		echo '<tr><td><strong>Security Code</strong></td><td>';
+		require_once('recaptchalib.php');
+  		$publickey = "6LdEweMSAAAAANK_k0Gl9-OkMnHobf3Ohhp42Xid"; // you got this from the signup page
+  		echo recaptcha_get_html($publickey);
+		echo '</td></tr>';
 		echo '</table>';
 		echo form_submit('btnOK','Book Now');
 		echo form_close('');
