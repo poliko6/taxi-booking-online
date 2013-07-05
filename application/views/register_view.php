@@ -6,7 +6,6 @@
 		});
 });
 </script>
-
 </head>
 
 <body class="stretched">
