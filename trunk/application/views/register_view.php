@@ -6,6 +6,24 @@
 		});
 });
 </script>
+<script type="text/javascript">
+ function focusElement(element, errorMessage) {
+    //Tell the user an error has been made
+    document.getElementById('a').innerHTML=((errorMessage.length > 0) ? errorMessage :'You did not enter valid data; Please try again');
+    //Select the text in the input box, and focus it (if possible)
+    if (element.focus) element.focus();
+    return false;
+  }
+	function checkform()
+	{		
+		var username=document.frm_register.txt_Username.value;
+		if(username=="" ||username==null)
+		{
+			  return focusElement(frm_register.txt_Username,'Password not empty!!!');
+		}
+		
+	}
+</script> 
 </head>
 
 <body class="stretched">
@@ -643,11 +661,17 @@
 		foreach ($suburb as $row) {
 			$listsuburb[$row->id]=$row->name;
 		}
-		echo form_open('register/signup').'<br>';
+		$form=array(
+		'name'=>'frm_register',
+		'onblur'=>'checkform();',
+		);
+		$blur='onblur="checkform()"';
+		echo '<span id="a"></span>';
+		echo form_open('register/signup',$form).'<br>';
 		echo form_fieldset('');
 		echo form_label('Personal Details').'<br>';
 		echo form_label('Title').form_dropdown('ddl_Title',$title).'<br>'; 
-		echo form_label('Username').form_input("txt_Username").'<br>';
+		echo form_label('Username').form_input("txt_Username",'',$blur).'<br>';
 		echo form_label('First Name').form_input("txt_Fname").'<br>';
 		echo form_label('Last Name').form_input("txt_Lname").'<br>';
 		echo form_label('Email Address').form_input("txt_Email").'<br>';
