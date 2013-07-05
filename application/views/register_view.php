@@ -4,7 +4,7 @@
 		$('#getstreet').change(function(){
 			$('#street').load('register/getstreet',{suburb_id:$(this).val()});
 		});
-		});
+});
 </script>
 
 </head>
