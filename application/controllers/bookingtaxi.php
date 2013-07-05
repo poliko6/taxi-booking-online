@@ -38,7 +38,7 @@ class Bookingtaxi extends CI_Controller {
 	{
 		 
   		require_once('recaptchalib.php');
-  		$privatekey = "your_private_key";
+  		$privatekey = "6LdEweMSAAAAAGI1hyasxa4pPu_Fd_HP0QXU9rEY";
   		$resp = recaptcha_check_answer ($privatekey,
                                 $_SERVER["REMOTE_ADDR"],
                                 $_POST["recaptcha_challenge_field"],
