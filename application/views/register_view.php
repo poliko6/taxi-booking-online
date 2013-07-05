@@ -19,7 +19,7 @@
 		var username=document.frm_register.txt_Username.value;
 		if(username=="" ||username==null)
 		{
-			  return focusElement(frm_register.txt_Username,'Password not empty!!!');
+			  return focusElement(frm_register.txt_Username,'Usernames not empty!!!');
 		}
 		
 	}
@@ -666,12 +666,13 @@
 		'onblur'=>'checkform();',
 		);
 		$blur='onblur="checkform()"';
-		echo '<span id="a"></span>';
+		
 		echo form_open('register/signup',$form).'<br>';
 		echo form_fieldset('');
 		echo form_label('Personal Details').'<br>';
 		echo form_label('Title').form_dropdown('ddl_Title',$title).'<br>'; 
 		echo form_label('Username').form_input("txt_Username",'',$blur).'<br>';
+		echo '<span id="a"></span><br>';
 		echo form_label('First Name').form_input("txt_Fname").'<br>';
 		echo form_label('Last Name').form_input("txt_Lname").'<br>';
 		echo form_label('Email Address').form_input("txt_Email").'<br>';
