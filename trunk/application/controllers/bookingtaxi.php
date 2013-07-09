@@ -64,7 +64,7 @@ class Bookingtaxi extends CI_Controller {
 			"passenger"=>$this->input->post("rad_passenger"),
 			"name"=>$this->input->post("txt_Name"),
 			"contact_number"=>$this->input->post("txt_Contact_Number"),
-			"address_form"=>$this->input->post("ddl_Address_from"),
+			"address_from"=>$this->input->post("ddl_Address_from"),
 			"unit_or_flat"=>$this->input->post("txt_Unit_or_Flat"),
 			"street_number"=>$this->input->post("txt_Street"),
 			"street"=>$this->input->post("street"),
