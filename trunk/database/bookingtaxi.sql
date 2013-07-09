@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 27, 2013 at 04:02 AM
+-- Generation Time: Jul 09, 2013 at 01:09 PM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -78,13 +78,18 @@ INSERT INTO `car_type` (`id`, `type`, `label`, `vans`) VALUES
 
 CREATE TABLE IF NOT EXISTS `customers` (
   `customers_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `fullname` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `address` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `phone` int(11) NOT NULL,
-  `usertype` tinyint(4) NOT NULL,
+  `title` varchar(5) DEFAULT NULL,
+  `fullname` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `suburb` varchar(30) DEFAULT NULL,
+  `unit_or_flat` varchar(10) DEFAULT NULL,
+  `street_number` tinyint(4) DEFAULT NULL,
+  `street` varchar(30) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `mobile` int(11) DEFAULT NULL,
+  `usertype` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`customers_id`),
   KEY `usertype` (`usertype`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -93,9 +98,8 @@ CREATE TABLE IF NOT EXISTS `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customers_id`, `fullname`, `username`, `password`, `email`, `address`, `phone`, `usertype`) VALUES
-(1, 'Nguyễn Văn A', 'nguyenvana', 'e10adc3949ba59abbe56e057f20f883e', 'nguyenvana@gmail.com', 'tp hồ chí minh', 123456789, 4),
-(2, 'Nguyễn Văn B', 'nguyenvanb', 'e10adc3949ba59abbe56e057f20f883e', 'nguyenvanb@gmail.com', 'tp hồ chí minh', 123456789, 4);
+INSERT INTO `customers` (`customers_id`, `title`, `fullname`, `username`, `password`, `email`, `suburb`, `unit_or_flat`, `street_number`, `street`, `phone`, `mobile`, `usertype`) VALUES
+(2, 'Ms', 'hai do', 'lifog', 'd41d8cd98f00b204e9800998ecf8427e', 'lifog@gmail.com', '1', 'unit', 20, '0', 123456, 123456789, 4);
 
 -- --------------------------------------------------------
 
@@ -114,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `customers_temp` (
   `street` smallint(6) DEFAULT NULL,
   `building_type` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `customers_temp`
@@ -122,7 +126,13 @@ CREATE TABLE IF NOT EXISTS `customers_temp` (
 
 INSERT INTO `customers_temp` (`id`, `passenger`, `name`, `contact_number`, `suburb`, `unit_or_flat`, `street_number`, `street`, `building_type`) VALUES
 (1, 4, '123', 1234, 2, 'Unit', 12, 1, 'Business'),
-(2, 5, '1233', 1234, 2, 'Flat', 20, 1, 'Business');
+(2, 5, '1233', 1234, 2, 'Flat', 20, 1, 'Business'),
+(3, 5, '123', 1234, 2, 'Unit', 20, 1, 'Business'),
+(4, 5, 'lifog', 1883965050, 0, 'Unit', 58, 0, 'Business'),
+(5, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit'),
+(6, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit'),
+(7, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit'),
+(8, 5, 'ngochai', 1883965050, 1, 'Unit', 58, 2, 'Business');
 
 -- --------------------------------------------------------
 
@@ -170,15 +180,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   PRIMARY KEY (`order_id`),
   KEY `customer_id` (`customer_id`),
   KEY `car_type` (`car_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`order_id`, `customer_id`, `address_start`, `address_end`, `time`, `car_type`) VALUES
-(1, 1, '58 đường Lê Đức Thọ, F.13, Q.Gò Vấp', 'Chợ Bến Thành', '2013-06-30 07:00:00', 1),
-(2, 1, '58 đường Lê Đức Thọ, F.13, Q.Gò Vấp', 'Chợ Rẫy', '2013-06-28 09:00:00', 2);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -202,15 +204,7 @@ CREATE TABLE IF NOT EXISTS `order_details` (
   KEY `order_id_2` (`order_id`),
   KEY `manager_2` (`manager`),
   KEY `manager_3` (`manager`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `order_details`
---
-
-INSERT INTO `order_details` (`id`, `order_id`, `manager`, `driver`, `status`, `price`, `re_order`) VALUES
-(1, 1, 2, 1, 4, 100000, 5),
-(2, 2, 2, 2, 3, 130000, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -244,27 +238,41 @@ CREATE TABLE IF NOT EXISTS `order_temp` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `passenger` tinyint(20) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
-  `contact_number` smallint(6) DEFAULT NULL,
-  `address_form` int(20) DEFAULT NULL,
-  `unit_or_flat` int(11) DEFAULT NULL,
+  `contact_number` int(11) DEFAULT NULL,
+  `address_from` int(20) DEFAULT NULL,
+  `unit_or_flat` varchar(10) DEFAULT NULL,
   `street_number` tinyint(4) DEFAULT NULL,
   `street` smallint(6) DEFAULT NULL,
   `building_type` varchar(20) DEFAULT NULL,
+  `business_name` varchar(30) DEFAULT NULL,
   `remember_detail` tinyint(1) DEFAULT NULL,
   `address_to` smallint(6) DEFAULT NULL,
   `car_type` int(11) DEFAULT NULL,
   `node_for_driver` int(11) DEFAULT NULL,
   `ready_to_go` tinyint(1) DEFAULT NULL,
+  `time_to_go` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `order_temp`
 --
 
-INSERT INTO `order_temp` (`id`, `passenger`, `name`, `contact_number`, `address_form`, `unit_or_flat`, `street_number`, `street`, `building_type`, `remember_detail`, `address_to`, `car_type`, `node_for_driver`, `ready_to_go`) VALUES
-(1, 5, '123', 1234, 2, 0, 12, 1, 'Unit', 0, 2, 0, 1, 0),
-(8, 5, '1233', 1234, 2, 0, 20, 1, 'Business', 1, 2, 0, 1, 0);
+INSERT INTO `order_temp` (`id`, `passenger`, `name`, `contact_number`, `address_from`, `unit_or_flat`, `street_number`, `street`, `building_type`, `business_name`, `remember_detail`, `address_to`, `car_type`, `node_for_driver`, `ready_to_go`, `time_to_go`) VALUES
+(1, 5, '123', 1234, 2, 'Unit', 12, 1, 'Unit', NULL, 0, 2, 0, 1, 0, '2013-07-09 06:42:52'),
+(8, 5, '1233', 1234, 2, 'Flat', 20, 1, 'Business', NULL, 1, 2, 0, 1, 0, '2013-07-09 06:43:03'),
+(9, 5, '123', 1234, 2, 'Flat', 20, 1, 'Business', NULL, 1, 2, 0, 2, 0, '2013-07-09 06:43:19'),
+(10, 5, 'lifog', 32767, 2, 'Unit', 58, 0, 'Business', NULL, 1, 2, 0, 2, 0, '0000-00-00 00:00:00'),
+(11, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
+(12, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
+(13, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
+(14, 5, 'abadon', 1883965050, 1, 'Flat', 25, 1, 'Unit', NULL, 0, 4, 0, 2, 0, '0000-00-00 00:00:00'),
+(15, 4, 'knight', 1883965050, 2, 'Unit', 12, 4, 'Unit', NULL, 0, 6, 0, 2, 0, '2013-07-03 17:00:01'),
+(17, 4, 'cyrax', 1883965050, 2, 'Flat', 25, 3, 'Unit', '', 0, 6, 0, 2, 0, '2013-01-04 17:00:01'),
+(18, 4, 'blademaster', 1883965050, 2, 'Flat', 25, 3, 'Business', 'Microsoft', 0, 5, 0, 2, 0, '2013-01-04 17:00:01'),
+(19, 5, '', 0, 1, 'Flat', 0, 0, 'Unit', '', 0, 1, 0, 1, 0, '2013-07-09 06:42:59'),
+(20, 5, '', 0, 1, 'Flat', 0, 0, 'Unit', '', 0, 1, 0, 1, 0, '2013-07-09 06:43:06'),
+(21, 5, 'ngochai', 1883965050, 1, 'Unit', 58, 0, 'Business', 'HUI', 1, 6, 0, 2, 0, '2012-12-31 17:00:01');
 
 -- --------------------------------------------------------
 
@@ -363,7 +371,7 @@ CREATE TABLE IF NOT EXISTS `suburb` (
   `id` smallint(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `suburb`
@@ -371,7 +379,11 @@ CREATE TABLE IF NOT EXISTS `suburb` (
 
 INSERT INTO `suburb` (`id`, `name`) VALUES
 (1, 'abbotsfor'),
-(2, 'Aberfeldi');
+(2, 'Aberfeldi'),
+(3, 'Melbourne Airport'),
+(4, 'East Melbourne'),
+(5, 'Melbourne'),
+(6, 'Docklands');
 
 -- --------------------------------------------------------
 
