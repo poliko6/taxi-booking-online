@@ -6,7 +6,9 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Displaying text directions with <code>setPanel()</code></title>
-<link href="http://code.google.com//apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css">
+	<link href="http://code.google.com//apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css">
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
      <style>
       #directions-panel {
         height: 100%;
@@ -106,13 +108,12 @@ function calcRoute() {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-
-    document.getElementById("Distance").innerHTML=response.routes[0].legs[0].distance.text;
-    document.getElementById("start").innerHTML=response.routes[0].legs[0].start_address;
-    document.getElementById("end").innerHTML=response.routes[0].legs[0].end_address;
+    $("#Distance").val(response.routes[0].legs[0].distance.text);
+    $("#start").val(response.routes[0].legs[0].start_address);
+    $("#end").val(response.routes[0].legs[0].end_address);
     }
     else{
-    	alert("loi"+status);
+    	alert("Error: "+status);
     }
   });
 
