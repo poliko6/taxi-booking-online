@@ -34,10 +34,10 @@
 
     <script>
 var map;
-var mysite='.\images\icons\mysite.jpg';
+var mysite='images/icons/mysite.jpg';
 function initialize() {
   var mapOptions = {
-    zoom: 17,
+    zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -49,12 +49,12 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
+      var infowindow = new google.maps.Marker({
         map: map,
-        position: pos,
-        content: 'Your place.',
+        position: pos,       
         icon: mysite
       });
+
 
       map.setCenter(pos);
     }, function() {
