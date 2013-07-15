@@ -690,6 +690,10 @@ $('.wagon').click(function(){
 		'value'=>'Wagon',
 		'class'=>'wagon',
 		);
+		$start_address=array(
+		'name'=>'txt_Start_Address',
+		'id'=>'start',
+		);
 		
 		$node=array(
 		'1'=>'No Notes',
@@ -731,7 +735,7 @@ $('.wagon').click(function(){
 		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'</td></tr>';
 		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'</td></tr>';
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Pickup Address').'</strong></td></tr>';
-		echo '<tr><td>Your Address</td><td>'.form_input("txt_Start_Address").'</td></tr>';	
+		echo '<tr><td>Your Address</td><td>'.form_input($start_address).'</td></tr>';	
 		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").'</td></tr>';
 		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'</td></tr>';
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
