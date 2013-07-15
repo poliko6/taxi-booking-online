@@ -655,8 +655,6 @@ $('.wagon').click(function(){
                 
 <?php
 		
-		$get_address_from='id="get_address_from"';
-		$getstreet='id="getstreet"';		
 		$now=array(
 		'name'=>'rad_Ready_to_go',
 		'value'=>'Now',
@@ -693,6 +691,10 @@ $('.wagon').click(function(){
 		$start_address=array(
 		'name'=>'txt_Start_Address',
 		'id'=>'start',
+		);
+		$end_address=array(
+		'name'=>'txt_End_Address',
+		'id'=>'end',
 		);
 		
 		$node=array(
@@ -741,7 +743,7 @@ $('.wagon').click(function(){
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
-		echo '<tr><td>Address</td><td>'.form_input('txt_End_Address').'</td></tr>';
+		echo '<tr><td>Address</td><td>'.form_input($end_address).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Order Details</strong></td></tr>';
 		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType'.form_radio($wagon).'Wagon'.'</td></tr>';
 		echo '<tr><td><div class="vans">No Vans Please</div></td><td><div class="vans">'.form_checkbox('chk_No_Vans', '1', FALSE).'</div></td></tr>';
