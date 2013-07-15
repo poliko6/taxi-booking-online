@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 09, 2013 at 01:09 PM
+-- Generation Time: Jul 15, 2013 at 09:37 AM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -112,27 +112,30 @@ CREATE TABLE IF NOT EXISTS `customers_temp` (
   `passenger` int(11) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `contact_number` int(11) DEFAULT NULL,
-  `suburb` smallint(6) DEFAULT NULL,
+  `address` varchar(100) NOT NULL,
   `unit_or_flat` varchar(10) DEFAULT NULL,
-  `street_number` tinyint(4) DEFAULT NULL,
-  `street` smallint(6) DEFAULT NULL,
   `building_type` varchar(10) DEFAULT NULL,
+  `business_name` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `customers_temp`
 --
 
-INSERT INTO `customers_temp` (`id`, `passenger`, `name`, `contact_number`, `suburb`, `unit_or_flat`, `street_number`, `street`, `building_type`) VALUES
-(1, 4, '123', 1234, 2, 'Unit', 12, 1, 'Business'),
-(2, 5, '1233', 1234, 2, 'Flat', 20, 1, 'Business'),
-(3, 5, '123', 1234, 2, 'Unit', 20, 1, 'Business'),
-(4, 5, 'lifog', 1883965050, 0, 'Unit', 58, 0, 'Business'),
-(5, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit'),
-(6, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit'),
-(7, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit'),
-(8, 5, 'ngochai', 1883965050, 1, 'Unit', 58, 2, 'Business');
+INSERT INTO `customers_temp` (`id`, `passenger`, `name`, `contact_number`, `address`, `unit_or_flat`, `building_type`, `business_name`) VALUES
+(1, 4, '123', 1234, '', 'Unit', 'Business', ''),
+(2, 5, '1233', 1234, '', 'Flat', 'Business', ''),
+(3, 5, '123', 1234, '', 'Unit', 'Business', ''),
+(4, 5, 'lifog', 1883965050, '', 'Unit', 'Business', ''),
+(5, 5, 'ngochai', 1883965050, '', 'Unit', 'Unit', ''),
+(6, 5, 'ngochai', 1883965050, '', 'Unit', 'Unit', ''),
+(7, 5, 'ngochai', 1883965050, '', 'Unit', 'Unit', ''),
+(8, 5, 'ngochai', 1883965050, '', 'Unit', 'Business', ''),
+(9, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Business', 'HUI'),
+(10, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Flat', 'Business', 'Microsoft'),
+(11, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Flat', 'Business', 'Microsoft'),
+(12, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft');
 
 -- --------------------------------------------------------
 
@@ -238,41 +241,33 @@ CREATE TABLE IF NOT EXISTS `order_temp` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `passenger` tinyint(20) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
-  `contact_number` int(11) DEFAULT NULL,
-  `address_from` int(20) DEFAULT NULL,
+  `contact_number` int(11) NOT NULL,
+  `start_address` varchar(100) NOT NULL,
   `unit_or_flat` varchar(10) DEFAULT NULL,
-  `street_number` tinyint(4) DEFAULT NULL,
-  `street` smallint(6) DEFAULT NULL,
   `building_type` varchar(20) DEFAULT NULL,
   `business_name` varchar(30) DEFAULT NULL,
   `remember_detail` tinyint(1) DEFAULT NULL,
-  `address_to` smallint(6) DEFAULT NULL,
+  `end_address` varchar(100) DEFAULT NULL,
   `car_type` int(11) DEFAULT NULL,
   `node_for_driver` int(11) DEFAULT NULL,
   `ready_to_go` tinyint(1) DEFAULT NULL,
-  `time_to_go` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `time_to_go` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `order_temp`
 --
 
-INSERT INTO `order_temp` (`id`, `passenger`, `name`, `contact_number`, `address_from`, `unit_or_flat`, `street_number`, `street`, `building_type`, `business_name`, `remember_detail`, `address_to`, `car_type`, `node_for_driver`, `ready_to_go`, `time_to_go`) VALUES
-(1, 5, '123', 1234, 2, 'Unit', 12, 1, 'Unit', NULL, 0, 2, 0, 1, 0, '2013-07-09 06:42:52'),
-(8, 5, '1233', 1234, 2, 'Flat', 20, 1, 'Business', NULL, 1, 2, 0, 1, 0, '2013-07-09 06:43:03'),
-(9, 5, '123', 1234, 2, 'Flat', 20, 1, 'Business', NULL, 1, 2, 0, 2, 0, '2013-07-09 06:43:19'),
-(10, 5, 'lifog', 32767, 2, 'Unit', 58, 0, 'Business', NULL, 1, 2, 0, 2, 0, '0000-00-00 00:00:00'),
-(11, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
-(12, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
-(13, 5, 'ngochai', 1883965050, 2, 'Unit', 12, 3, 'Unit', NULL, 1, 3, 0, 2, 0, '0000-00-00 00:00:00'),
-(14, 5, 'abadon', 1883965050, 1, 'Flat', 25, 1, 'Unit', NULL, 0, 4, 0, 2, 0, '0000-00-00 00:00:00'),
-(15, 4, 'knight', 1883965050, 2, 'Unit', 12, 4, 'Unit', NULL, 0, 6, 0, 2, 0, '2013-07-03 17:00:01'),
-(17, 4, 'cyrax', 1883965050, 2, 'Flat', 25, 3, 'Unit', '', 0, 6, 0, 2, 0, '2013-01-04 17:00:01'),
-(18, 4, 'blademaster', 1883965050, 2, 'Flat', 25, 3, 'Business', 'Microsoft', 0, 5, 0, 2, 0, '2013-01-04 17:00:01'),
-(19, 5, '', 0, 1, 'Flat', 0, 0, 'Unit', '', 0, 1, 0, 1, 0, '2013-07-09 06:42:59'),
-(20, 5, '', 0, 1, 'Flat', 0, 0, 'Unit', '', 0, 1, 0, 1, 0, '2013-07-09 06:43:06'),
-(21, 5, 'ngochai', 1883965050, 1, 'Unit', 58, 0, 'Business', 'HUI', 1, 6, 0, 2, 0, '2012-12-31 17:00:01');
+INSERT INTO `order_temp` (`id`, `passenger`, `name`, `contact_number`, `start_address`, `unit_or_flat`, `building_type`, `business_name`, `remember_detail`, `end_address`, `car_type`, `node_for_driver`, `ready_to_go`, `time_to_go`) VALUES
+(1, 5, '123', 0, '', 'Unit', 'Unit', NULL, 0, '2', 0, 1, 0, '2013-07-09 14:42:52'),
+(8, 5, '1233', 0, '', 'Flat', 'Business', NULL, 1, '2', 0, 1, 0, '2013-07-09 14:43:03'),
+(9, 5, '123', 0, '', 'Flat', 'Business', NULL, 1, '2', 0, 2, 0, '2013-07-09 14:43:19'),
+(19, 5, '', 0, '', 'Flat', 'Unit', '', 0, '1', 0, 1, 0, '2013-07-09 14:42:59'),
+(20, 5, '', 0, '', 'Flat', 'Unit', '', 0, '1', 0, 1, 0, '2013-07-09 14:43:06'),
+(21, 5, 'ngochai', 0, '', 'Unit', 'Business', 'HUI', 1, '6', 0, 2, 0, '2013-01-01 01:00:01'),
+(22, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Business', 'HUI', 1, 'cho ben thanh quan 1', 0, 2, 0, '2013-01-01 01:00:01'),
+(25, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'cho ben thanh quan 1', 0, 2, 0, '2013-07-20 01:00:00 AM');
 
 -- --------------------------------------------------------
 
