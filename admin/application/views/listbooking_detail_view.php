@@ -629,14 +629,12 @@
 	<td>id</td>
 	<td>passenger</td>
 	<td>name</td>
-	<td>suburb</td>
+	<td>contact number</td>
+	<td>Start Address</td>
 	<td>Unit or Flat</td>
-	<td>Street number</td>
-	<td>Street</td>
 	<td>Building type</td>
 	<td>Business name</td>
-	<td>Remember details</td>
-	<td>Address to</td>
+	<td>End Address</td>
 	<td>car type</td>
 	<td>node for driver</td>
 	<td>time to go</td>
@@ -649,13 +647,11 @@ foreach($query as $row)
 	echo '<td>'.$row['passenger'].'</td>';
 	echo '<td>'.$row['name'].'</td>';
 	echo '<td>'.$row['contact_number'].'</td>';	
-	echo '<td>'.$row['address_from'].'</td>';
+	echo '<td>'.$row['start_address'].'</td>';
 	echo '<td>'.$row['unit_or_flat'].'</td>';
-	echo '<td>'.$row['street_number'].'</td>';
-	echo '<td>'.$row['street'].'</td>';
 	echo '<td>'.$row['building_type'].'</td>';
 	echo '<td>'.$row['business_name'].'</td>';
-	echo '<td>'.$row['address_to'].'</td>';
+	echo '<td>'.$row['end_address'].'</td>';
 	echo '<td>'.$row['car_type'].'</td>';
 	echo '<td>'.$row['node_for_driver'].'</td>';
 	echo '<td>'.$row['time_to_go'].'</td>';

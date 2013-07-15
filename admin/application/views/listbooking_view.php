@@ -629,13 +629,13 @@
 	<tr>
 		<td>id</td>
 		<td>name</td>
-		<td>contact</td>
+		<td>contact number</td>
 	</tr>
 	
 <?php
 	foreach ($query as $row) {
 		echo '<tr>';
-		echo '<td><a href="listbooking_detail?id='.$row['id'].'">'.$row['id'].'</a></td>';
+		echo '<td><a href="http://localhost:8888/bookingtaxi/admin/listbooking_detail?id='.$row['id'].'">'.$row['id'].'</a></td>';
 		echo '<td>'.$row['name'].'</td>';
 		echo '<td>'.$row['contact_number'].'</td>';
 		echo '</tr>';

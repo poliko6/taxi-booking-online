@@ -53,25 +53,30 @@ class Bookingtaxi extends CI_Controller {
   	   {
 			$this->load->model("bookingtaxi_model");
 			$precount=$this->bookingtaxi_model->count_order_temp();
-			$day=$this->input->post("ddl_day");
-			$month=$this->input->post("ddl_month");
-			$year=$this->input->post("ddl_year");
-			$hours=$this->input->post("ddl_hours");
-			$minutes=$this->input->post("ddl_minutes");
-			$seconds=$this->input->post("ddl_seconds");
-			$string=$year.":".$month.":".$day." ".$hours.":".$minutes.":".$seconds;
+			if(isset($_POST['rad_Ready_to_go']))
+			{
+				$string=date('Y-m-d h:m:s A');
+			}
+			else
+			{
+				$select_date=$this->input->post("ddl_Select_Date");
+				$am=$this->input->post("ddl_AM");
+				$hours=$this->input->post("ddl_hours");
+				$minutes=$this->input->post("ddl_minutes");
+				$seconds=$this->input->post("ddl_seconds");
+				$string=$select_date." ".$hours.":".$minutes.":".'00'.' '.$am;
+			}
+			
 			$object=array(
 			"passenger"=>$this->input->post("rad_passenger"),
 			"name"=>$this->input->post("txt_Name"),
 			"contact_number"=>$this->input->post("txt_Contact_Number"),
-			"address_from"=>$this->input->post("ddl_Address_from"),
+			"start_address"=>$this->input->post("txt_Start_Address"),
 			"unit_or_flat"=>$this->input->post("txt_Unit_or_Flat"),
-			"street_number"=>$this->input->post("txt_Street"),
-			"street"=>$this->input->post("street"),
 			"building_type"=>$this->input->post("rad_Building_Type"),
 			"business_name"=>$this->input->post("txt_Business_name"),
 			"remember_detail"=>$this->input->post("chk_Remember_Details"),
-			"address_to"=>$this->input->post("ddl_Address_to"),
+			"end_address"=>$this->input->post("txt_End_Address"),
 			"car_type"=>$this->input->post("rad_Car_Type"),
 			"node_for_driver"=>$this->input->post("ddl_Notes"),
 			"ready_to_go"=>$this->input->post("rad_Ready_to_go"),
@@ -81,11 +86,10 @@ class Bookingtaxi extends CI_Controller {
 			"passenger"=>$this->input->post("rad_passenger"),
 			"name"=>$this->input->post("txt_Name"),
 			"contact_number"=>$this->input->post("txt_Contact_Number"),
-			"suburb"=>$this->input->post("ddl_Address_from"),
+			"address"=>$this->input->post("txt_Start_Address"),
 			"unit_or_flat"=>$this->input->post("txt_Unit_or_Flat"),
-			"street_number"=>$this->input->post("txt_Street"),
-			"street"=>$this->input->post("ddl_Street"),
 			"building_type"=>$this->input->post("rad_Building_Type"),
+			"business_name"=>$this->input->post("txt_Business_name"),
 			);
 			$this->bookingtaxi_model->booking($object);
 			$lastcount=$this->bookingtaxi_model->count_order_temp();
