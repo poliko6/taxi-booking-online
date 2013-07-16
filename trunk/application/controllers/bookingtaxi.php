@@ -53,7 +53,7 @@ class Bookingtaxi extends CI_Controller {
   	   {
 			$this->load->model("bookingtaxi_model");
 			$precount=$this->bookingtaxi_model->count_order_temp();
-			if(isset($_POST['rad_Ready_to_go']))
+			if($this->input->post('rad_Ready_to_go')=='Now')
 			{
 				$string=date('Y-m-d h:m:s A');
 			}
@@ -79,8 +79,8 @@ class Bookingtaxi extends CI_Controller {
 			"end_address"=>$this->input->post("txt_End_Address"),
 			"car_type"=>$this->input->post("rad_Car_Type"),
 			"node_for_driver"=>$this->input->post("ddl_Notes"),
-			"ready_to_go"=>$this->input->post("rad_Ready_to_go"),
 			"time_to_go"=>$string,
+			"status_id"=>"1",
 			);
 			$inform=array(
 			"passenger"=>$this->input->post("rad_passenger"),
