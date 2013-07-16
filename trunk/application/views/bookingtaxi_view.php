@@ -175,7 +175,7 @@ function calcRoute() {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-    
+    $("#distance").val(response.routes[0].legs[0].distance.text);
     }
     else{
     	alert("Error: "+status);
