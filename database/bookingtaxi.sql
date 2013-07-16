@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2013 at 09:37 AM
+-- Generation Time: Jul 16, 2013 at 04:57 AM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -238,7 +238,7 @@ INSERT INTO `order_status` (`id`, `status`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `order_temp` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `passenger` tinyint(20) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
   `contact_number` int(11) NOT NULL,
@@ -249,25 +249,24 @@ CREATE TABLE IF NOT EXISTS `order_temp` (
   `remember_detail` tinyint(1) DEFAULT NULL,
   `end_address` varchar(100) DEFAULT NULL,
   `car_type` int(11) DEFAULT NULL,
-  `node_for_driver` int(11) DEFAULT NULL,
-  `ready_to_go` tinyint(1) DEFAULT NULL,
+  `node_for_driver` varchar(50) DEFAULT NULL,
   `time_to_go` varchar(30) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+  `status_id` tinyint(4) NOT NULL,
+  PRIMARY KEY (`order_id`),
+  KEY `status` (`status_id`),
+  KEY `status_id` (`status_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
 
 --
 -- Dumping data for table `order_temp`
 --
 
-INSERT INTO `order_temp` (`id`, `passenger`, `name`, `contact_number`, `start_address`, `unit_or_flat`, `building_type`, `business_name`, `remember_detail`, `end_address`, `car_type`, `node_for_driver`, `ready_to_go`, `time_to_go`) VALUES
-(1, 5, '123', 0, '', 'Unit', 'Unit', NULL, 0, '2', 0, 1, 0, '2013-07-09 14:42:52'),
-(8, 5, '1233', 0, '', 'Flat', 'Business', NULL, 1, '2', 0, 1, 0, '2013-07-09 14:43:03'),
-(9, 5, '123', 0, '', 'Flat', 'Business', NULL, 1, '2', 0, 2, 0, '2013-07-09 14:43:19'),
-(19, 5, '', 0, '', 'Flat', 'Unit', '', 0, '1', 0, 1, 0, '2013-07-09 14:42:59'),
-(20, 5, '', 0, '', 'Flat', 'Unit', '', 0, '1', 0, 1, 0, '2013-07-09 14:43:06'),
-(21, 5, 'ngochai', 0, '', 'Unit', 'Business', 'HUI', 1, '6', 0, 2, 0, '2013-01-01 01:00:01'),
-(22, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Business', 'HUI', 1, 'cho ben thanh quan 1', 0, 2, 0, '2013-01-01 01:00:01'),
-(25, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'cho ben thanh quan 1', 0, 2, 0, '2013-07-20 01:00:00 AM');
+INSERT INTO `order_temp` (`order_id`, `passenger`, `name`, `contact_number`, `start_address`, `unit_or_flat`, `building_type`, `business_name`, `remember_detail`, `end_address`, `car_type`, `node_for_driver`, `time_to_go`, `status_id`) VALUES
+(21, 5, 'ngochai', 0, '', 'Unit', 'Business', 'HUI', 1, '6', 0, '2', '2013-01-01 01:00:01', 2),
+(22, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Business', 'HUI', 1, 'cho ben thanh quan 1', 0, '2', '2013-01-01 01:00:01', 3),
+(25, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'cho ben thanh quan 1', 0, '2', '2013-07-20 01:00:00 AM', 4),
+(26, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Unit', '', 0, 'cho ben thanh quan 1', 0, 'Waiting Out Front', '2013-07-16 02:07:03 AM', 1),
+(27, 5, 'nguyen duc huy', 1268753599, 'nguyen oanh go vapthanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'dam sen', 0, '2', '2013-07-20 01:00:00 AM', 4);
 
 -- --------------------------------------------------------
 
@@ -472,6 +471,12 @@ ALTER TABLE `order_details`
   ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`manager`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`driver`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_details_ibfk_5` FOREIGN KEY (`status`) REFERENCES `order_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_temp`
+--
+ALTER TABLE `order_temp`
+  ADD CONSTRAINT `order_temp_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `order_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `price`

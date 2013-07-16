@@ -8,7 +8,7 @@
             
                 <div class="container clearfix">
                 
-                    <h1>Manage booking</span></h1>
+                    <h1>Booking Details</span></h1>
                     
                 </div>
             
@@ -24,27 +24,27 @@
                 <!-- ============================================
                     Page Content Start
                 ============================================= -->
-                  
- <table border="1" width="500px">
+                <table border="1" width="1200px">
 	<tr>
-		<td>id</td>
-		<td>name</td>
-		<td>contact number</td>
-		<td>status</td>
+	<td>id</td>
+	<td>status</td>
 	</tr>
-	
 <?php
-	foreach ($query as $row) {
-		echo '<tr>';
-		echo '<td><a href="http://localhost:8888/bookingtaxi/admin/listbooking_detail?id='.$row['order_id'].'">'.$row['order_id'].'</a></td>';
-		echo '<td>'.$row['name'].'</td>';
-		echo '<td>'.$row['contact_number'].'</td>';
-		echo '<td>'.$row['status_id'].'</td>';
-		echo '</tr>';
-	}	
-?>
+$stt=array();
+foreach($query as $row)
+{
+	$stt[$row->id]=$row->status;
+}
+	echo form_open('listbooking_detail/update_status?id='.$_GET['id']);
+	echo '<tr>';
+	echo '<td>'.$_GET['id'].'</td>';
+	echo '<td>'.form_dropdown('ddl_Status',$stt).'</td>';
+	echo form_submit('btnOk','Update');
+	echo '</tr>';
+	echo form_close();
+
+?>	
 </table>
-<?php echo $this->pagination->create_links(); // tạo link phân trang ?>
                 <!-- ============================================
                     Page Content End
                 ============================================= -->
@@ -55,4 +55,3 @@
         
         
         </div>
-
