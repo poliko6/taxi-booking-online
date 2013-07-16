@@ -308,7 +308,10 @@ $('.wagon').click(function(){
 		'name'=>'txt_End_Address',
 		'id'=>'end',
 		);
-		
+		$distance=array(
+		'name'=>'txt_Distance',
+		'id'=>'distance',
+		);
 		$node=array(
 		'No Notes'=>'No Notes',
 		'Waiting Out Front'=>'Waiting Out Front',
@@ -356,6 +359,7 @@ $('.wagon').click(function(){
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
 		echo '<tr><td>Address</td><td>'.form_input($end_address).'</td></tr>';
+		echo '<tr><td>Distance</td><td>'.form_input($distance).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Order Details</strong></td></tr>';
 		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType'.form_radio($wagon).'Wagon'.'</td></tr>';
 		echo '<tr><td><div class="vans">No Vans Please</div></td><td><div class="vans">'.form_checkbox('chk_No_Vans', '1', FALSE).'</div></td></tr>';
