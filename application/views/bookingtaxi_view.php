@@ -1,11 +1,18 @@
 <head>
 	 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link href="http://code.google.com//apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <style>
     
-
+ #directions-panel {
+        height: 100%;
+        float: right;
+        width: 200px;
+        overflow: auto;
+      }
       #map-canvas {
       	
         margin-left: 10px;
@@ -27,9 +34,18 @@
     </style>
     
       <script>
-var map;
+
 var mysite='images/icons/mysite.jpg';
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+var markers = [];
+var s=0;
+
+
 function initialize() {
+	geocoder = new google.maps.Geocoder();
+	directionsDisplay = new google.maps.DirectionsRenderer();
 	
   var mapOptions = {
     zoom: 14,
@@ -37,6 +53,15 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
 
+
+	directionsDisplay.setMap(map);
+   directionsDisplay.setPanel(document.getElementById('directions-panel'));
+
+  
+  
+  	google.maps.event.addListener(map, 'click', function(event) {
+    addMarker(event.latLng);
+  	});
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -51,15 +76,14 @@ function initialize() {
  
 
       map.setCenter(pos);
-      alert(pos);
-   var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
-   alert(pos);
-   geocoder.geocode({'latLng': pos}, function(results, status) {
+    if(geocoder){
+	geocoder.geocode({'latLng': pos}, function(results, status) {
+		
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[0]) {
-        
-        alert(results[0].formatted_address);
+       
+         $("#start").val(results[0].formatted_address);
+      
         
       } else {
         alert('No results found');
@@ -68,6 +92,11 @@ function initialize() {
       alert('Geocoder failed due to: ' + status);
     }
   });
+ 
+ 
+ }
+   
+  
     },
     
     
@@ -84,6 +113,77 @@ function initialize() {
   }
   
 }
+function clearOverlays() {
+  setAllMap(null);
+}
+function deleteOverlays() {
+  clearOverlays();
+  markers = [];
+}
+
+
+
+function addMarker(location) {
+	if(s<1)
+  {
+
+  		var marker = new google.maps.Marker({
+    		position: location,
+    		map: map
+  		});
+    	markers.push(marker);
+    
+    
+    		geocoder.geocode({'latLng': markers[0].position}, function(results, status) {
+		
+    			if (status == google.maps.GeocoderStatus.OK) {
+      				if (results[0]) {
+       
+         				$("#end").val(results[0].formatted_address);
+			      
+			        	s++;
+  		
+  						calcRoute();
+      				} else {
+        				alert('No results found');
+      				}
+   			 } else {
+      				alert('Geocoder failed due to: ' + status);
+    			}
+ 			 });
+ 			 
+  			
+  		}
+  		
+  		
+  
+      	
+      
+  }
+
+
+function calcRoute() {
+
+	 var start = document.getElementById("start").value;
+  var end = document.getElementById("end").value;
+
+  var request = {
+    origin: start,
+    destination: end,
+    travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    
+    }
+    else{
+    	alert("Error: "+status);
+    }
+  });
+
+}
+
 
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
@@ -275,7 +375,8 @@ $('.wagon').click(function(){
 		echo '</table>';
 		
 		
-?>							 
+?>		
+<div id="directions-panel"></div>					 
 <div id="map-canvas"></div>
                 <!-- =========a===================================
                     Page Content End
