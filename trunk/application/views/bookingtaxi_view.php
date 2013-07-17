@@ -44,7 +44,11 @@ var s=0;
 
 function initialize() {
 	geocoder = new google.maps.Geocoder();
-	directionsDisplay = new google.maps.DirectionsRenderer();
+	var rendererOptions = {
+  			map: map,
+  			suppressMarkers : true
+			}
+	directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 	
   var mapOptions = {
     zoom: 14,
