@@ -41,7 +41,7 @@ var map;
 var markers = [];
 var s=0;
 
-
+var pos;
 function initialize() {
 	geocoder = new google.maps.Geocoder();
 	var rendererOptions = {
@@ -68,7 +68,7 @@ function initialize() {
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
+       pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
   
       var infowindow = new google.maps.Marker({
@@ -116,12 +116,22 @@ function initialize() {
   }
   
 }
+function setAllMap(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+   
+}
+
 function clearOverlays() {
   setAllMap(null);
 }
 function deleteOverlays() {
+	$("#end").val("");
+	s=0;
   clearOverlays();
   markers = [];
+  
 }
 
 
@@ -168,7 +178,7 @@ function addMarker(location) {
 function calcRoute() {
 
 	 var start = document.getElementById("start").value;
-  var end = document.getElementById("end").value;
+  	var end = document.getElementById("end").value;
 
   var request = {
     origin: start,
@@ -380,8 +390,13 @@ $('.wagon').click(function(){
 		echo '</table>';
 		
 		?>	
-		<div id="directions-panel"></div>					 
-<div id="map-canvas"></div>				
+		
+							 
+		<div id="map-canvas"></div>		
+		<div id="panel">
+    
+      		<input onclick="deleteOverlays();" type=button value="Delete Overlays">
+    	</div>		
 
                 <!-- ============================================
                     Page Content End
