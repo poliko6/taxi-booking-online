@@ -8,7 +8,7 @@
             
                 <div class="container clearfix">
                 
-                    <h1>Booking Details</span></h1>
+                    <h1>Update Status</span></h1>
                     
                 </div>
             
@@ -38,8 +38,7 @@ foreach($query as $row)
 	echo form_open('listbooking_detail/update_status?id='.$_GET['id']);
 	echo '<tr>';
 	echo '<td>'.$_GET['id'].'</td>';
-	echo '<td>'.form_dropdown('ddl_Status',$stt).'</td>';
-	echo form_submit('btnOk','Update');
+	echo '<td>'.form_dropdown('ddl_Status',$stt).form_submit('btnOk','Update').'</td>';
 	echo '</tr>';
 	echo form_close();
 
