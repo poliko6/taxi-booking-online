@@ -1,8 +1,8 @@
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <style>
     
@@ -206,9 +206,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
 	<script>
-	
-	
-
 $(document).ready(function(){
 	$('.business_name').hide();
 	$('.now').show();
@@ -311,6 +308,7 @@ $('.wagon').click(function(){
 		'name'=>'txt_Distance',
 		'id'=>'distance',
 		);
+		
 		$node=array(
 		'No Notes'=>'No Notes',
 		'Waiting Out Front'=>'Waiting Out Front',
@@ -377,11 +375,11 @@ $('.wagon').click(function(){
 		echo form_close('');
 		echo '</table>';
 		
-		
-?>		
-<div id="directions-panel"></div>					 
-<div id="map-canvas"></div>
-                <!-- =========a===================================
+		?>	
+		<div id="directions-panel"></div>					 
+<div id="map-canvas"></div>				
+
+                <!-- ============================================
                     Page Content End
                 ============================================= -->
                 </div>
@@ -392,5 +390,6 @@ $('.wagon').click(function(){
         
         </div>
         
- 
+
+        
 
