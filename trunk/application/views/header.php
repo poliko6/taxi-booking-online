@@ -72,7 +72,7 @@
                 
                     <ul>
                     
-                        <li><a href="#"><div>Trang chu</div><span>Let's Start here</span></a>
+                        <li><a href="http://localhost:8888/bookingtaxi/bookingtaxi"><div>Booking</div><span>Let's Start here</span></a>
     
                             <ul>
                             
@@ -269,7 +269,7 @@
                             </ul>
                         
                         </li>
-                        <li><a href="blog.html"><div>Blog</div><span>Latest News</span></a>
+                        <li><a href="http://localhost:8888/bookingtaxi/register"><div>Register</div><span>Latest News</span></a>
                         
                             <ul>
                             
@@ -324,7 +324,7 @@
                 
                     <ul>
                     
-                        <li><span>/</span><a href="index.html">Home</a></li>
+                        <li><span>/</span><a href="http://localhost:8888/bookingtaxi/bookingtaxi">Booking</a></li>
                         <li><span>/</span><a href="faqs.html">FAQs</a></li>
                         <li><span>/</span><a href="contact.html">Contact</a></li>
                         <li class="top-menu-em"><span>/</span><a href="http://themes.semicolonweb.com/buy/coworker"><i class="icon-shopping-cart"></i> Buy Now</a></li>
@@ -383,7 +383,7 @@
                 
                     <ul id="main-menu">
                     
-                        <li><a href="index.html"><div>Home</div><span>Let's Start here</span></a>
+                        <li><a href="http://localhost:8888/bookingtaxi/bookingtaxi"><div>Booking</div><span>Let's Start here</span></a>
     
                             <ul>
                             
@@ -608,7 +608,7 @@
                             </ul>
                         
                         </li>
-                        <li><a href="blog.html"><div>Blog</div><span>Latest News</span></a>
+                        <li><a href="http://localhost:8888/bookingtaxi/register"><div>register</div><span>Latest News</span></a>
                         
                             <ul>
                             
