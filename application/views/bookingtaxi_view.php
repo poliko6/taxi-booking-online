@@ -5,7 +5,6 @@
     <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <style>
-    
  #directions-panel {
         height: 100%;
         float: right;
@@ -167,14 +166,7 @@ function addMarker(location) {
  			 
   			
   		}
-  		
-  		
-  
-      	
-      
   }
-
-
 function calcRoute() {
 
 	 var start = document.getElementById("start").value;
@@ -246,7 +238,6 @@ $('.wagon').click(function(){
 });
 });
 </script>
-
 <div id="content">
         
             <!-- ============================================
@@ -310,17 +301,28 @@ $('.wagon').click(function(){
 		'value'=>'Wagon',
 		'class'=>'wagon',
 		);
+		$direct_payment=array(
+		'name'=>'rad_Payment',
+		'value'=>'direct_payment',
+		'class'=>'direct_payment',
+		'checked'=>'TRUE',
+		);
+		
 		$start_address=array(
 		'name'=>'txt_Start_Address',
 		'id'=>'start',
+		'readonly'=>'readonly',
 		);
 		$end_address=array(
 		'name'=>'txt_End_Address',
 		'id'=>'end',
+		'readonly'=>'readonly',
 		);
+		$end_address_event='onChange="calcRoute()"';
 		$distance=array(
 		'name'=>'txt_Distance',
 		'id'=>'distance',
+		'readonly'=>'readonly',
 		);
 		
 		$node=array(
@@ -339,7 +341,6 @@ $('.wagon').click(function(){
 		'AM'=>'AM',
 		'PM'=>'PM',
 		);
-		
 		
 		
 		$str = date('Ymd');
@@ -369,8 +370,9 @@ $('.wagon').click(function(){
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
-		echo '<tr><td>Address</td><td>'.form_input($end_address).'</td></tr>';
-		echo '<tr><td>Distance</td><td>'.form_input($distance).'</td></tr>';
+		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'</td></tr>';
+		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).'</td></tr>';
+		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Order Details</strong></td></tr>';
 		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType'.form_radio($wagon).'Wagon'.'</td></tr>';
 		echo '<tr><td><div class="vans">No Vans Please</div></td><td><div class="vans">'.form_checkbox('chk_No_Vans', '1', FALSE).'</div></td></tr>';

@@ -63,7 +63,6 @@ class Bookingtaxi extends CI_Controller {
 				$am=$this->input->post("ddl_AM");
 				$hours=$this->input->post("ddl_hours");
 				$minutes=$this->input->post("ddl_minutes");
-				$seconds=$this->input->post("ddl_seconds");
 				$string=$select_date." ".$hours.":".$minutes.":".'00'.' '.$am;
 			}
 			
@@ -77,10 +76,13 @@ class Bookingtaxi extends CI_Controller {
 			"business_name"=>$this->input->post("txt_Business_name"),
 			"remember_detail"=>$this->input->post("chk_Remember_Details"),
 			"end_address"=>$this->input->post("txt_End_Address"),
+			"distance"=>$this->input->post("txt_Distance"),
 			"car_type"=>$this->input->post("rad_Car_Type"),
 			"node_for_driver"=>$this->input->post("ddl_Notes"),
 			"time_to_go"=>$string,
 			"status_id"=>"1",
+			"payment"=>$this->input->post("rad_Payment"),
+			"driver"=>"null",
 			);
 			$inform=array(
 			"passenger"=>$this->input->post("rad_passenger"),

@@ -31,14 +31,15 @@
 	<td>name</td>
 	<td>contact number</td>
 	<td>Start Address</td>
-	<td>Unit or Flat</td>
-	<td>Building type</td>
-	<td>Business name</td>
 	<td>End Address</td>
 	<td>car type</td>
 	<td>node for driver</td>
 	<td>time to go</td>
 	<td>status</td>
+	<td>price</td>
+	<td>payment</td>
+	<td>driver</td>
+	
 	</tr>
 <?php
 foreach($query as $row)
@@ -49,14 +50,15 @@ foreach($query as $row)
 	echo '<td>'.$row['name'].'</td>';
 	echo '<td>'.$row['contact_number'].'</td>';	
 	echo '<td>'.$row['start_address'].'</td>';
-	echo '<td>'.$row['unit_or_flat'].'</td>';
-	echo '<td>'.$row['building_type'].'</td>';
-	echo '<td>'.$row['business_name'].'</td>';
 	echo '<td>'.$row['end_address'].'</td>';
 	echo '<td>'.$row['car_type'].'</td>';
 	echo '<td>'.$row['node_for_driver'].'</td>';
 	echo '<td>'.$row['time_to_go'].'</td>';
 	echo '<td><a href="http://localhost:8888/bookingtaxi/admin/listbooking_detail/getstatus?id='.$row['order_id'].'">'.$row['status'].'</td>';
+	echo '<td>'.$row['price'].'</td>';
+	echo '<td>'.$row['payment'].'</td>';
+	echo '<td>'.$row['driver'].'</td>';
+	
 	echo '</tr>';
 }
 ?>	
