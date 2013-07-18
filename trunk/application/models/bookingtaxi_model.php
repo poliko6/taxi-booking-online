@@ -10,10 +10,6 @@
 		function booking($object)
     		{
     			$this->db->insert('order_temp',$object);    			
-        		//$query =  $this->DB->get('user');  
-				//return $query->result_array();
-        		//$data['query'] =  $query->result(); 	
-				//$this->load->view('userview', $data);
     		}
 		function addcustomer_temp($inform)
 		{
@@ -23,11 +19,6 @@
 		{
 			$query=$this->db->get('suburb');
 			return $query->result();
-			/*if ($query->num_rows() > 0)
-        {
-            //create this array for view loop
-            $suburb = $query->result();
-        } */
 		}
 		function getstreet($suburb)
 		{
@@ -41,6 +32,7 @@
 		{
 			return $this->db->count_all('order_temp');
 		}
+		
 	}
 
 ?>
