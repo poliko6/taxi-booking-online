@@ -8,6 +8,8 @@
 <script type="text/javascript">
 	function checkform()
 	{		
+		
+		var dangmail= /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,4}$/;
 		var username=document.frm_register.txt_Username.value;
 		var fname=document.frm_register.txt_Fname.value;
 		var lname=document.frm_register.txt_Lname.value;
@@ -19,66 +21,55 @@
 		var snumber=document.frm_register.txt_Snumber.value;		
 		if(username=="" ||username==null)
 		{
-			 document.getElementById('err_Username').innerHTML='Usernames not empty!!!';	
-			 document.getElementById('err_Username').style.color='red';
-			 return;
+			 alert('Username not empty!!!');
+			 return false;
 		}
-		else document.getElementById('err_Username').innerHTML=null;	
 		if(fname=="" ||fname==null)
 		{
-			 document.getElementById('err_Fname').innerHTML='First name not empty!!!';	
-			 document.getElementById('err_Fname').style.color='red';
-			 return;
+		     alert('First name not empty!!!');
+			 return false;
 		}
-		else document.getElementById('err_Fname').innerHTML=null;
 		if(lname=="" ||lname==null)
 		{
-			 document.getElementById('err_Lname').innerHTML='Last name not empty!!!';	
-			 document.getElementById('err_Lname').style.color='red';
-			 return;
-		}
-		else document.getElementById('err_Lname').innerHTML=null;
+			 alert('Last name not empty!!!');
+			 return false;
+		}		
 		if(email=="" ||email==null)
 		{
-			 document.getElementById('err_Email').innerHTML='Usernames not empty!!!';	
-			 document.getElementById('err_Email').style.color='red';
-			 return;
+			 alert('Last name not empty!!!');
+			 return false;	
 		}
-		else document.getElementById('err_Email').innerHTML=null;
+		else if(dangmail.test(email)==false)
+		{
+			alert('mail format invalid!!!');
+			return false;
+		}
 		if(password=="" ||password==null)
 		{
-			 document.getElementById('err_PW').innerHTML='Usernames not empty!!!';	
-			 document.getElementById('err_PW').style.color='red';
-			 return;			
+			 alert('password not empty!!!');
+			 return false;
 		}
-		else document.getElementById('err_PW').innerHTML=null;
 		if(pnumber=="" ||pnumber==null)
 		{
-			 document.getElementById('err_Pnumber').innerHTML='Usernames not empty!!!';	
-			 document.getElementById('err_Pnumber').style.color='red';
-			 return;
+			 alert('phone number not empty!!!');
+			 return false;
+			 
 		}
-		else document.getElementById('err_Pnumber').innerHTML=null;
 		if(mnumber=="" ||mnumber==null)
 		{
- 			 document.getElementById('err_Mnumber').innerHTML='Usernames not empty!!!';	
-			 document.getElementById('err_Mnumber').style.color='red';	
-			 return;
+			 alert('mobile number not empty!!!');
+			 return false; 			 
 		}
-		else document.getElementById('err_Mnumber').innerHTML=null;
 		if(unit=="" ||unit==null)
 		{
- 			 document.getElementById('err_Unit').innerHTML='Usernames not empty!!!';	
-			 document.getElementById('err_Unit').style.color='red';
-			 return;	
+			 alert('unit or flat not empty!!!');
+			 return false;
 		}
-		else document.getElementById('err_Unit').innerHTML=null;
 		if(snumber=="" ||snumber==null)
 		{
- 			 document.getElementById('err_Snumber').innerHTML='Usernames not empty!!!';	
-			 document.getElementById('err_Snumber').style.color='red';	
+			 alert('stress number not empty!!!');
+			 return false;	
 		}
-		else document.getElementById('err_Snumber').innerHTML=null;
 		
 	}
 </script> 
@@ -125,8 +116,9 @@
 		}
 		$form=array(
 		'name'=>'frm_register',
-		'onclick'=>'checkform();',
+	
 		);		
+		$submit='onclick="return checkform()"';
 		echo form_open('register/signup',$form).'<br>';
 		echo form_fieldset('');
 		echo form_label('Personal Details').'<br>';
@@ -153,7 +145,7 @@
 		echo '<span id="err_Snumber"></span><br>';
 		echo '<div id="street"><select name="ddl_Street"><option>Select Suburb First</option></select></div>';
 		echo form_fieldset_close(); 
-		echo form_submit('btnOK','Register');
+		echo form_submit('btnOK','Register',$submit);
 		echo form_close('');
 	?>                   	 
 </div>

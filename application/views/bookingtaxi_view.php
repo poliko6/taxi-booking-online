@@ -357,7 +357,7 @@ $('.wagon').click(function(){
 		
 		
 		echo form_open('bookingtaxi/book');
-		echo '<table width="500" id="left_table">'; 
+		echo '<table width="450" id="left_table">'; 
 		echo '<tr><td colspan="2">'.form_label('How many passengers?').'</td></tr>';
 		echo '<tr><td>Number of People'.'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',TRUE).'more'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Name & Contact Number').'</strong></td></tr> ';
