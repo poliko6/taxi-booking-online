@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 16, 2013 at 04:57 AM
+-- Generation Time: Jul 18, 2013 at 11:55 AM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -112,12 +112,12 @@ CREATE TABLE IF NOT EXISTS `customers_temp` (
   `passenger` int(11) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `contact_number` int(11) DEFAULT NULL,
-  `address` varchar(100) NOT NULL,
+  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `unit_or_flat` varchar(10) DEFAULT NULL,
   `building_type` varchar(10) DEFAULT NULL,
   `business_name` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `customers_temp`
@@ -135,7 +135,9 @@ INSERT INTO `customers_temp` (`id`, `passenger`, `name`, `contact_number`, `addr
 (9, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Business', 'HUI'),
 (10, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Flat', 'Business', 'Microsoft'),
 (11, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Flat', 'Business', 'Microsoft'),
-(12, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft');
+(12, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft'),
+(13, 5, 'ly tuan thanh', 1268753599, 'c?u Tham L??ng, Ph??ng 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Unit', ''),
+(14, 5, 'nguyen duc huy', 1268753599, 'c?u Tham L??ng, Ph??ng 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Flat', 'Unit', '');
 
 -- --------------------------------------------------------
 
@@ -157,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `driver` (
   KEY `usertype` (`usertype`),
   KEY `status` (`status`),
   KEY `status_2` (`status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `driver`
@@ -165,7 +167,12 @@ CREATE TABLE IF NOT EXISTS `driver` (
 
 INSERT INTO `driver` (`driver_id`, `fullname`, `username`, `password`, `email`, `address`, `phone`, `usertype`, `status`) VALUES
 (1, 'tài xế 1', 'taixe1', 'e10adc3949ba59abbe56e057f20f883e', 'taixe1@gmail.com', 'tp hồ chí minh', 123456789, 3, 1),
-(2, 'tài xế 2', 'taixe2', 'e10adc3949ba59abbe56e057f20f883e', 'taixe2@gmail.com', 'tp hồ chí minh', 123456789, 3, 2);
+(2, 'tài xế 2', 'taixe2', 'e10adc3949ba59abbe56e057f20f883e', 'taixe2@gmail.com', 'tp hồ chí minh', 123456789, 3, 2),
+(3, 'tài xế 3', 'taixe3', 'e10adc3949ba59abbe56e057f20f883e', 'taixe3@gmail.com', 'binh tan', 123456789, 3, 2),
+(4, 'tài xế 4', 'taixe4', 'e10adc3949ba59abbe56e057f20f883e', 'taixe4@gmail.com', 'tp hồ chí minh', 123456789, 3, 1),
+(5, 'tài xế 5', 'taixe5', 'e10adc3949ba59abbe56e057f20f883e', 'taixe5@gmail.com', 'Go Vap', 123456789, 3, 1),
+(6, 'tài xế 6', 'taixe6', 'e10adc3949ba59abbe56e057f20f883e', 'taixe6@gmail.com', 'Quan 1', 123456789, 3, 1),
+(7, 'tài xế 7', 'taixe7', 'e10adc3949ba59abbe56e057f20f883e', 'taixe7@gmail.com', 'Tan Binh', 123456789, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -242,31 +249,37 @@ CREATE TABLE IF NOT EXISTS `order_temp` (
   `passenger` tinyint(20) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
   `contact_number` int(11) NOT NULL,
-  `start_address` varchar(100) NOT NULL,
+  `start_address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `unit_or_flat` varchar(10) DEFAULT NULL,
   `building_type` varchar(20) DEFAULT NULL,
   `business_name` varchar(30) DEFAULT NULL,
   `remember_detail` tinyint(1) DEFAULT NULL,
-  `end_address` varchar(100) DEFAULT NULL,
-  `car_type` int(11) DEFAULT NULL,
+  `end_address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `distance` varchar(20) NOT NULL,
+  `car_type` varchar(20) DEFAULT NULL,
   `node_for_driver` varchar(50) DEFAULT NULL,
   `time_to_go` varchar(30) NOT NULL,
+  `price` int(11) NOT NULL,
   `status_id` tinyint(4) NOT NULL,
+  `payment` varchar(20) DEFAULT NULL,
+  `driver` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`order_id`),
   KEY `status` (`status_id`),
   KEY `status_id` (`status_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=30 ;
 
 --
 -- Dumping data for table `order_temp`
 --
 
-INSERT INTO `order_temp` (`order_id`, `passenger`, `name`, `contact_number`, `start_address`, `unit_or_flat`, `building_type`, `business_name`, `remember_detail`, `end_address`, `car_type`, `node_for_driver`, `time_to_go`, `status_id`) VALUES
-(21, 5, 'ngochai', 0, '', 'Unit', 'Business', 'HUI', 1, '6', 0, '2', '2013-01-01 01:00:01', 2),
-(22, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Business', 'HUI', 1, 'cho ben thanh quan 1', 0, '2', '2013-01-01 01:00:01', 3),
-(25, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'cho ben thanh quan 1', 0, '2', '2013-07-20 01:00:00 AM', 4),
-(26, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Unit', '', 0, 'cho ben thanh quan 1', 0, 'Waiting Out Front', '2013-07-16 02:07:03 AM', 1),
-(27, 5, 'nguyen duc huy', 1268753599, 'nguyen oanh go vapthanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'dam sen', 0, '2', '2013-07-20 01:00:00 AM', 4);
+INSERT INTO `order_temp` (`order_id`, `passenger`, `name`, `contact_number`, `start_address`, `unit_or_flat`, `building_type`, `business_name`, `remember_detail`, `end_address`, `distance`, `car_type`, `node_for_driver`, `time_to_go`, `price`, `status_id`, `payment`, `driver`) VALUES
+(21, 5, 'ngochai', 0, '', 'Unit', 'Business', 'HUI', 1, '6', '', '0', '2', '2013-01-01 01:00:01', 0, 3, '', 0),
+(22, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Business', 'HUI', 1, 'cho ben thanh quan 1', '', '0', '2', '2013-01-01 01:00:01', 0, 3, '', 0),
+(25, 5, 'nguyen hai bang', 1883965050, 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'cho ben thanh quan 1', '', '0', '2', '2013-07-20 01:00:00 AM', 0, 3, '', 3),
+(26, 5, 'do ngoc hai', 1883965050, '58 duong so 1go vap', 'Unit', 'Unit', '', 0, 'cho ben thanh quan 1', '', '0', 'Waiting Out Front', '2013-07-16 02:07:03 AM', 0, 2, '', 2),
+(27, 5, 'nguyen duc huy', 1268753599, 'nguyen oanh go vapthanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'dam sen', '', '0', '2', '2013-07-20 01:00:00 AM', 0, 4, '', 0),
+(28, 5, 'ly tuan thanh', 1268753599, 'c?u Tham L??ng, Ph??ng 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Unit', '', 1, '44 Nguy?n H?u Ti?n, Tây Th?nh, Tân Phú, Ho Chi Minh City, Vietnam', '2.7 km', '0', 'No Notes', '2013-07-21 05:00:00 AM', 0, 4, 'rad_Payment', 1),
+(29, 5, 'nguyen duc huy', 1268753599, 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Flat', 'Unit', '', 1, 'Số 6, phường 12, Gò Vấp, Ho Chi Minh City, Vietnam', '4.3 km', '0', 'Waiting Out Front', '2013-07-22 06:00:00 PM', 0, 2, 'rad_Payment', 2);
 
 -- --------------------------------------------------------
 
