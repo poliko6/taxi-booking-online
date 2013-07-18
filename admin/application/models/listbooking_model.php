@@ -34,6 +34,7 @@
 		{
 			$this->db->select('*');
 			$this->db->from('driver');
+			$this->db->where('status','1');
 			$query=$this->db->get();
 			return $query->result();
 		}
@@ -45,6 +46,14 @@
 			);
 			$this->db->where('order_id',$id);
 			$this->db->update('order_temp',$object);
+		}
+		function update_status_driver($id)
+		{
+			$object=array(
+			'status'=>'2',
+			);
+			$this->db->where('driver_id',$id);
+			$this->db->update('driver',$object);
 		}
 	}
 
