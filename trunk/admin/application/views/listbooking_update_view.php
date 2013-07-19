@@ -8,7 +8,7 @@
             
                 <div class="container clearfix">
                 
-                    <h1>Update Status</span></h1>
+                    <h1>Update booking order</span></h1>
                     
                 </div>
             
