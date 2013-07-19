@@ -6,8 +6,7 @@
        			//$this->DB = $this->load->database('default',TRUE);
       			  parent::__construct();
 				  $this->load->database();  
-    		}
-		
+    		}		
 		function getlistbooking($num,$p)
 		{
 			$this->db->select('*');
