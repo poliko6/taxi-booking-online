@@ -311,7 +311,7 @@ $('.wagon').click(function(){
 		$start_address=array(
 		'name'=>'txt_Start_Address',
 		'id'=>'start',
-		'readonly'=>'readonly',
+		
 		);
 		$end_address=array(
 		'name'=>'txt_End_Address',
@@ -321,6 +321,7 @@ $('.wagon').click(function(){
 		$distance=array(
 		'name'=>'txt_Distance',
 		'id'=>'distance',
+		'readonly'=>'readonly',
 		);
 		
 		$node=array(
