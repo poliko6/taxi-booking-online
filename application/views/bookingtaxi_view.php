@@ -316,13 +316,11 @@ $('.wagon').click(function(){
 		$end_address=array(
 		'name'=>'txt_End_Address',
 		'id'=>'end',
-		'readonly'=>'readonly',
 		);
 		$end_address_event='onChange="calcRoute()"';
 		$distance=array(
 		'name'=>'txt_Distance',
 		'id'=>'distance',
-		'readonly'=>'readonly',
 		);
 		
 		$node=array(
