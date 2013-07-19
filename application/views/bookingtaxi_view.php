@@ -311,7 +311,6 @@ $('.wagon').click(function(){
 		$start_address=array(
 		'name'=>'txt_Start_Address',
 		'id'=>'start',
-		
 		);
 		$end_address=array(
 		'name'=>'txt_End_Address',

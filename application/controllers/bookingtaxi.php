@@ -80,7 +80,7 @@ class Bookingtaxi extends CI_Controller {
 			"car_type"=>$this->input->post("rad_Car_Type"),
 			"node_for_driver"=>$this->input->post("ddl_Notes"),
 			"time_to_go"=>$string,
-			"price"=>floatval($this->input->post("txt_Distance"))*'1.607',
+			"price"=>floatval($this->input->post("txt_Distance"))*'1.617',
 			"status_id"=>"1",
 			"payment"=>$this->input->post("rad_Payment"),
 			"driver"=>"null",
