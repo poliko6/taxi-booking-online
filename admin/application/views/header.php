@@ -625,7 +625,7 @@
                             </ul>
                         
                         </li>
-                        <li><a href="contact.html"><div>Lien He</div><span>Get in Touch</span></a></li>
+                        <li><a href="http://localhost:8888/bookingtaxi/login"><div>Hello</div><span>Sign Out</span></a></li>
                     
                     </ul>
                 
