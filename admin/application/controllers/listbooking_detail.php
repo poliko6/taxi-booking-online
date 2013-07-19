@@ -8,19 +8,29 @@ class Listbooking_detail extends CI_Controller {
 		$this->load->helper("url");
 		$this->load->library('javascript');
 		$this->load->helper('form');
-		
+		$this->load->model("listbooking_model");
     }
 	public function index()
 	{
 		if(isset($_GET['id']))
 		{
-			$this->load->model("listbooking_model");
 			$data['stt']=$this->listbooking_model->getstatus();
 			$data['drivers']=$this->listbooking_model->getdriver();
 			$this->load->view('header');
 			$this->load->view('listbooking_update_view',$data);
 			$this->load->view('footer');	
 		}	
+	}
+	public function get_detail_booking()
+	{
+		if(isset($_GET['id']))
+		{
+			$id=$_GET['id'];
+			$data['query']=$this->listbooking_model->get_detail_booking($id);
+			$this->load->view('header');
+			$this->load->view('listbooking_detail_view',$data);
+			$this->load->view('footer');	
+		}
 	}
 	public function update_booking()
 	{
