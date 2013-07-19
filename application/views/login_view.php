@@ -1,4 +1,6 @@
-
+<?php
+$this->session->sess_destroy(); 
+?>
 <script>
 	$(document).ready(function(){
 		$('#getstreet').change(function(){
