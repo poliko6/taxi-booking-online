@@ -19,11 +19,29 @@ class Login extends CI_Controller {
 	}
 	function check_user()
 	{
-		if(isset($_POST['txt_UN']))
+		if(isset($_POST['txt_UN'])&&(isset($_POST['txt_PW'])))
 		{
 			$username=$this->input->post('txt_UN');
-			$data['query']=$this->login_model->check_user($username);
-			$this->load->view('process_login',$data);
+			$a=$this->login_model->check_username($username);
+			if($a=='1')
+			{
+				$password=$this->input->post('txt_PW');
+				$b=$this->login_model->check_pw($username,$password);
+				if($b=='1')
+				{
+					$data['query']=$this->login_model->get_user($username,$password);
+					$this->load->view('login_process_view',$data);
+				}
+				else {
+					echo 'wrong password!!!';
+					echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/login" />';								
+				}
+			}
+			else 
+			{
+				echo "username not valid!!!";
+				echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/login" />';								
+			}			
 		}
 	}
 }

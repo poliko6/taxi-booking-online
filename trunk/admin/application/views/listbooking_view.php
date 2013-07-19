@@ -43,8 +43,9 @@
 	
 	</tr>
 <?php
+echo "Xin chào ".$this->session->userdata('fullname');
 foreach($query as $row)
-{
+{	
 	echo '<tr>';
 	echo '<td><a href="http://localhost:8888/bookingtaxi/admin/listbooking_detail?id='.$row['order_id'].'">'.$row['order_id'].'</td>';
 	echo '<td>'.$row['passenger'].'</td>';
@@ -59,7 +60,6 @@ foreach($query as $row)
 	echo '<td>'.$row['price'].'</td>';
 	echo '<td>'.$row['payment'].'</td>';
 	echo '<td>'.$row['fullname'].'</td>';
-	
 	echo '</tr>';
 }
 ?>	
