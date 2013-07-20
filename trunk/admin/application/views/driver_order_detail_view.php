@@ -1,5 +1,4 @@
 <div id="content">
-        
             <!-- ============================================
                 Page Title
             ============================================= -->
@@ -29,6 +28,7 @@
 <?php
 foreach($query as $row)
 {
+	echo form_open('driver_order/update_status?id='.$row['driver_id']).'<br>';
 	echo '<tr><td>order id</td><td>'.$row['order_id'].'</td></tr>';
 	echo '<tr><td>passenger</td><td>'.$row['passenger'].'</td></tr>';
 	echo '<tr><td>name</td><td>'.$row['name'].'</td></tr>';
@@ -41,11 +41,13 @@ foreach($query as $row)
 	echo '<tr><td>car type</td><td>'.$row['car_type'].'</td></tr>';
 	echo '<tr><td>node for driver</td><td>'.$row['node_for_driver'].'</td></tr>';
 	echo '<tr><td>time to go</td><td>'.$row['time_to_go'].'</td></tr>';
-	echo '<tr><td>status</td><td>'.$row['status'].'</td></tr>';
+	echo '<tr><td>booking status</td><td>'.$row['status'].'</td></tr>';
+	echo '<tr><td>driver status</td><td>'.$row['detail'].'</td></tr>';
 	echo '<tr><td>price</td><td>'.$row['price'].'</td></tr>';
 	echo '<tr><td>payment</td><td>'.$row['payment'].'</td></tr>';
 	echo '<tr><td>driver</td><td>'.$row['fullname'].'</td></tr>';
-	echo '<tr><td colspan="2"><a href="http://localhost:8888/bookingtaxi/admin/listbooking_detail?id='.$row['order_id'].'">'."update".'</td></tr>';
+	echo '<tr><td colspan="2">'.form_submit('btnComplete','Completed').'</td></tr>';
+	echo form_close('');
 }
 ?>	
 </table>

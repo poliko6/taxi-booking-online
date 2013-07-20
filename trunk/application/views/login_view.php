@@ -11,8 +11,6 @@ $this->session->sess_destroy();
 <script type="text/javascript">
 	function checkform()
 	{		
-		
-		var dangmail= /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,4}$/;
 		var username=document.frm_register.txt_UN.value;
 		var password=document.frm_register.txt_PW.value;		
 		if(username=="" ||username==null)
