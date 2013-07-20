@@ -11,9 +11,9 @@ class Driver_order extends CI_Controller {
     }
 	public function index()
 	{
-		if($this->session->userdata('usertype')=='3')
+		if(isset($_GET['id']))
 		{
-			if(isset($_GET['id']))
+			if($this->session->userdata('usertype')=='3'&&$this->session->userdata('driver_id')==$_GET['id'])
 			{
 				$id=$_GET['id'];
 				$data['query']=$this->driver_model->get_detail_order($id);
@@ -22,22 +22,21 @@ class Driver_order extends CI_Controller {
 				$this->load->view('footer');
 			}
 			else {
-				echo 'please login before';
-				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
-			}
-		}
-		else {
-			{
 				echo 'please login to continue';
 				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
 			}
 		}
+		else 
+			{
+				echo 'please login to continue';
+				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
+			}
 	}
 	public function update_status()
 	{
-		if($this->session->userdata('usertype')=='3')
+		if(isset($_GET['id']))
 		{
-			if(isset($_GET['id']))
+			if($this->session->userdata('usertype')=='3'&&$this->session->userdata('driver_id')==$_GET['id'])
 			{
 				$id=$_GET['id'];
 				$this->driver_model->update_status($id);
