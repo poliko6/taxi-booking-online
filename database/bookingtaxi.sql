@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 20, 2013 at 05:36 AM
+-- Generation Time: Jul 20, 2013 at 02:51 PM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -475,8 +475,8 @@ ALTER TABLE `customers`
 -- Constraints for table `driver`
 --
 ALTER TABLE `driver`
-  ADD CONSTRAINT `driver_ibfk_2` FOREIGN KEY (`driver_status`) REFERENCES `status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`usertype`) REFERENCES `usertype` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`usertype`) REFERENCES `usertype` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `driver_ibfk_2` FOREIGN KEY (`driver_status`) REFERENCES `status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `orders`
