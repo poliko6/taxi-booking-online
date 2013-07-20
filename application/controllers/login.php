@@ -22,12 +22,12 @@ class Login extends CI_Controller {
 		if(isset($_POST['txt_UN'])&&(isset($_POST['txt_PW'])))
 		{
 			$username=$this->input->post('txt_UN');
-			$a=$this->login_model->check_username($username);
-			if($a=='1')
+			$check_un=$this->login_model->check_username($username);
+			if($check_un=='1')
 			{
 				$password=$this->input->post('txt_PW');
-				$b=$this->login_model->check_pw($username,$password);
-				if($b=='1')
+				$check_pw=$this->login_model->check_pw($username,$password);
+				if($check_pw=='1')
 				{
 					$data['query']=$this->login_model->get_user($username,$password);
 					$this->load->view('login_process_view',$data);
@@ -39,8 +39,21 @@ class Login extends CI_Controller {
 			}
 			else 
 			{
-				echo "username not valid!!!";
-				echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/login" />';								
+				$check_driver=$this->login_model->check_driver($username);
+				if($check_driver=='1')
+					{
+						$password=$this->input->post('txt_PW');
+						$check_pw=$this->login_model->check_driver_pw($username,$password);
+					if($check_pw=='1')
+					{
+						$data['query']=$this->login_model->get_driver($username,$password);
+						$this->load->view('login_process_view',$data);
+					}
+					else {
+						echo 'wrong password!!!';
+						echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/login" />';								
+				}	
+			}						
 			}			
 		}
 	}

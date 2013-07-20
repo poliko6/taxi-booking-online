@@ -43,7 +43,7 @@
 		{
 			$this->db->select('*');
 			$this->db->from('driver');
-			$this->db->where('status','1');
+			$this->db->where('driver_status','1');
 			$query=$this->db->get();
 			return $query->result();
 		}
