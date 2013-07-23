@@ -33,7 +33,7 @@
     
       <script>
 
-var mysite='images/icons/mysite.jpg';
+var mysite='images/icons/mysite.png';
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
@@ -57,8 +57,7 @@ function initialize() {
 
 
 	directionsDisplay.setMap(map);
-   directionsDisplay.setPanel(document.getElementById('directions-panel'));
-
+  
   
   
   	google.maps.event.addListener(map, 'click', function(event) {
@@ -115,19 +114,26 @@ function initialize() {
   }
   
 }
-function setAllMap(map) {
+function setAllMap(map) { 
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
-  }
    
+  }
+  
+  
+
+
+	directionsDisplay.setMap(map);
 }
 
 function clearOverlays() {
+	
   setAllMap(null);
 }
 function deleteOverlays() {
 	$("#end").val("");
 	s=0;
+	
   clearOverlays();
   markers = [];
   
@@ -170,7 +176,7 @@ function addMarker(location) {
 function calcRoute() {
 
 	 var start = document.getElementById("start").value;
-  	var end = document.getElementById("end").value;
+  	 var end = document.getElementById("end").value;
 
   var request = {
     origin: start,
@@ -181,6 +187,7 @@ function calcRoute() {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
     $("#distance").val(response.routes[0].legs[0].distance.text);
+    directionsDisplay.setMap(map)
     }
     else{
     	alert("Error: "+status);
