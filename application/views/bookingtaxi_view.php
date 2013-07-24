@@ -144,7 +144,9 @@ function addMarker(location) {
 
   		var marker = new google.maps.Marker({
     		position: location,
-    		map: map
+    		map: map,
+    		draggable: false,
+    		animation: google.maps.Animation.DROP
   		});
     	markers.push(marker);
     
@@ -182,7 +184,9 @@ function addMarker(location) {
       
       var marker = new google.maps.Marker({
           map: map,
-          position: results[0].geometry.location
+          position: results[0].geometry.location,
+          draggable: false,
+    	animation: google.maps.Animation.DROP
       });
 		markers.push(marker);
   		}
