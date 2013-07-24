@@ -1,10 +1,12 @@
-	<!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<head>
+	 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
+    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <style>
+    
  #directions-panel {
         height: 100%;
         float: right;
@@ -33,33 +35,28 @@
     
       <script>
 
-var mysite='images/icons/mysite.png';
-var flag='images/icons/flag.jpg';
+var mysite='images/icons/mysite.jpg';
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
 var markers = [];
 var s=0;
 
-var pos;
+
 function initialize() {
 	geocoder = new google.maps.Geocoder();
-	var rendererOptions = {
-  			map: map,
-  			suppressMarkers : true
-			}
-	directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
+	directionsDisplay = new google.maps.DirectionsRenderer();
 	
   var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-34.397, 150.644),
+    zoom: 14,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
 
 
 	directionsDisplay.setMap(map);
-  
+   directionsDisplay.setPanel(document.getElementById('directions-panel'));
+
   
   
   	google.maps.event.addListener(map, 'click', function(event) {
@@ -68,7 +65,7 @@ function initialize() {
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-       pos = new google.maps.LatLng(position.coords.latitude,
+      var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
   
       var infowindow = new google.maps.Marker({
@@ -116,26 +113,14 @@ function initialize() {
   }
   
 }
-function setAllMap(map) { 
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-   
-  }
-  	directionsDisplay.setMap(map);
-}
-
 function clearOverlays() {
-	
   setAllMap(null);
 }
 function deleteOverlays() {
-	$("#end").val("");
-	s=0;
-	
   clearOverlays();
   markers = [];
-  
 }
+
 
 
 function addMarker(location) {
@@ -148,7 +133,7 @@ function addMarker(location) {
   		});
     	markers.push(marker);
     
-    //lay address theo position
+    
     		geocoder.geocode({'latLng': markers[0].position}, function(results, status) {
 		
     			if (status == google.maps.GeocoderStatus.OK) {
@@ -156,7 +141,7 @@ function addMarker(location) {
        
          				$("#end").val(results[0].formatted_address);
 			      
-			        	
+			        	s++;
   		
   						calcRoute();
       				} else {
@@ -169,35 +154,18 @@ function addMarker(location) {
  			 
   			
   		}
-  		s++;
-  }
-  function changend()
-  {
-  	s=0;
-  	clearOverlays();
-  	markers = [];
-      	var address = document.getElementById("end").value;
-      geocoder.geocode( { 'address': address}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-		markers.push(marker);
-  		}
-  		});
-    	
-    	
-    	s=1;
-    	
   		
-    calcRoute();
+  		
+  
+      	
+      
   }
+
+
 function calcRoute() {
 
 	 var start = document.getElementById("start").value;
-  	 var end = document.getElementById("end").value;
+  var end = document.getElementById("end").value;
 
   var request = {
     origin: start,
@@ -207,8 +175,7 @@ function calcRoute() {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-    $("#distance").val(response.routes[0].legs[0].distance.text);
-    directionsDisplay.setMap(map)
+    
     }
     else{
     	alert("Error: "+status);
@@ -240,6 +207,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
 	<script>
+	
+	
+
 $(document).ready(function(){
 	$('.business_name').hide();
 	$('.now').show();
@@ -266,6 +236,7 @@ $('.wagon').click(function(){
 });
 });
 </script>
+
 <div id="content">
         
             <!-- ============================================
@@ -329,13 +300,6 @@ $('.wagon').click(function(){
 		'value'=>'Wagon',
 		'class'=>'wagon',
 		);
-		$direct_payment=array(
-		'name'=>'rad_Payment',
-		'value'=>'direct_payment',
-		'class'=>'direct_payment',
-		'checked'=>'TRUE',
-		);
-		
 		$start_address=array(
 		'name'=>'txt_Start_Address',
 		'id'=>'start',
@@ -343,12 +307,6 @@ $('.wagon').click(function(){
 		$end_address=array(
 		'name'=>'txt_End_Address',
 		'id'=>'end',
-		);
-		$end_address_event='onChange="changend()"';
-		$distance=array(
-		'name'=>'txt_Distance',
-		'id'=>'distance',
-		'readonly'=>'readonly',
 		);
 		
 		$node=array(
@@ -369,6 +327,7 @@ $('.wagon').click(function(){
 		);
 		
 		
+		
 		$str = date('Ymd');
 		$tts = strtotime($str);
 		$select_date=array(
@@ -383,9 +342,9 @@ $('.wagon').click(function(){
 		
 		
 		echo form_open('bookingtaxi/book');
-		echo '<table width="450" id="left_table">'; 
+		echo '<table width="500" id="left_table">'; 
 		echo '<tr><td colspan="2">'.form_label('How many passengers?').'</td></tr>';
-		echo '<tr><td>Number of People'.'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',FALSE).'more'.'</td></tr>';
+		echo '<tr><td>Number of People'.'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',TRUE).'more'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Name & Contact Number').'</strong></td></tr> ';
 		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'</td></tr>';
 		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'</td></tr>';
@@ -396,9 +355,7 @@ $('.wagon').click(function(){
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
-		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'</td></tr>';
-		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).'</td></tr>';
-		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.'</td></tr>';
+		echo '<tr><td>Address</td><td>'.form_input($end_address).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Order Details</strong></td></tr>';
 		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType'.form_radio($wagon).'Wagon'.'</td></tr>';
 		echo '<tr><td><div class="vans">No Vans Please</div></td><td><div class="vans">'.form_checkbox('chk_No_Vans', '1', FALSE).'</div></td></tr>';
@@ -417,16 +374,11 @@ $('.wagon').click(function(){
 		echo form_close('');
 		echo '</table>';
 		
-		?>	
 		
-							 
-		<div id="map-canvas"></div>		
-		<div id="panel">
-    
-      		<input onclick="deleteOverlays();" type=button value="Delete Overlays">
-    	</div>		
-
-                <!-- ============================================
+?>		
+<div id="directions-panel"></div>					 
+<div id="map-canvas"></div>
+                <!-- =========a===================================
                     Page Content End
                 ============================================= -->
                 </div>
@@ -437,6 +389,8 @@ $('.wagon').click(function(){
         
         </div>
         
-
+        
+       </body>
+       </html> 
         
 
