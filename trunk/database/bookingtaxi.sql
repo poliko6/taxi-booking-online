@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 26, 2013 at 06:04 AM
+-- Generation Time: Jul 26, 2013 at 02:47 PM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `order_temp` (
   PRIMARY KEY (`order_id`),
   KEY `status` (`status_id`),
   KEY `status_id` (`status_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `order_temp`
