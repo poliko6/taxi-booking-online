@@ -19,6 +19,16 @@
 			$query=$this->db->get();
 			return $query->result_array();
 		}
+		function get_order_id($id)
+		{
+			$this->db->select('order_id');
+			$this->db->from('order_temp');			
+			$this->db->where('driver',$id);
+			$query=$this->db->get();
+			foreach ($query->result() as $row) {
+				return $row->order_id;
+			}
+		}
 		function getstatus()
 		{
 			$this->db->select('*');
@@ -33,6 +43,14 @@
 			);
 			$this->db->where('driver_id',$id);
 			$this->db->update('driver',$object);
+		}
+		function update_driver_of_order($order_id)
+		{
+			$object=array(
+			'driver'=>'0',
+			);
+			$this->db->where('order_id',$order_id);
+			$this->db->update('order_temp',$object);
 		}
 	}
 

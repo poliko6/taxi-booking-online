@@ -41,12 +41,12 @@ class Driver_order extends CI_Controller {
 				$id=$_GET['id'];
 				$this->driver_model->update_status($id);
 				$data['query']=$this->driver_model->get_detail_order($id);
+				$order_id=$this->driver_model->get_order_id($id);
+				$this->driver_model->update_driver_of_order($order_id);
 				echo '<script type="text/javascript">
 				window.onload = function(){
 				alert("update success!!!");}</script>';
-				$this->load->view('header');
-				$this->load->view('driver_order_detail_view',$data);
-				$this->load->view('footer');
+				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/admin/driver_order?id='.$id.'" />';
 			}
 			else 
 			{

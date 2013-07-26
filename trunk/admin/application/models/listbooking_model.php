@@ -12,7 +12,8 @@
 			$this->db->from('order_temp');
 			$this->db->join('driver','order_temp.driver=driver.driver_id','left');
 			$this->db->join('order_status','order_temp.status_id=order_status.id','inner');
-			$this->db->limit($num,$p);			
+			$this->db->limit($num,$p);		
+			$this->db->order_by('order_id','asc');	
 			$query=$this->db->get();
 			return $query->result_array();
 		}
