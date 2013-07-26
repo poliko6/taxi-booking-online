@@ -30,7 +30,19 @@
         
       
     </style>
-    
+    <script type="text/javascript">
+    function checkform()
+	{
+		var a=document.frm_booking.recaptcha_challenge_field.value;
+		var b=document.frm_booking.recaptcha_response_field.value;
+		if(b=="" ||b==null)
+		{
+			
+			alert('Please input capcha!!!');
+			 return false;
+		}
+	}
+    </script>
       <script>
 
 var mysite='images/icons/mysite.png';
@@ -270,6 +282,11 @@ $('.wagon').click(function(){
 });
 });
 </script>
+<style type="text/css">
+	.error{
+		color: red;
+	}
+</style>
 <div id="content">
         
             <!-- ============================================
@@ -384,24 +401,24 @@ $('.wagon').click(function(){
 			date("Y-m-d", $tts+'432000')=>date("D, d M Y", $tts+'432000'),
 			date("Y-m-d", $tts+'518400')=>date("D, d M Y", $tts+'518400'),
 		);
-		
-		
-		echo form_open('bookingtaxi/book');
+		$submit='onclick="return checkform()"';
+		$frm='name="frm_booking"';
+		echo form_open('bookingtaxi',$frm);
 		echo '<table width="450" id="left_table">'; 
 		echo '<tr><td colspan="2">'.form_label('How many passengers?').'</td></tr>';
 		echo '<tr><td>Number of People'.'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',FALSE).'more'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Name & Contact Number').'</strong></td></tr> ';
-		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'</td></tr>';
-		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'</td></tr>';
+		echo '<tr><td>Name</td><td>'.form_input("txt_Name").form_error('txt_Name').'</td></tr>';
+		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").form_error('txt_Contact_Number').'</td></tr>';
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Pickup Address').'</strong></td></tr>';
-		echo '<tr><td>Your Address</td><td>'.form_input($start_address).'</td></tr>';	
-		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").'</td></tr>';
+		echo '<tr><td>Your Address</td><td>'.form_input($start_address).form_error('txt_Start_Address').'</td></tr>';
+		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").form_error('txt_Unit_or_Flat').'</td></tr>';
 		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'</td></tr>';
-		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
+		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").form_error('txt_Business_name').'</td></tr>';
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
-		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'</td></tr>';
-		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).'</td></tr>';
+		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).form_error('txt_End_Address').'</td></tr>';
+		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).form_error('txt_Distance').'</td></tr>';
 		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Order Details</strong></td></tr>';
 		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType'.form_radio($wagon).'Wagon'.'</td></tr>';
@@ -417,12 +434,10 @@ $('.wagon').click(function(){
   		$publickey = "6LdEweMSAAAAANK_k0Gl9-OkMnHobf3Ohhp42Xid"; // you got this from the signup page
   		echo recaptcha_get_html($publickey);
 		echo '</td></tr>';
-		echo '<tr><td colspan="2">'.form_submit('btnOK','Book Now').'</td></tr>';
+		echo '<tr><td colspan="2">'.form_submit('btnOK','Book Now',$submit).'</td></tr>';
 		echo form_close('');
-		echo '</table>';
-		
+		echo '</table>';		
 		?>	
-		
 							 
 		<div id="map-canvas"></div>		
 		<div id="panel">

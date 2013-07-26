@@ -15,6 +15,7 @@
 		var lname=document.frm_register.txt_Lname.value;
 		var email=document.frm_register.txt_Email.value;
 		var password=document.frm_register.txt_PW.value;
+		var c_password=document.frm_register.txt_CPW.value;
 		var pnumber=document.frm_register.txt_Pnumber.value;
 		var mnumber=document.frm_register.txt_Mnumber.value;
 		var unit=document.frm_register.txt_Unit.value;
@@ -47,6 +48,16 @@
 		if(password=="" ||password==null)
 		{
 			 alert('password not empty!!!');
+			 return false;
+		}
+		if(c_password=="" ||c_password==null)
+		{
+			 alert('confirm password not empty!!!');
+			 return false;
+		}
+		else if(c_password != password )
+		{
+			 alert("2 password don't match. Try again!!!");
 			 return false;
 		}
 		if(pnumber=="" ||pnumber==null)
@@ -116,8 +127,8 @@
 		}
 		$form=array(
 		'name'=>'frm_register',
-	
-		);		
+		);	
+		//$form='name="frm_register"';
 		$submit='onclick="return checkform()"';
 		echo form_open('register/signup',$form).'<br>';
 		echo form_fieldset('');
@@ -128,6 +139,7 @@
 		echo form_label('Last Name').form_input("txt_Lname").'<br>';
 		echo form_label('Email Address').form_input("txt_Email").'<br>';
 		echo form_label('Password').form_password("txt_PW").'<br>';
+		echo form_label('Confirm password').form_password("txt_CPW").'<br>';
 		echo form_label('Phone Number').form_input("txt_Pnumber").'<br>';
 		echo form_label('Mobile Number').form_input("txt_Mnumber").'<br>';
 		echo form_label('Your Address Details').'<br>';

@@ -382,7 +382,7 @@
                 
                 
                     <ul id="main-menu">
-                    
+                    <li><a href="http://localhost:8888/bookingtaxi"><div>Home</div><span>Get in Touch</span></a></li>
                         <li><a href="http://localhost:8888/bookingtaxi/bookingtaxi"><div>Booking</div><span>Let's Start here</span></a>
     
                             <ul>
@@ -625,7 +625,7 @@
                             </ul>
                         
                         </li>
-                        <li><a href="http://localhost:8888/bookingtaxi/index.php/login"><div>Login</div><span>Get in Touch</span></a></li>
+                        <li><a href="http://localhost:8888/bookingtaxi/login"><div>Login</div><span>Get in Touch</span></a></li>
                     
                     </ul>
                 
