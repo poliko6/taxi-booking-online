@@ -58,7 +58,7 @@
 		function update_status_driver($id)
 		{
 			$object=array(
-			'status'=>'2',
+			'driver_status'=>'2',
 			);
 			$this->db->where('driver_id',$id);
 			$this->db->update('driver',$object);
