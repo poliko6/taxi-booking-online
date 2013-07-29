@@ -227,7 +227,7 @@ function calcRoute() {
     directionsDisplay.setMap(map)
     }
     else{
-    	alert("Error: "+status);
+    	alert("Error: address not be empty ");
     }
   });
 
