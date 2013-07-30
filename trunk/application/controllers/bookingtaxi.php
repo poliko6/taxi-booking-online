@@ -85,7 +85,7 @@ class Bookingtaxi extends CI_Controller {
 				if($lastcount>$precount)
 				{
 					echo ('booking success!!!');
-					echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi" />';
+					echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
 				}
 				else 
 				{
