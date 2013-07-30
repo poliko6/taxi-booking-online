@@ -3,12 +3,12 @@
 		$('#getstreet').change(function(){
 			$('#street').load('register/getstreet',{suburb_id:$(this).val()});
 		});
+		$("span[id]").css("color","red");
 });
 </script>
 <script type="text/javascript">
 	function checkform()
 	{		
-		
 		var dangmail= /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,4}$/;
 		var username=document.frm_register.txt_Username.value;
 		var fname=document.frm_register.txt_Fname.value;
@@ -22,66 +22,80 @@
 		var snumber=document.frm_register.txt_Snumber.value;		
 		if(username=="" ||username==null)
 		{
-			 alert('Username not empty!!!');
+			 document.getElementById('error_Username').innerHTML=' Username not empty!!!';
+			 document.frm_register.txt_Username.focus();
 			 return false;
 		}
+		else  document.getElementById('error_Username').innerHTML='';
 		if(fname=="" ||fname==null)
 		{
-		     alert('First name not empty!!!');
+		     document.getElementById('error_Fname').innerHTML=' First name not empty!!!';
+		     document.frm_register.txt_Fname.focus();
 			 return false;
 		}
+		else  document.getElementById('error_Fname').innerHTML='';
 		if(lname=="" ||lname==null)
 		{
-			 alert('Last name not empty!!!');
+			 document.getElementById('error_Lname').innerHTML=' Last name not empty!!!';
+			 document.frm_register.txt_Lname.focus();
 			 return false;
 		}		
+		else  document.getElementById('error_Lname').innerHTML='';
 		if(email=="" ||email==null)
 		{
-			 alert('Last name not empty!!!');
+			 document.getElementById('error_Email').innerHTML=' Email not empty!!!';
+			 document.frm_register.txt_Email.focus();
 			 return false;	
 		}
+		else  document.getElementById('error_Email').innerHTML='';
 		else if(dangmail.test(email)==false)
 		{
-			alert('mail format invalid!!!');
+			alert('email format invalid!!!');
 			return false;
 		}
+		else  document.getElementById('error_Email').innerHTML='';
 		if(password=="" ||password==null)
 		{
-			 alert('password not empty!!!');
+			 document.getElementById('error_PW').innerHTML=' Password not empty!!!';
 			 return false;
 		}
+		else  document.getElementById('error_PW').innerHTML='';
 		if(c_password=="" ||c_password==null)
 		{
-			 alert('confirm password not empty!!!');
+			 document.getElementById('error_CPW').innerHTML=' Confirm password not empty!!!';
 			 return false;
 		}
 		else if(c_password != password )
 		{
-			 alert("2 password don't match. Try again!!!");
+			 document.getElementById('error_CPW').innerHTML=' 2 password do not match !!!';
 			 return false;
 		}
+		else  document.getElementById('error_CPW').innerHTML='';
 		if(pnumber=="" ||pnumber==null)
 		{
-			 alert('phone number not empty!!!');
+			 document.getElementById('error_Pnumber').innerHTML=' Phone number not empty!!!';
 			 return false;
 			 
 		}
+		else  document.getElementById('error_Pnumber').innerHTML='';
 		if(mnumber=="" ||mnumber==null)
 		{
-			 alert('mobile number not empty!!!');
+			 document.getElementById('error_Mnumber').innerHTML=' Mobile number not empty!!!';
 			 return false; 			 
 		}
+		else  document.getElementById('error_Mnumber').innerHTML='';
 		if(unit=="" ||unit==null)
 		{
-			 alert('unit or flat not empty!!!');
+			 document.getElementById('error_Unit').innerHTML=' Unit not empty!!!';
 			 return false;
 		}
+		else  document.getElementById('error_Unit').innerHTML='';
 		if(snumber=="" ||snumber==null)
 		{
-			 alert('stress number not empty!!!');
+			 document.getElementById('error_Snumber').innerHTML=' Street number not empty!!!';
 			 return false;	
 		}
-		
+		else  document.getElementById('error_Snumber').innerHTML='';
 	}
 </script> 
 
@@ -114,7 +128,6 @@
 <div id="register">
 	<?php
 		$title=array(
-		'null'=>"No Title",
 		'Mr'=>"Mr",
 		'Ms'=>"Ms",
 		'Mrs'=>"Mrs",
@@ -134,18 +147,18 @@
 		echo form_fieldset('');
 		echo form_label('Personal Details').'<br>';
 		echo form_label('Title').form_dropdown('ddl_Title',$title).'<br>'; 
-		echo form_label('Username').form_input("txt_Username").'<br>';
-		echo form_label('First Name').form_input("txt_Fname").'<br>';
-		echo form_label('Last Name').form_input("txt_Lname").'<br>';
-		echo form_label('Email Address').form_input("txt_Email").'<br>';
-		echo form_label('Password').form_password("txt_PW").'<br>';
-		echo form_label('Confirm password').form_password("txt_CPW").'<br>';
-		echo form_label('Phone Number').form_input("txt_Pnumber").'<br>';
-		echo form_label('Mobile Number').form_input("txt_Mnumber").'<br>';
+		echo form_label('Username').form_input("txt_Username").'<span id="error_Username"></span>'.'<br>';
+		echo form_label('First Name').form_input("txt_Fname").'<span id="error_Fname"></span>'.'<br>';
+		echo form_label('Last Name').form_input("txt_Lname").'<span id="error_Lname"></span>'.'<br>';
+		echo form_label('Email Address').form_input("txt_Email").'<span id="error_Email"></span>'.'<br>';
+		echo form_label('Password').form_password("txt_PW").'<span id="error_PW"></span>'.'<br>';
+		echo form_label('Confirm password').form_password("txt_CPW").'<span id="error_CPW"></span>'.'<br>';
+		echo form_label('Phone Number').form_input("txt_Pnumber").'<span id="error_Pnumber"></span>'.'<br>';
+		echo form_label('Mobile Number').form_input("txt_Mnumber").'<span id="error_Mnumber"></span>'.'<br>';
 		echo form_label('Your Address Details').'<br>';
 		echo form_label('Suburb').form_dropdown('ddl_Suburb',$listsuburb,FALSE,$getstreet).'<br>';
-		echo form_label('Unit or Flat').form_input("txt_Unit").'<br>';
-		echo form_label('Street Number').form_input("txt_Snumber").'<br>';
+		echo form_label('Unit or Flat').form_input("txt_Unit").'<span id="error_Unit"></span>'.'<br>';
+		echo form_label('Street Number').form_input("txt_Snumber").'<span id="error_Snumber"></span>'.'<br>';
 		echo '<div id="street">suburb<select name="ddl_Street"><option>Select Suburb First</option></select></div>';
 		echo form_fieldset_close(); 
 		echo form_submit('btnOK','Register',$submit);

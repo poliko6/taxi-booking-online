@@ -35,12 +35,62 @@
 	{
 		var a=document.frm_booking.recaptcha_challenge_field.value;
 		var b=document.frm_booking.recaptcha_response_field.value;
-		if(b=="" ||b==null)
+		var name=document.frm_booking.txt_Name.value;
+		var cnumber=document.frm_booking.txt_Contact_Number.value;
+		var startaddress=document.frm_booking.txt_Start_Address.value;
+		var unit=document.frm_booking.txt_Unit_or_Flat.value;
+		var endaddress=document.frm_booking.txt_End_Address.value;
+		var distance=document.frm_booking.txt_Distance.value;		
+		if(name=="" ||name==null)
 		{
-			
-			alert('Please input capcha!!!');
+			 document.getElementById('error_Name').innerHTML=' Name not empty!!!';
+			 document.frm_booking.txt_Name.focus();
 			 return false;
 		}
+		else  document.getElementById('error_Name').innerHTML='';
+		if(cnumber=="" ||cnumber==null)
+		{
+		     document.getElementById('error_Contact_Number').innerHTML=' Contact number not empty!!!';
+		     document.frm_booking.txt_Contact_Number.focus();
+			 return false;
+		}
+		else  document.getElementById('error_Contact_Number').innerHTML='';
+		if(startaddress=="" ||startaddress==null)
+		{
+			 document.getElementById('error_Start_Address').innerHTML=' Start Address not empty!!!';
+			 document.frm_booking.txt_Start_Address.focus();
+			 return false;
+		}		
+		else  document.getElementById('error_Start_Address').innerHTML='';
+		if(unit=="" ||unit==null)
+		{
+			 document.getElementById('error_Unit').innerHTML=' Unit or Flat not empty!!!';
+			 document.frm_booking.txt_Unit_or_Flat.focus();
+			 return false;	
+		}
+		else  document.getElementById('error_Unit').innerHTML='';
+		
+		if(endaddress=="" ||endaddress==null)
+		{
+			 document.getElementById('error_End_Address').innerHTML=' End Address not empty!!!';
+			 document.frm_booking.txt_End_Address.focus();
+			 return false;
+		}
+		else  document.getElementById('error_End_Address').innerHTML='';
+		if(distance=="" ||distance==null)
+		{
+			 document.getElementById('error_Distance').innerHTML=' Distance not empty!!!';
+			 document.frm_booking.txt_Distance.focus();
+			 return false;
+		}
+		else  document.getElementById('error_Distance').innerHTML='';
+		if(b=="" ||b==null)
+		{
+			 document.getElementById('error_capcha').innerHTML=' please input capcha!!!';
+			 document.frm_booking.recaptcha_response_field.focus();
+			 return false;
+		}
+		else  document.getElementById('error_capcha').innerHTML='';
 	}
     </script>
       <script>
@@ -280,13 +330,9 @@ $('.anytype').click(function(){
 $('.wagon').click(function(){
 		$('.vans').fadeTo('fast','0.001');
 });
+$('span[id]').css("color","red");
 });
 </script>
-<style type="text/css">
-	.error{
-		color: red;
-	}
-</style>
 <div id="content">
         
             <!-- ============================================
@@ -408,17 +454,17 @@ $('.wagon').click(function(){
 		echo '<tr><td colspan="2">'.form_label('How many passengers?').'</td></tr>';
 		echo '<tr><td>Number of People'.'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',FALSE).'more'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Name & Contact Number').'</strong></td></tr> ';
-		echo '<tr><td>Name</td><td>'.form_input("txt_Name").form_error('txt_Name').'</td></tr>';
-		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").form_error('txt_Contact_Number').'</td></tr>';
+		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'<span id="error_Name"></span>'.'</td></tr>';
+		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'<span id="error_Contact_Number"></span>'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Pickup Address').'</strong></td></tr>';
-		echo '<tr><td>Your Address</td><td>'.form_input($start_address).form_error('txt_Start_Address').'</td></tr>';
-		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").form_error('txt_Unit_or_Flat').'</td></tr>';
+		echo '<tr><td>Your Address</td><td>'.form_input($start_address).'<span id="error_Start_Address"></span>'.'</td></tr>';
+		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").'<span id="error_Unit"></span>'.'</td></tr>';
 		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'</td></tr>';
-		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").form_error('txt_Business_name').'</td></tr>';
+		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
 		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
-		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).form_error('txt_End_Address').'</td></tr>';
-		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).form_error('txt_Distance').'</td></tr>';
+		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'<span id="error_End_Address"></span>'.'</td></tr>';
+		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).'<span id="error_Distance"></span>'.'</td></tr>';
 		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Order Details</strong></td></tr>';
 		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType'.form_radio($wagon).'Wagon'.'</td></tr>';
@@ -433,6 +479,7 @@ $('.wagon').click(function(){
 		require_once('recaptchalib.php');
   		$publickey = "6LdEweMSAAAAANK_k0Gl9-OkMnHobf3Ohhp42Xid"; // you got this from the signup page
   		echo recaptcha_get_html($publickey);
+		echo '<span id="error_capcha"></span>';
 		echo '</td></tr>';
 		echo '<tr><td colspan="2">'.form_submit('btnOK','Book Now',$submit).'</td></tr>';
 		echo form_close('');
