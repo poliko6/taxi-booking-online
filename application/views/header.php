@@ -324,7 +324,7 @@
                 
                     <ul>
                     
-                        <li><span>/</span><a href="http://localhost:8888/bookingtaxi/bookingtaxi">Booking</a></li>
+                        <li><span>/</span><a href="<?php echo base_url();?>bookingtaxi">Booking</a></li>
                         <li><span>/</span><a href="faqs.html">FAQs</a></li>
                         <li><span>/</span><a href="contact.html">Contact</a></li>
                         <li class="top-menu-em"><span>/</span><a href="http://themes.semicolonweb.com/buy/coworker"><i class="icon-shopping-cart"></i> Buy Now</a></li>
@@ -382,8 +382,8 @@
                 
                 
                     <ul id="main-menu">
-                    <li><a href="http://localhost:8888/bookingtaxi"><div>Home</div><span>Get in Touch</span></a></li>
-                        <li><a href="http://localhost:8888/bookingtaxi/bookingtaxi"><div>Booking</div><span>Let's Start here</span></a>
+                    <li><a href="<?php echo base_url();?>"><div>Home</div><span>Get in Touch</span></a></li>
+                        <li><a href="<?php echo base_url();?>bookingtaxi"><div>Booking</div><span>Let's Start here</span></a>
     
                             <ul>
                             
@@ -608,7 +608,7 @@
                             </ul>
                         
                         </li>
-                        <li><a href="http://localhost:8888/bookingtaxi/register"><div>register</div><span>Latest News</span></a>
+                        <li><a href="<?php echo base_url();?>register"><div>register</div><span>Latest News</span></a>
                         
                             <ul>
                             
@@ -625,7 +625,7 @@
                             </ul>
                         
                         </li>
-                        <li><a href="http://localhost:8888/bookingtaxi/login"><div>Login</div><span>Get in Touch</span></a></li>
+                       <li><a href="<?php echo base_url();?>login"><div>Login</div><span>Get in Touch</span></a></li>
                     
                     </ul>
                 

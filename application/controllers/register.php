@@ -56,12 +56,12 @@ class Register extends CI_Controller {
 		if($lastcount>$precount)
 		{
 			echo 'register success!!!';	
-			echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi/register" />';
+			echo '<meta http-equiv="refresh" content="2;'.base_url().'register" />';
 		}
 		else
 		{
 			echo 'register fail!!!';
-			echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi/register" />';
+			echo '<meta http-equiv="refresh" content="2;'.base_url().'register" />';
 		}
 		}
 		
