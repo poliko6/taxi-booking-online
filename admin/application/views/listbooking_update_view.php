@@ -35,7 +35,7 @@ $status=array();
 $driver=array();
 foreach($stt as $row)
 {
-	$stt[$row->id]=$row->status;
+	$status[$row->id]=$row->status;
 }
 foreach($drivers as $row)
 {
@@ -45,7 +45,7 @@ foreach($drivers as $row)
 	echo '<tr>';
 	echo '<td>'.$_GET['id'].'</td>';
 	echo '<td>'.form_dropdown('ddl_Driver',$driver);
-	echo '<td>'.form_dropdown('ddl_Status',$stt).form_submit('btnOk','Update').'</td>';
+	echo '<td>'.form_dropdown('ddl_Status',$status).form_submit('btnOk','Update').'</td>';
 	echo '</tr>';
 	echo form_close();
 
