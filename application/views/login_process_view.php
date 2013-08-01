@@ -22,8 +22,9 @@ foreach($query as $key  => $value)
 }
 $this->session->set_userdata($data);
 echo 'login success';
-if($this->session->userdata('usertype')=='1'||$this->session->userdata('usertype')=='2')
-echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/admin/listbooking" />';	
-else if($this->session->userdata('usertype')=='3')
-echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/admin/driver_order?id='.$this->session->userdata('driver_id').'" />';	
+echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/admin" />';
+if($this->session->userdata('usertype')=='1'||$this->session->userdata('usertype')=='2'||$this->session->userdata('usertype')=='3')
+//echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/admin/listbooking" />';	
+//else if($this->session->userdata('usertype')=='3')
+//echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/admin/driver_order?id='.$this->session->userdata('driver_id').'" />';	
 ?>
