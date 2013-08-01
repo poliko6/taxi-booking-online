@@ -19,12 +19,19 @@ class Bookingtaxi extends CI_Controller {
 	}
 	public function book()
 	{		
-				require_once('recaptchalib.php');
-		  		$privatekey = "6LdEweMSAAAAAGI1hyasxa4pPu_Fd_HP0QXU9rEY";
-		  		$resp = recaptcha_check_answer ($privatekey,
-	                                $_SERVER["REMOTE_ADDR"],
+			require_once('recaptchalib.php');
+		  	$privatekey = "6LdEweMSAAAAAGI1hyasxa4pPu_Fd_HP0QXU9rEY";
+		  	$resp = recaptcha_check_answer ($privatekey,
+	                            $_SERVER["REMOTE_ADDR"],
                                 $_POST["recaptcha_challenge_field"],
                                 $_POST["recaptcha_response_field"]);
+			if (!$resp->is_valid) {
+   			 // What happens when the CAPTCHA was entered incorrectly
+   				die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
+       		 "(reCAPTCHA said: " . $resp->error . ")");
+ 				}
+			else
+			 {							
 				$this->load->model("bookingtaxi_model");
 				$precount=$this->bookingtaxi_model->count_order_temp();
 				if($this->input->post('rad_Ready_to_go')=='Now')
@@ -83,6 +90,7 @@ class Bookingtaxi extends CI_Controller {
 				{
 				 	$this->bookingtaxi_model->addcustomer_temp($inform);
 				}    
+			} 	
 	}
 	
 }
