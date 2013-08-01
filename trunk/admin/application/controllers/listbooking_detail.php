@@ -66,7 +66,7 @@ class Listbooking_detail extends CI_Controller {
 					$this->listbooking_model->update($id,$stt,$driver);
 					$this->listbooking_model->update_status_driver($driver);
 					echo 'update success';
-					echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi/admin/listbooking" />';
+					echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi/admin/listbooking_detail?id='.$id.'" />';
 				}	
 			}
 		}else{
