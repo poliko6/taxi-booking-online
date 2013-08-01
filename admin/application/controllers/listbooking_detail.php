@@ -60,13 +60,18 @@ class Listbooking_detail extends CI_Controller {
 				}
 				else
 				{
+					if($this->session->userdata('driver')!=0)
+					{
+						$this->listbooking_model->update_status_driver2($this->session->userdata('driver'));
+						$this->session->unset_userdata('driver');
+					}
 					$stt=$this->input->post('ddl_Status');
 					$driver=$this->input->post('ddl_Driver');
 					$this->load->model("listbooking_model");
 					$this->listbooking_model->update($id,$stt,$driver);
-					$this->listbooking_model->update_status_driver($driver);
+					$this->listbooking_model->update_status_driver1($driver);
 					echo 'update success';
-					echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi/admin/listbooking_detail?id='.$id.'" />';
+					echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi/admin/listbooking_detail/get_detail_booking?id='.$id.'" />';
 				}	
 			}
 		}else{
