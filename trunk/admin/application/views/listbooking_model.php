@@ -56,18 +56,10 @@
 			$this->db->where('order_id',$id);
 			$this->db->update('order_temp',$object);
 		}
-		function update_status_driver1($id)
+		function update_status_driver($id)
 		{
 			$object=array(
 			'driver_status'=>'2',
-			);
-			$this->db->where('driver_id',$id);
-			$this->db->update('driver',$object);
-		}
-		function update_status_driver2($id)
-		{
-			$object=array(
-			'driver_status'=>'1',
 			);
 			$this->db->where('driver_id',$id);
 			$this->db->update('driver',$object);
