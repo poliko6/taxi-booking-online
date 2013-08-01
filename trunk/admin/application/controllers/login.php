@@ -45,11 +45,11 @@ class Login extends CI_Controller {
 					{
 						$password=$this->input->post('txt_PW');
 						$check_pw=$this->login_model->check_driver_pw($username,$password);
-					if($check_pw=='1')
-					{
-						$data['query']=$this->login_model->get_driver($username,$password);
-						$this->load->view('login_process_view',$data);
-					}
+						if($check_pw=='1')
+						{
+							$data['query']=$this->login_model->get_driver($username,$password);
+							$this->load->view('login_process_view',$data);
+						}
 					else {
 						echo 'wrong password!!!';
 						echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';								
