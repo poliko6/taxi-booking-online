@@ -68,6 +68,8 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+  
+  
 	// user add country
  	geocoder.geocode( { 'address': site}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
@@ -99,6 +101,7 @@ function initialize() {
       var infowindow = new google.maps.Marker({
         map: map,
         position: pos,       
+        
         icon: mysite
       });
  
