@@ -26,9 +26,8 @@ class Bookingtaxi extends CI_Controller {
                                 $_POST["recaptcha_challenge_field"],
                                 $_POST["recaptcha_response_field"]);
 			if (!$resp->is_valid) {
-   			 // What happens when the CAPTCHA was entered incorrectly
-   				die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
-       		 "(reCAPTCHA said: " . $resp->error . ")");
+	   			 echo 'ERROR CAPCHA!!!';
+				 echo '<meta http-equiv="refresh" content="1;'.base_url().'bookingtaxi" />';
  				}
 			else
 			 {							
