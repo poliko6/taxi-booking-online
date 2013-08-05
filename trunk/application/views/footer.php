@@ -165,7 +165,7 @@
 							"cols"=>"10",
 							"placeholder"=>"Message"
 							);
-							echo form_open('email',$form).'<br>';
+							echo form_open('sendmail',$form).'<br>';
 							echo form_fieldset('');
 							echo form_label('Name ').form_input($txtname).'<span id="error_Name"></span>'.'<br>';
 							echo form_label('Email Address ').form_input($txtemail).'<span id="error_Email"></span>'.'<br>';

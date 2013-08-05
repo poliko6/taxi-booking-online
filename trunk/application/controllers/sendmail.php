@@ -1,6 +1,6 @@
 <?php
 
-class Email extends CI_Controller {
+class Sendmail extends CI_Controller {
 
 	  function __construct()
     {
@@ -28,18 +28,17 @@ class Email extends CI_Controller {
 			else 
 			{
 				$name=$_POST['txt_Name'];
-				$email=$_POST['txt_Email'];
+				$e_mail=$_POST['txt_Email'];
 				$subject="customer's idea";
 				$message=$_POST['txt_Message'];
 				$this->load->library('email',$config);
 				$this->email->set_newline("\r\n");
-				$this->email->from($email,$name);
+				$this->email->from($e_mail,$name);
 				$this->email->to('testbookingtaxi@gmail.com');
 				$this->email->subject($subject);
 				$this->email->message($message);
 				if($this->email->send())
 				{
-					echo $email;
 					echo "send mail success!!!";
 					echo '<meta http-equiv="refresh" content="1;'.base_url().'" />';		
 				}
