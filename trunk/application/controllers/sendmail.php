@@ -33,7 +33,7 @@ class Sendmail extends CI_Controller {
 				$message=$_POST['txt_Message'];
 				$this->load->library('email',$config);
 				$this->email->set_newline("\r\n");
-				$this->email->from($e_mail,$name);
+				$this->email->from($e_mail,$e_mail);
 				$this->email->to('testbookingtaxi@gmail.com');
 				$this->email->subject($subject);
 				$this->email->message($message);
