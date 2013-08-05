@@ -10,36 +10,71 @@ class Feedback extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->model('feedback_model');
     }
+	
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('feedback_view');
-		$this->load->view('footer');	
-	}
-	public function add_feedback()
-	{
-		$date=date('Y-m-d h:m:s A');
-		$object=array(
-		"name"=>$this->input->post("txt_Name"),
-		"email"=>$this->input->post("txt_Email"),
-		"subject"=>$this->input->post("txt_Subject"),
-		"message"=>$this->input->post("txt_Message"),
-		"vote"=>$this->input->post("ddl_Vote"),
-		"date"=>$date
-		);
-		$precount=$this->feedback_model->count_feedback();
-		$this->feedback_model->add_feedback($object);
-		$lastcount=$this->feedback_model->count_feedback();
-		if($lastcount>$precount)
+		if(isset($_POST['btnOK']))
 		{
-			echo 'register success!!!';	
-			echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
+			if(!isset($_POST['txt_Name'])||!isset($_POST['txt_Email'])||!isset($_POST['txt_Message']))
+			{
+				echo "can't not continue!!";
+				echo '<meta http-equiv="refresh" content="1;'.base_url().'" />';	
+			}
+			else 
+			{
+				$config=array(
+				'protocol'=>'smtp',
+				'smtp_host'=>'ssl://smtp.googlemail.com',
+				'smtp_port'=>'465',
+				'smtp_user'=>'testbookingtaxi@gmail.com',
+				'smtp_pass'=>'qweasd123456'
+				);
+				$name=$_POST['txt_Name'];
+				$e_mail=$_POST['txt_Email'];
+				$subject="customer's idea";
+				$message=$_POST['txt_Message'];
+				$this->load->library('email',$config);
+				$this->email->set_newline("\r\n");
+				$this->email->from($e_mail,$e_mail);
+				$this->email->to('testbookingtaxi@gmail.com');
+				$this->email->subject($subject);
+				$this->email->message($message);
+				if($this->email->send())
+				{
+					$date=date('Y-m-d h:m:s A');
+					$object=array(
+					"name"=>$name,
+					"email"=>$e_mail,
+					"subject"=>$subject,
+					"message"=>$message,
+					"date"=>$date
+					);
+					$precount=$this->feedback_model->count_feedback();
+					$this->feedback_model->add_feedback($object);
+					$lastcount=$this->feedback_model->count_feedback();
+					if($lastcount>$precount)
+					{
+						echo 'send mail success!!!';	
+						echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
+					}
+					else
+					{
+						echo 'send mail fail!!!';
+						echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
+					}
+					echo '<meta http-equiv="refresh" content="1;'.base_url().'" />';		
+				}
+				else
+				{
+					 show_error($this->email->print_debugger());
+				}	
+			}
 		}
-		else
-		{
-			echo 'register fail!!!';
-			echo '<meta http-equiv="refresh" content="2;'.base_url().'feedback" />';
-		}
+		else {
+			echo "can't not continue!!";
+				echo '<meta http-equiv="refresh" content="1;'.base_url().'" />';	
+			}
+		
 	}
 		
 	
