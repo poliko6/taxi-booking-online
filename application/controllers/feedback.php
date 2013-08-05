@@ -18,11 +18,14 @@ class Feedback extends CI_Controller {
 	}
 	public function add_feedback()
 	{
+		$date=date('Y-m-d h:m:s A');
 		$object=array(
 		"name"=>$this->input->post("txt_Name"),
 		"email"=>$this->input->post("txt_Email"),
 		"subject"=>$this->input->post("txt_Subject"),
-		"message"=>$this->input->post("txt_Message")
+		"message"=>$this->input->post("txt_Message"),
+		"vote"=>$this->input->post("ddl_Vote"),
+		"date"=>$date
 		);
 		$precount=$this->feedback_model->count_feedback();
 		$this->feedback_model->add_feedback($object);
@@ -30,7 +33,7 @@ class Feedback extends CI_Controller {
 		if($lastcount>$precount)
 		{
 			echo 'register success!!!';	
-			echo '<meta http-equiv="refresh" content="2;'.base_url().'feedback" />';
+			echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
 		}
 		else
 		{

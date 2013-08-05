@@ -78,6 +78,13 @@
                 ============================================= -->
 <div id="feedback">
 	<?php		
+		$vote=array(
+		"1"=>"1",
+		"2"=>"2",
+		"3"=>"3",
+		"4"=>"4",
+		"5"=>"5",
+		);
 		$form='name="frm_feedback"';
 		$message=array(
 		'name'=>'txt_Message',
@@ -92,6 +99,7 @@
 		echo form_label('Email Address ').form_input("txt_Email").'<span id="error_Email"></span>'.'<br>';
 		echo form_label('Subject ').form_input("txt_Subject").'<span id="error_Subject"></span>'.'<br>';
 		echo form_label('Message ').form_textarea($message).'<span id="error_Message"></span>'.'<br>';
+		echo form_label('Vote').form_dropdown('ddl_Vote',$vote).'<br/>';
 		echo form_fieldset_close(); 
 		echo form_submit('btnOK','Feedback',$submit);
 		echo form_close('');

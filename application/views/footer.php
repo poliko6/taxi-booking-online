@@ -83,58 +83,97 @@
                         <div class="widget clearfix">
                         
                             <h4>Quick Contact</h4>
+                          
+                            <!--<form id="quick-contact-form" name="quick-contact-form" action="<?php echo base_url(); ?>email" method="post" class="quick-contact-form nobottommargin">
                             
-                            <div id="quick-contact-form-result"></div>
-                            
-                            <form id="quick-contact-form" name="quick-contact-form" action="functions/footeremail.php" method="post" class="quick-contact-form nobottommargin">
-                            
-                            
-                                <input type="text" class="required input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
+                                <input type="text" class="required input-block-level" id="quick-contact-form-name" name="txt_Name" value="" placeholder="Full Name" />
                                 
-                                <input type="text" class="required email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
+                                <input type="text" class="required email input-block-level" id="quick-contact-form-email" name="txt_Email" value="" placeholder="Email Address" />
                                 
-                                <textarea class="required input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="30" cols="10" placeholder="Message"></textarea>
+                                <textarea class="required input-block-level short-textarea" id="quick-contact-form-message" name="txt_Message" rows="30" cols="10" placeholder="Message"></textarea>
                                 
-                                <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-small btn-inverse nomargin" value="submit">Send Email</button>
+                                <button type="submit" id="quick-contact-form-submit" name="btnOk" class="btn btn-small btn-inverse nomargin" value="submit">Send Email</button>
                             
                             
-                            </form>
-                            
-                            <script type="text/javascript">                            
-                            
-                                jQuery(document).ready(function($) {
-                                
-                                    $("#quick-contact-form").validate({
-                                        messages: { 
-                                            'quick-contact-form-name': '',
-                                            'quick-contact-form-email': '',
-                                            'quick-contact-form-message': ''
-                                        },
-                                		submitHandler: function(form) {
-                                			
-                                            $(form).find('.btn').prepend('<i class="icon-spinner icon-spin"></i>').addClass('disabled').attr('disabled', 'disabled');
-                                            
-                                			$(form).ajaxSubmit({
-                                				target: '#quick-contact-form-result',
-                                                success: function() {
-                                                    $("#quick-contact-form").fadeOut(500, function(){
-                                                        $('#quick-contact-form-result').fadeIn(500);
-                                                    });
-                                                },
-                                                error: function() {
-                                                    $('#quick-contact-form-result').fadeIn(500);
-                                                    $("#quick-contact-form").find('.btn').remove('<i class="icon-spinner icon-spin"></i>').removeClass('disabled').removeAttr('disabled');
-                                                }
-                                			});
-                                            
-                                		}
-                                	});
-                                
-                                });
-                             
-                            </script>
-                                                                                    
-                            
+                            </form>-->
+                            <script type="text/javascript">
+	function checkform()
+	{		
+		var dangmail= /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,4}$/;
+		var name=document.frm_quick_contact.txt_Name.value;
+		var email=document.frm_quick_contact.txt_Email.value;
+		var message=document.frm_quick_contact.txt_Message.value;
+		if(name=="" ||name==null)
+		{
+			 document.getElementById('error_Name').innerHTML=' Name not empty!!!';
+			 document.frm_quick_contact.txt_Name.focus();
+			 return false;
+		}
+		else  document.getElementById('error_Name').innerHTML='';
+		
+		if(email=="" ||email==null)
+		{
+			 document.getElementById('error_Email').innerHTML=' Email not empty!!!';
+			 document.frm_quick_contact.txt_Email.focus();
+			 return false;	
+		}
+		else if(dangmail.test(email)==false)
+		{
+			document.getElementById('error_Email').innerHTML=' Wrong mail format!!!!!!';
+			document.frm_quick_contact.txt_Email.focus();
+			return false;
+		}
+		else  document.getElementById('error_Email').innerHTML='';		
+		if(message=="" ||message==null)
+		{
+			 document.getElementById('error_Message').innerHTML=' Message not empty!!!';
+			 document.frm_quick_contact.txt_Message.focus();
+			 return false;
+		}
+		else  document.getElementById('error_Message').innerHTML='';
+	}
+</script> 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('span[id]').css('color','red');
+	});
+</script>
+                            <?php
+                            $submit='onclick="return checkform()"';
+                          	$this->load->helper('form');
+                            $form=array(
+                            "id"=>"quick-contact-form",
+                            "name"=>"frm_quick_contact",
+							); 
+							$txtname=array(
+							"class"=>"required input-block-level",
+							"id"=>"quick-contact-form-name",
+							"name"=>"txt_Name",
+							"placeholder"=>"Full Name"
+							);
+							$txtemail=array(
+							"class"=>"required email input-block-level",
+							"id"=>"quick-contact-form-email",
+							"name"=>"txt_Email",
+							"placeholder"=>"Full Name"
+							);
+							$txtmessage=array(
+							"class"=>"required input-block-level short-textarea",
+							"id"=>"quick-contact-form-message",
+							"name"=>"txt_Message",
+							"rows"=>"30", 
+							"cols"=>"10",
+							"placeholder"=>"Message"
+							);
+							echo form_open('email',$form).'<br>';
+							echo form_fieldset('');
+							echo form_label('Name ').form_input($txtname).'<span id="error_Name"></span>'.'<br>';
+							echo form_label('Email Address ').form_input($txtemail).'<span id="error_Email"></span>'.'<br>';
+							echo form_label('Message ').form_textarea($txtmessage).'<span id="error_Message"></span>'.'<br>';
+							echo form_fieldset_close(); 
+							echo form_submit('btnOK','Send mail',$submit);
+							echo form_close('');
+                            ?>
                         </div>
                     
                     
