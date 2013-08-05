@@ -165,11 +165,11 @@
 							"cols"=>"10",
 							"placeholder"=>"Message"
 							);
-							echo form_open('sendmail',$form).'<br>';
+							echo form_open('feedback',$form).'<br>';
 							echo form_fieldset('');
-							echo form_label('Name ').form_input($txtname).'<span id="error_Name"></span>'.'<br>';
-							echo form_label('Email Address ').form_input($txtemail).'<span id="error_Email"></span>'.'<br>';
-							echo form_label('Message ').form_textarea($txtmessage).'<span id="error_Message"></span>'.'<br>';
+							echo form_label('Name ').form_input($txtname).'<span id="error_Name"></span>';
+							echo form_label('Email Address ').form_input($txtemail).'<span id="error_Email"></span>';
+							echo form_label('Message ').form_textarea($txtmessage).'<span id="error_Message"></span>';
 							echo form_fieldset_close(); 
 							echo form_submit('btnOK','Send mail',$submit);
 							echo form_close('');
