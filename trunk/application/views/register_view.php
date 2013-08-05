@@ -137,10 +137,7 @@
 		$listsuburb=array();
 		foreach ($suburb as $row) {
 			$listsuburb[$row->id]=$row->name;
-		}
-		//$form=array(
-		//'name'=>'frm_register',
-		//);	
+		}	
 		$form='name="frm_register"';
 		$submit='onclick="return checkform()"';
 		echo form_open('register/signup',$form).'<br>';

@@ -1968,6 +1968,11 @@ ul.landing-features li:hover { font-weight: bold; }
 	width:800px;
 	background-color:#CCC;
 }
+#feedback
+{
+	width:800px;
+	background-color:#CCC;
+}
 #left_table
 {
 	margin-right:10px;
