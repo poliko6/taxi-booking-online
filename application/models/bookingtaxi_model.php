@@ -32,6 +32,11 @@
 		{
 			return $this->db->count_all('order_temp');
 		}
+		function infocompany()
+		{
+			$query=$this->db->get('company');
+			return $query->result_array();
+		}
 		
 	}
 

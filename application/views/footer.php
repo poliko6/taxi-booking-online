@@ -10,30 +10,33 @@
                 
                     <div class="col_one_fourth">
                     
-                    
-                        <div class="widget portfolio-widget clearfix">
+                    <?php 
+                		foreach($query as $row)
+					
+                	{
+                        echo '<div class="widget portfolio-widget clearfix">';
                         
                         
-                            <h4>About <span>Co</span>Worker</h4>
+                            echo '<h4>About <span>Co</span>'.$row['Company_Name'].'</h4>';
                             
-                            <p>Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh.</p>
+                            echo '<p>'.$row['Note'].'</p>';
                             
-                            <div style="background: url('images/world_map.png') no-repeat center center; height: 100px;">
+                            echo '<div style="background: url(\'images/world_map.png\') no-repeat center center; height: 100px;">';
                             
-                                <ul style="font-size: 13px;">
+                                echo '<ul style="font-size: 13px;">';
                                 
-                                    <li class="icon-map-marker">13/2 Elizabeth Street <br />Melbourne VIC 3000<br /> Australia</li>
-                                    <li class="icon-phone">+91-22-21144113</li>
-                                    <li class="icon-envelope-alt">info@coworker.com</li>
+                                    echo '<li class="icon-map-marker">13/2 Elizabeth Street <br />Melbourne VIC 3000<br /> Australia</li>';
+                                   echo ' <li class="icon-phone">'.$row['Phone'].'</li>';
+                                    echo '<li class="icon-envelope-alt">'.$row['Email'].'</li>';
                                 
-                                </ul>
+                                echo '</ul>';
                             
-                            </div>
+                            echo  '</div>';
                         
                         
-                        </div>
-                    
-                    
+                        echo '</div>';
+                        }
+                    ?>
                     </div>
                     
                     
