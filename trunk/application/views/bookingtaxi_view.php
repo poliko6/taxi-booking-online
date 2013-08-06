@@ -104,6 +104,7 @@ var markers = [];
 var s=0;
 var site= prompt('your country:','vietname');
 var pos;
+var mapOptions;
 function initialize() {
 	geocoder = new google.maps.Geocoder();
 	var rendererOptions = {
@@ -112,35 +113,38 @@ function initialize() {
 			}
 	directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 	
-  var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(10.8230723, 106.73155680000002),
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
+   mapOptions = {
+    	zoom: 8,
+    	center: new google.maps.LatLng(10.8230723, 106.73155680000002),
+    	mapTypeId: google.maps.MapTypeId.ROADMAP
+  	};
   
   
-  map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
-	// user add country
+  	
+  		 map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
 	
 	 	geocoder.geocode( { 'address': site}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {    
-        mapOptions = {
+    	if (status == google.maps.GeocoderStatus.OK) {    
+      	 mapOptions = {
       			zoom:8,
       			center: results[0].geometry.location,
       			mapTypedId:google.maps.MapTypeId.ROADMAP
-      		}
-      		var map =  new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+      		};
+      		 map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+      		 directionsDisplay.setMap(map);
+  		 	 google.maps.event.addListener(map, 'click', function(event) {
+    		 addMarker(event.latLng);
+  			 });
   		}
+  		
   		});
   		
   		
-	directionsDisplay.setMap(map);
-  
-  
-  
-  	google.maps.event.addListener(map, 'click', function(event) {
-    addMarker(event.latLng);
-  	});
+  		
+		directionsDisplay.setMap(map);
+  	 	google.maps.event.addListener(map, 'click', function(event) {
+    	addMarker(event.latLng);
+  		});
   // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
