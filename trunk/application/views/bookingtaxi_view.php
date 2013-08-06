@@ -108,7 +108,7 @@ function initialize() {
 	geocoder = new google.maps.Geocoder();
 	var rendererOptions = {
   			map: map,
-  			suppressMarkers : true
+  			suppressMarkers : true// tắt cột mộc A và B khi cals
 			}
 	directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 	
@@ -117,20 +117,19 @@ function initialize() {
     center: new google.maps.LatLng(10.8230723, 106.73155680000002),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+  
+  
   map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
-  
-  
 	// user add country
- 	geocoder.geocode( { 'address': site}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
-      
-          
-      		var mapOptions={
+	
+	 	geocoder.geocode( { 'address': site}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {    
+        mapOptions = {
       			zoom:8,
       			center: results[0].geometry.location,
       			mapTypedId:google.maps.MapTypeId.ROADMAP
       		}
-      		 map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
+      		var map =  new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
   		}
   		});
   		
@@ -151,7 +150,6 @@ function initialize() {
       var infowindow = new google.maps.Marker({
         map: map,
         position: pos,       
-        
         icon: mysite
       });
  
@@ -175,18 +173,14 @@ function initialize() {
   });
  
  
- }
-   
+ }   
   
     },
-    
-    
-    
+           
      function() {
       handleNoGeolocation(true);
     });
-    
-    
+       
      
   } else {
     // Browser doesn't support Geolocation
