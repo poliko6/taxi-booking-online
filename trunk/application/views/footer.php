@@ -108,32 +108,32 @@
 		var message=document.frm_quick_contact.txt_Message.value;
 		if(name=="" ||name==null)
 		{
-			 document.getElementById('error_Name').innerHTML=' Name not empty!!!';
+			 document.getElementById('error_fb_Name').innerHTML=' Name not empty!!!';
 			 document.frm_quick_contact.txt_Name.focus();
 			 return false;
 		}
-		else  document.getElementById('error_Name').innerHTML='';
+		else  document.getElementById('error_fb_Name').innerHTML='';
 		
 		if(email=="" ||email==null)
 		{
-			 document.getElementById('error_Email').innerHTML=' Email not empty!!!';
+			 document.getElementById('error_fb_Email').innerHTML=' Email not empty!!!';
 			 document.frm_quick_contact.txt_Email.focus();
 			 return false;	
 		}
 		else if(dangmail.test(email)==false)
 		{
-			document.getElementById('error_Email').innerHTML=' Wrong mail format!!!!!!';
+			document.getElementById('error_fb_Email').innerHTML=' Wrong mail format!!!!!!';
 			document.frm_quick_contact.txt_Email.focus();
 			return false;
 		}
-		else  document.getElementById('error_Email').innerHTML='';		
+		else  document.getElementById('error_fb_Email').innerHTML='';		
 		if(message=="" ||message==null)
 		{
-			 document.getElementById('error_Message').innerHTML=' Message not empty!!!';
+			 document.getElementById('error_fb_Message').innerHTML=' Message not empty!!!';
 			 document.frm_quick_contact.txt_Message.focus();
 			 return false;
 		}
-		else  document.getElementById('error_Message').innerHTML='';
+		else  document.getElementById('error_fb_Message').innerHTML='';
 	}
 </script> 
 <script type="text/javascript">
@@ -170,9 +170,9 @@
 							);
 							echo form_open('feedback',$form).'<br>';
 							echo form_fieldset('');
-							echo form_label('Name ').form_input($txtname).'<span id="error_Name"></span>';
-							echo form_label('Email Address ').form_input($txtemail).'<span id="error_Email"></span>';
-							echo form_label('Message ').form_textarea($txtmessage).'<span id="error_Message"></span>';
+							echo form_label('Name ').form_input($txtname).'<span id="error_fb_Name"></span>';
+							echo form_label('Email Address ').form_input($txtemail).'<span id="error_fb_Email"></span>';
+							echo form_label('Message ').form_textarea($txtmessage).'<span id="error_fb_Message"></span>';
 							echo form_fieldset_close(); 
 							echo form_submit('btnOK','Send mail',$submit);
 							echo form_close('');
