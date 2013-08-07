@@ -17,7 +17,6 @@ class Bookingtaxi extends CI_Controller {
 		$this->load->view('bookingtaxi_view');
 		$this->load->model('bookingtaxi_model');
 		$data['query']=$this->bookingtaxi_model->infocompany();
-		print_r($data);
 		$this->load->view('footer',$data);
 	}
 	public function book()
