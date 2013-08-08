@@ -102,7 +102,7 @@
                             
                             </form>-->
                             <script type="text/javascript">
-	function checkform()
+	function checkformfb()
 	{		
 		var dangmail= /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,4}$/;
 		var name=document.frm_quick_contact.txt_Name.value;
@@ -144,7 +144,7 @@
 	});
 </script>
                             <?php
-                            $submit='onclick="return checkform()"';
+                            $submit='onclick="return checkformfb()"';
                           	$this->load->helper('form');
                             $form=array(
                             "id"=>"quick-contact-form",
