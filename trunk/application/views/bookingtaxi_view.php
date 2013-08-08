@@ -30,69 +30,7 @@
         
       
     </style>
-     <script type="text/javascript">
-    function checkform()
-	{
-		var a=document.frm_booking.recaptcha_challenge_field.value;
-		var b=document.frm_booking.recaptcha_response_field.value;
-		var name=document.frm_booking.txt_Name.value;
-		var cnumber=document.frm_booking.txt_Contact_Number.value;
-		var startaddress=document.frm_booking.txt_Start_Address.value;
-		var unit=document.frm_booking.txt_Unit_or_Flat.value;
-		var endaddress=document.frm_booking.txt_End_Address.value;
-		var distance=document.frm_booking.txt_Distance.value;		
-		if(name=="" ||name==null)
-		{
-			 document.getElementById('error_Name').innerHTML=' Name not empty!!!';
-			 document.frm_booking.txt_Name.focus();
-			 return false;
-		}
-		else  document.getElementById('error_Name').innerHTML='';
-		if(cnumber=="" ||cnumber==null)
-		{
-		     document.getElementById('error_Contact_Number').innerHTML=' Contact number not empty!!!';
-		     document.frm_booking.txt_Contact_Number.focus();
-			 return false;
-		}
-		else  document.getElementById('error_Contact_Number').innerHTML='';
-		if(startaddress=="" ||startaddress==null)
-		{
-			 document.getElementById('error_Start_Address').innerHTML=' Start Address not empty!!!';
-			 document.frm_booking.txt_Start_Address.focus();
-			 return false;
-		}		
-		else  document.getElementById('error_Start_Address').innerHTML='';
-		if(unit=="" ||unit==null)
-		{
-			 document.getElementById('error_Unit').innerHTML=' Unit or Flat not empty!!!';
-			 document.frm_booking.txt_Unit_or_Flat.focus();
-			 return false;	
-		}
-		else  document.getElementById('error_Unit').innerHTML='';
-		
-		if(endaddress=="" ||endaddress==null)
-		{
-			 document.getElementById('error_End_Address').innerHTML=' End Address not empty!!!';
-			 document.frm_booking.txt_End_Address.focus();
-			 return false;
-		}
-		else  document.getElementById('error_End_Address').innerHTML='';
-		if(distance=="" ||distance==null)
-		{
-			 document.getElementById('error_Distance').innerHTML=' Distance not empty!!!';
-			 document.frm_booking.txt_Distance.focus();
-			 return false;
-		}
-		else  document.getElementById('error_Distance').innerHTML='';
-		if(b=="" ||b==null)
-		{
-			 document.getElementById('error_capcha').innerHTML=' please input capcha!!!';
-			 document.frm_booking.recaptcha_response_field.focus();
-			 return false;
-		}
-		else  document.getElementById('error_capcha').innerHTML='';
-	}
-    </script>
+     
       <script>
 
 var mysite='images/icons/mysite.png';
@@ -318,6 +256,69 @@ function handleNoGeolocation(errorFlag) {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
+    </script>
+    <script type="text/javascript">
+    function checkform()
+	{
+		var a=document.frm_booking.recaptcha_challenge_field.value;
+		var b=document.frm_booking.recaptcha_response_field.value;
+		var name=document.frm_booking.txt_Name.value;
+		var cnumber=document.frm_booking.txt_Contact_Number.value;
+		var startaddress=document.frm_booking.txt_Start_Address.value;
+		var unit=document.frm_booking.txt_Unit_or_Flat.value;
+		var endaddress=document.frm_booking.txt_End_Address.value;
+		var distance=document.frm_booking.txt_Distance.value;		
+		if(name=="" ||name==null)
+		{
+			 document.getElementById('error_Name').innerHTML=' Name not empty!!!';
+			 document.frm_booking.txt_Name.focus();
+			 return false;
+		}
+		else  document.getElementById('error_Name').innerHTML='';
+		if(cnumber=="" ||cnumber==null)
+		{
+		     document.getElementById('error_Contact_Number').innerHTML=' Contact number not empty!!!';
+		     document.frm_booking.txt_Contact_Number.focus();
+			 return false;
+		}
+		else  document.getElementById('error_Contact_Number').innerHTML='';
+		if(startaddress=="" ||startaddress==null)
+		{
+			 document.getElementById('error_Start_Address').innerHTML=' Start Address not empty!!!';
+			 document.frm_booking.txt_Start_Address.focus();
+			 return false;
+		}		
+		else  document.getElementById('error_Start_Address').innerHTML='';
+		if(unit=="" ||unit==null)
+		{
+			 document.getElementById('error_Unit').innerHTML=' Unit or Flat not empty!!!';
+			 document.frm_booking.txt_Unit_or_Flat.focus();
+			 return false;	
+		}
+		else  document.getElementById('error_Unit').innerHTML='';
+		
+		if(endaddress=="" ||endaddress==null)
+		{
+			 document.getElementById('error_End_Address').innerHTML=' End Address not empty!!!';
+			 document.frm_booking.txt_End_Address.focus();
+			 return false;
+		}
+		else  document.getElementById('error_End_Address').innerHTML='';
+		if(distance=="" ||distance==null)
+		{
+			 document.getElementById('error_Distance').innerHTML=' Distance not empty!!!';
+			 document.frm_booking.txt_Distance.focus();
+			 return false;
+		}
+		else  document.getElementById('error_Distance').innerHTML='';
+		if(b=="" ||b==null)
+		{
+			 document.getElementById('error_capcha').innerHTML=' please input capcha!!!';
+			 document.frm_booking.recaptcha_response_field.focus();
+			 return false;
+		}
+		else  document.getElementById('error_capcha').innerHTML='';
+	}
     </script>
 	<script>
 $(document).ready(function(){
