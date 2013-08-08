@@ -422,6 +422,11 @@ $('span[id]').css("color","red");
 		'class'=>'direct_payment',
 		'checked'=>'TRUE',
 		);
+		$paypal_payment=array(
+		'name'=>'rad_Payment',
+		'value'=>'paypal_payment',
+		'class'=>'paypaldirect_payment',
+		);
 		
 		$start_address=array(
 		'name'=>'txt_Start_Address',
@@ -485,7 +490,7 @@ $('span[id]').css("color","red");
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
 		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'<span id="error_End_Address"></span>'.'</td></tr>';
 		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).'<span id="error_Distance"></span>'.'</td></tr>';
-		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.'</td></tr>';
+		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.form_radio($paypal_payment).'Paypal Payment'.'</td></tr>';
 		echo '<tr><td colspan="2"><strong>Order Details</strong></td></tr>';
 		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType'.form_radio($wagon).'Wagon'.'</td></tr>';
 		echo '<tr><td><div class="vans">No Vans Please</div></td><td><div class="vans">'.form_checkbox('chk_No_Vans', '1', FALSE).'</div></td></tr>';
