@@ -11,9 +11,11 @@
                     <div class="col_one_fourth">
                     
                     <?php 
-                		foreach($query as $row)
+
+             			foreach($query as $row)
 					
                 	{
+                		
                         echo '<div class="widget portfolio-widget clearfix">';
                         
                         
@@ -35,7 +37,7 @@
                         
                         
                         echo '</div>';
-                        }
+               }
                     ?>
                     </div>
                     
