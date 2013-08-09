@@ -45,6 +45,9 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	margin:0 auto 0 auto;
+	
+
 }
 ul {
 	list-style: none;
@@ -112,7 +115,7 @@ body {
 	line-height: 1;
 	color: #777;
 	font: 12px/20px "Open Sans", Helvetica, Arial, sans-serif;
-	background: #EEE url("../images/patterns/light/pattern10.png") repeat fixed;
+	background: #EEE url("images/BOOKING_TAXI_CUT/bg_HEAD.jpg") repeat ;
 }
 
 input,
@@ -764,7 +767,7 @@ form small {
 -----------------------------------------------------------------*/
 
 
-#header { position: relative; }
+#header { position: relative;  width:70% ; height:120px;}
 
 
 /* ----------------------------------------------------------------
@@ -803,7 +806,7 @@ form small {
 -----------------------------------------------------------------*/
 
 
-#primary-menu,
+,
 #lp-contacts,
 .sticky-menu-wrap {
     position: relative;
@@ -811,7 +814,11 @@ form small {
     max-width: 710px;
     height: 120px;
 }
-
+#header  { position:absolute;
+top:280px;
+left:30%;
+}
+#header #primary-menu{margin-left:10% ; height:120px; }
 .rs-menu,
 .select-menu { display: none; }
 
@@ -1688,20 +1695,44 @@ html[xmlns] .slider-wrap {display: block;}
 -----------------------------------------------------------------*/
 
 
-#content { position: relative; }
+#content {  background:url(../images/BOOKING_TAXI_CUT/bg_HEAD.jpg); width:100%  ;}
 
-.content-wrap {
-    position: relative;
-    padding: 40px 0;
+.content-wrap { 
+   width:100%;
+   padding-top:40px;
+   position: static														 
+   }
+  
+.content-wrap .container {width:100% }
+#content #mapside{background:url(../images/BOOKING_TAXI_CUT/bg_Map.png) no-repeat ; width:710px ; height:750px; float:left ; margin-left:5% ; padding-top:30px; padding-bottom:30px; position: relative}
+#contentleft{ background:url(../images/BOOKING_TAXI_CUT/bg_formDangKi.png) no-repeat ; float:left; width:400px; padding:20px 20px 40px 20px ; margin-left:10%}
+#mapside #map-canvas {
+        height: 650px;
+        width: 90%;
+		margin:auto auto;
+		margin-bottom: 20px;
+		      }
+#deleteOverlay{ }
+
+#sidea{position:absolute;
+top:430px;
+left:35%;
 }
-
-
+#sideb{ position:absolute;
+top:430px ;
+left:82%;
+}
+#distantimg{
+	margin-bottom:5px;
+	border:1px solid #F00
+	
+}
 /* ----------------------------------------------------------------
     Page Title
 -----------------------------------------------------------------*/
 
 
-#page-title,
+
 #countdown-wrap {
     position: relative;
     background-color: #F5F5F5;
@@ -1709,6 +1740,15 @@ html[xmlns] .slider-wrap {display: block;}
     border-top: 1px solid #EEE;
     border-bottom: 1px solid #EEE;
 }
+#page-title{ position:absolute;
+padding-top:0px;
+ top:400px;
+ left:30%;border:1px solid #F00;
+ height:60px;
+ width:70%;
+ padding-bottom:5px;
+}
+
 
 #page-title h1 {
     font-size: 24px;
@@ -5466,7 +5506,7 @@ a.twitter-follow-me:hover,
 }
 
 .stretched #slider .container { width: 960px; }
-
+ 
 .stretched #slider.elastic-slideshow,
 .stretched #slider.revolution-slider,
 .stretched #slider.layerslider-wrap {
