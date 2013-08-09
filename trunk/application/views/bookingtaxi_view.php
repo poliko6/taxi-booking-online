@@ -5,27 +5,9 @@
     <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <style>
- #directions-panel {
-        height: 100%;
-        float: right;
-        width: 200px;
-        overflow: auto;
-      }
-      #map-canvas {
-      	
-        margin-left: 10px;
-        width: 600px;
-        height:500px;
-      }
-
+ 
      
 
-      @media print {
-        #map-canvas {
-          height: 500px;
-          width:600px;
-          margin: 0;
-        }
 
         
       
@@ -55,9 +37,7 @@ function initialize() {
     	zoom: 8,
     	center: new google.maps.LatLng(10.8230723, 106.73155680000002),
     	mapTypeId: google.maps.MapTypeId.ROADMAP
-  	};
-  
-  
+  	}; 
   	
   		 map = new google.maps.Map(document.getElementById('map-canvas'),mapOptions);
 	
@@ -75,10 +55,7 @@ function initialize() {
   			 });
   		}
   		
-  		});
-  		
-  		
-  		
+  		}); 		
 		directionsDisplay.setMap(map);
   	 	google.maps.event.addListener(map, 'click', function(event) {
     	addMarker(event.latLng);
@@ -206,11 +183,42 @@ function addMarker(location) {
   		}
   		});
     	
-    	
+    		var address = document.getElementById("start").value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location,
+          draggable: false,    	
+      });
+		markers.push(marker);
+  		}
+  		});    
+  		
     	s=1;
     	
   		
     calcRoute();
+  }
+ function changstart()
+  {
+  	s=0;
+  	clearOverlays();
+  	markers = [];
+      	var address = document.getElementById("start").value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location,
+          draggable: false,
+    	animation: google.maps.Animation.DROP
+      });
+		markers.push(marker);
+  		}
+  		});    
   }
 function calcRoute() {
 
@@ -353,19 +361,17 @@ $('span[id]').css("color","red");
 		color: red;
 	}
 </style>
+
 <div id="content">
-        
+         
             <!-- ============================================
                 Page Title
             ============================================= -->
+           
             <div id="page-title">
+               <img src="images/BOOKING_TAXI_CUT/bg_search.jpg" id="distantimg"  />
             
-            
-                <div class="container clearfix">
-                
-                    <h1>Booking <span> taxi</span></h1>
-                    
-                </div>
+               
             
             
             </div>
@@ -379,7 +385,7 @@ $('span[id]').css("color","red");
                 <!-- ============================================
                     Page Content Start
                 ============================================= -->
-                
+                <div id="contentleft">
                  
 <?php
 		
@@ -432,6 +438,7 @@ $('span[id]').css("color","red");
 		'name'=>'txt_Start_Address',
 		'id'=>'start',
 		);
+		$start_address_event='onChange="changstart()"';
 		$end_address=array(
 		'name'=>'txt_End_Address',
 		'id'=>'end',
@@ -478,11 +485,14 @@ $('span[id]').css("color","red");
 		echo '<table width="450" id="left_table">'; 
 		echo '<tr><td colspan="2">'.form_label('How many passengers?').'</td></tr>';
 		echo '<tr><td>Number of People'.'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',FALSE).'more'.'</td></tr>';
+
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Name & Contact Number').'</strong></td></tr> ';
+		
 		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'<span id="error_Name"></span>'.'</td></tr>';
 		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'<span id="error_Contact_Number"></span>'.'</td></tr>';
+		
 		echo '<tr><td colspan="2"><strong>'.form_label('Your Pickup Address').'</strong></td></tr>';
-		echo '<tr><td>Your Address</td><td>'.form_input($start_address).'<span id="error_Start_Address"></span>'.'</td></tr>';
+		echo '<tr><td>Your Address</td><td>'.form_input($start_address,'',$start_address_event).'<span id="error_Start_Address"></span>'.'</td></tr>';
 		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").'<span id="error_Unit"></span>'.'</td></tr>';
 		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'</td></tr>';
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
@@ -510,23 +520,24 @@ $('span[id]').css("color","red");
 		echo form_close('');
 		echo '</table>';		
 		?>	
-							 
-		<div id="map-canvas"></div>		
-		<div id="panel">
-    
-      		<input onclick="deleteOverlays();" type=button value="Delete Overlays">
-    	</div>		
-
+		</div>
+		<div id="mapside"><div id="map-canvas"></div>		
+			<center><div id=" panel">    
+      		
+               <img src="images/BOOKING_TAXI_CUT/Bn_Delete_Oerlay.png" onclick="deleteOverlays()" />
+  			</div>	</center>
+		</div>
+            
                 <!-- ============================================
                     Page Content End
                 ============================================= -->
                 </div>
-            
-            
+            	
             </div>
         
         
-        </div>
+        </div> 	<img src="images/BOOKING_TAXI_CUT/Ico_Search_A.png" width="160px" id="sidea" />
+				<img src="images/BOOKING_TAXI_CUT/Ico_Search_B.png"  width="150px" id="sideb"/>
         
 
         

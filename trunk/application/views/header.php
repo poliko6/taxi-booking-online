@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<?php echo base_url('css/font-awesome.css');?>" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url('css/prettyPhoto.css');?>" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url('css/responsive.css');?>" type="text/css" />
+    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
     <!--[if lt IE 9]>
@@ -39,8 +40,7 @@
     ============================================= -->
 	
         <title>Booking Taxi</title>
-
-
+    
 </head>
 
 <body class="stretched">
@@ -55,7 +55,7 @@
         <div id="sticky-menu" class="clearfix">
         
             <div class="container clearfix">
-            
+           
                 <div class="sticky-logo">
                 
                     <a href="index.php"><img src="images/stickylogo.png" alt="CoWorker" title="CoWorker" /></a>
@@ -64,7 +64,7 @@
                 
                 <div class="sticky-search-trigger">
                 
-                    <a href="#"><i class="icon-search"></i></a>
+                    <a href="#"><i class="icon-search">search</i></a>
                 
                 </div>
                 
@@ -360,6 +360,9 @@
         <!-- ============================================
             Header
         ============================================= -->
+         <div id="logo2">
+            <img src="images/BOOKING_TAXI_CUT/bg_banner.jpg"  width="100%" >
+            </div>
         <div id="header">
         
             
@@ -368,16 +371,12 @@
                 <!-- ============================================
                     Logo
                 ============================================= -->
-                <div id="logo">
-                
-                    <a href="index.html" class="standard-logo"><img src="images/logo.png" alt="CoWorker" title="CoWorker" /></a>
-                    <a href="index.html" class="retina-logo"><img src="images/logo@2x.png" alt="CoWorker" title="CoWorker" width="204" height="120" /></a>
-                
-                </div>
+              
                 
                 <!-- ============================================
                     Menu
                 ============================================= -->
+                
                 <div id="primary-menu">
                 
                 
