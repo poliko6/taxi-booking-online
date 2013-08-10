@@ -1704,8 +1704,8 @@ html[xmlns] .slider-wrap {display: block;}
    }
   
 .content-wrap .container {width:100% }
-#content #mapside{background:url(../images/BOOKING_TAXI_CUT/bg_Map.png) no-repeat ; width:710px ; height:750px; float:left ; margin-left:5% ; padding-top:30px; padding-bottom:30px; position: relative}
-#contentleft{ background:url(../images/BOOKING_TAXI_CUT/bg_formDangKi.png) no-repeat ; float:left; width:400px; padding:20px 20px 40px 20px ; margin-left:10%}
+#content #mapside{background:url(../images/BOOKING_TAXI_CUT/bg_Map.png) no-repeat ; width:710px ; height:750px; float:left ; margin-left:5px ; padding-top:30px; padding-bottom:30px; position: relative}
+#contentleft{ background:url(../images/BOOKING_TAXI_CUT/bg_formDangKi.png) no-repeat ; float:left; width:600px; padding:20px 20px 40px 20px ;  margin-left:2%; }
 #mapside #map-canvas {
         height: 650px;
         width: 90%;
@@ -1714,17 +1714,23 @@ html[xmlns] .slider-wrap {display: block;}
 		      }
 #deleteOverlay{ }
 
+.fields{border:1px solid #CCC; color:#00F;font-family:Georgia,'Times New Roman', Times, serif}
+.leng{color:#000; font:bold;
+font-family:Georgia,'Times New Roman', Times, serif}
 #sidea{position:absolute;
 top:430px;
 left:35%;
 }
+#contentleft input{background-color: #F7F7F7}
+#submitbooking{background: url(../images/BOOKING_TAXI_CUT/Bn_Book_Now.png) ; width:259px ; height:79px} 
+#submitfeedback{background:url(../images/BOOKING_TAXI_CUT/bn_sendMail.png) ; width:94px; height:29px;}
 #sideb{ position:absolute;
 top:430px ;
 left:82%;
 }
 #distantimg{
 	margin-bottom:5px;
-	border:1px solid #F00
+	
 	
 }
 /* ----------------------------------------------------------------
@@ -1743,7 +1749,7 @@ left:82%;
 #page-title{ position:absolute;
 padding-top:0px;
  top:400px;
- left:30%;border:1px solid #F00;
+ left:30%;
  height:60px;
  width:70%;
  padding-bottom:5px;
@@ -2017,7 +2023,7 @@ ul.landing-features li:hover { font-weight: bold; }
 {
 	margin-right:10px;
 	float:left;
-	background-color:#CCC;
+	
 }
 #right_table
 {

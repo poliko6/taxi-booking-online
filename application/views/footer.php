@@ -145,6 +145,9 @@
 </script>
                             <?php
                             $submit='onclick="return checkformfb()"';
+							$submitfeedback=array('id'=>'submitfeedback',
+												  'name'=>'btnOK',
+												  );
                           	$this->load->helper('form');
                             $form=array(
                             "id"=>"quick-contact-form",
@@ -176,7 +179,7 @@
 							echo form_label('Email Address ').form_input($txtemail).'<span id="error_fb_Email"></span>';
 							echo form_label('Message ').form_textarea($txtmessage).'<span id="error_fb_Message"></span>';
 							echo form_fieldset_close(); 
-							echo form_submit('btnOK','Send mail',$submit);
+							echo form_submit($submitfeedback,'',$submit);
 							echo form_close('');
                             ?>
                         </div>

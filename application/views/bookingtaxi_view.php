@@ -370,16 +370,8 @@ $('span[id]').css("color","red");
            
             <div id="page-title">
                <img src="images/BOOKING_TAXI_CUT/bg_search.jpg" id="distantimg"  />
-            
-               
-            
-            
             </div>
-        
-            
             <div class="content-wrap">
-            
-            
                 <div class="container clearfix">
                 
                 <!-- ============================================
@@ -437,6 +429,7 @@ $('span[id]').css("color","red");
 		$start_address=array(
 		'name'=>'txt_Start_Address',
 		'id'=>'start',
+		'width'=>'100%',
 		);
 		$start_address_event='onChange="changstart()"';
 		$end_address=array(
@@ -479,52 +472,65 @@ $('span[id]').css("color","red");
 			date("Y-m-d", $tts+'432000')=>date("D, d M Y", $tts+'432000'),
 			date("Y-m-d", $tts+'518400')=>date("D, d M Y", $tts+'518400'),
 		);
+		$submitid=array(
+					  'id'=>'submitbooking',
+					  'name'=>'btnOK',
+					  );
 		$submit='onclick="return checkform()"';
 		$frm='name="frm_booking"';
 		echo form_open('bookingtaxi/book',$frm);
-		echo '<table width="450" id="left_table">'; 
-		echo '<tr><td colspan="2">'.form_label('How many passengers?').'</td></tr>';
-		echo '<tr><td>Number of People'.'</td><td>'.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',FALSE).'more'.'</td></tr>';
-
-		echo '<tr><td colspan="2"><strong>'.form_label('Your Name & Contact Number').'</strong></td></tr> ';
+		echo '<table width="100%" id="left_table">'; 
+		echo '<tr><td colspan="2">'.form_label('How many passengers?').'&nbsp;&nbsp; Number of People '.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.form_radio('rad_passenger','4',TRUE).'1-4'.'&nbsp;'.form_radio('rad_passenger','5',FALSE).'more'.'</td></tr>';
 		
-		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'<span id="error_Name"></span>'.'</td></tr>';
-		echo '<tr><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'<span id="error_Contact_Number"></span>'.'</td></tr>';
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Your Name & Contact Number</legend><table width="100%">';	
+		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'</td><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'</td></tr>';
+		echo '<tr><td></td><td><span id="error_Name"></span></td><td></td><td><span id="error_Contact_Number"></span></td></tr>';
+		echo '</table></fieldset></td></tr>';
 		
-		echo '<tr><td colspan="2"><strong>'.form_label('Your Pickup Address').'</strong></td></tr>';
+		
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Your Pickup Address</legend><table width="100%">';
 		echo '<tr><td>Your Address</td><td>'.form_input($start_address,'',$start_address_event).'<span id="error_Start_Address"></span>'.'</td></tr>';
 		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").'<span id="error_Unit"></span>'.'</td></tr>';
-		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'</td></tr>';
-		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';
-		echo '<tr><td>Remember My Details</td><td>'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
+		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House&nbsp;&nbsp;&nbsp;'.form_radio($business).'Business'.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remember My Details:&nbsp;&nbsp;&nbsp;'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
+		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';		
+		echo '</table></fieldset></td></tr>';
+		
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
 		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'<span id="error_End_Address"></span>'.'</td></tr>';
 		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).'<span id="error_Distance"></span>'.'</td></tr>';
-		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.form_radio($paypal_payment).'Paypal Payment'.'</td></tr>';
-		echo '<tr><td colspan="2"><strong>Order Details</strong></td></tr>';
-		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType'.form_radio($wagon).'Wagon'.'</td></tr>';
-		echo '<tr><td><div class="vans">No Vans Please</div></td><td><div class="vans">'.form_checkbox('chk_No_Vans', '1', FALSE).'</div></td></tr>';
+		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment&nbsp;&nbsp;&nbsp;'.form_radio($paypal_payment).'Paypal Payment'.'</td></tr>';
+		
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Order Details</legend><table width="100%">';
+		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType&nbsp;&nbsp;&nbsp;'.form_radio($wagon).'Wagon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Vans Please:'.form_checkbox('chk_No_Vans', '1', FALSE).'</td></tr>';		
 		echo '<tr><td>Notes For Driver </td><td>'.form_dropdown('ddl_Notes',$node,'No Notes').'</td></tr>';
-		echo '<tr><td colspan="2"><strong>Ready To Go?</strong></td></tr>';
-		echo '<tr><td>When</td><td>'.form_radio($now).'Now'.form_radio($later).'Later'.'</td></tr>';
+		echo '</table></fieldset></td></tr>';
+		
+		
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Ready To Go?</legend><table width="100%">';
+		echo '<tr><td width="30%">When &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td><td>'.form_radio($now).'Now&nbsp;&nbsp;&nbsp;&nbsp'.form_radio($later).'Later'.'</td></tr>';
 		echo '<tr class="later"><td>Select Date</td><td>'.form_dropdown('ddl_Select_Date',$select_date).'</td></tr>';
 		echo '<tr class="later"><td>Time</td><td>'.form_dropdown('ddl_hours',$hours).':'.form_dropdown('ddl_minutes',$minutes).' '.form_dropdown('ddl_AM',$am).'</td></tr>';
-		echo '<tr class="now"><td colspan="2">You request will be processed immediately. The first available taxi will be sent to your pickup address. </td></tr>';
-		echo '<tr><td><strong>Security Code</strong></td><td>';
+		echo '</table></fieldset></td></tr>';
+		
+		echo '<tr class="now"><td colspan="2" style="color: #333; font-family:Georgia, \'Times New Roman\', Times, serif;font:bold">You request will be processed immediately. The first available taxi will be sent to your pickup address. </td></tr>';
+		echo '<tr><td colspan="2"><fieldset class="fields"><table width="100%">';
+		echo '<tr><td stype=" color:#03F"><strong>Security Code</strong></td><td>';
 		require_once('recaptchalib.php');
   		$publickey = "6LdEweMSAAAAANK_k0Gl9-OkMnHobf3Ohhp42Xid"; // you got this from the signup page
   		echo recaptcha_get_html($publickey);
 		echo '<span id="error_capcha"></span>';
 		echo '</td></tr>';
-		echo '<tr><td colspan="2">'.form_submit('btnOK','Book Now',$submit).'</td></tr>';
+		echo '</table></fieldset></td></tr>';
+		
+		echo '<tr><center><td colspan="2" align="center">'.form_submit($submitid,'',$submit).'</td></center></tr>';
 		echo form_close('');
 		echo '</table>';		
 		?>	
 		</div>
-		<div id="mapside"><div id="map-canvas"></div>		
-			<center><div id=" panel">    
-      		
-               <img src="images/BOOKING_TAXI_CUT/Bn_Delete_Oerlay.png" onclick="deleteOverlays()" />
+		<div id="mapside"><div id="map-canvas" ></div>		
+			<center><div id=" panel" >    
+      	
+               <img  src="images/BOOKING_TAXI_CUT/Bn_Delete_Oerlay.png" onclick="deleteOverlays()" />
   			</div>	</center>
 		</div>
             
