@@ -58,7 +58,9 @@ function initialize() {
   		}); 		
 		directionsDisplay.setMap(map);
   	 	google.maps.event.addListener(map, 'click', function(event) {
+    	changstart();
     	addMarker(event.latLng);
+    	
   		});
   // Try HTML5 geolocation
   if(navigator.geolocation) {
@@ -130,6 +132,7 @@ function deleteOverlays() {
 
 
 function addMarker(location) {
+	
 	if(s<1)
   {
 
