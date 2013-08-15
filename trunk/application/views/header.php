@@ -269,24 +269,9 @@
                             </ul>
                         
                         </li>
-                        <li><a href="http://localhost:8888/bookingtaxi/register"><div>Register</div><span>Latest News</span></a>
-                        
-                            <ul>
-                            
-                                <li><a href="blog.html"><div>Default Layout</div></a></li>
-                                <li><a href="blog-alt.html"><div>Alternate Layout</div></a></li>
-                                <li><a href="blog-full.html"><div>Full Layout</div></a></li>
-                                <li><a href="blog-full-alt.html"><div>Full Layout 2</div></a></li>
-                                <li><a href="blog-small.html"><div>Small Thumbs</div></a></li>
-                                <li><a href="blog-small-full.html"><div>Small Thumbs - Full</div></a></li>
-                                <li><a href="blog-single.html"><div>Single Post</div></a></li>
-                                <li><a href="blog-single-full.html"><div>Single Post - Full</div></a></li>
-                                <li><a href="blog-single-split.html"><div>Single Post - Split</div></a></li>
-                            
-                            </ul>
-                        
-                        </li>
-                        <li><a href="contact.html"><div>Contact</div><span>Get in Touch</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>register"><div>Register</div><span>Latest News</span></a></li>
+                        <li><a href="<?php echo base_url(); ?>login"><div>Login</div><span>Latest News</span></a></li>
+
                     
                     </ul>
                 
@@ -527,7 +512,10 @@
                         </li>
                         <?php
                         	if($this->session->userdata('usertype')=='4')
+							{
 								echo '<li><a href="'.base_url().'logout"><div>Logout</div><span>Get in Touch</span></a></li>';
+								echo '<li><a href="'.base_url().'history_booking"><div>booking history</div><span>Get in Touch</span></a></li>';
+							}
 							else 
 							{
 								echo   '<li><a href="'.base_url().'login"><div>Login</div><span>Get in Touch</span></a></li>';
