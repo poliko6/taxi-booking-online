@@ -163,7 +163,7 @@
 							"class"=>"required email input-block-level",
 							"id"=>"quick-contact-form-email",
 							"name"=>"txt_Email",
-							"placeholder"=>"Full Name"
+							"placeholder"=>"Email"
 							);
 							$txtmessage=array(
 							"class"=>"required input-block-level short-textarea",

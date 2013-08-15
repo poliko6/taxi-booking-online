@@ -35,6 +35,20 @@
 			$this->db->where($data);
 			return $this->db->count_all_results('driver');
 		}
+		function check_customer($username)
+		{
+			$this->db->where('username',$username);
+			return $this->db->count_all_results('customers');
+		}		
+		function check_customer_pw($username,$password)
+		{
+			$data=array(
+				'username'=>$username,
+				'password'=>md5($password),
+				);
+			$this->db->where($data);
+			return $this->db->count_all_results('customers');
+		}
 		function get_user($username,$password)
 			{
 				$data=array(
@@ -59,6 +73,17 @@
 				$query=$this->db->get();
 				return $query->result_array();
 			}	
-			
+		function get_customer($username,$password)
+			{
+				$data=array(
+				'username'=>$username,
+				'password'=>md5($password),
+				);
+				$this->db->select('*');
+				$this->db->from('customers');
+				$this->db->where($data);
+				$query=$this->db->get();
+				return $query->result_array();
+			}	
 }
 ?>
