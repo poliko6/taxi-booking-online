@@ -72,7 +72,7 @@
                 
                     <ul>
                     
-                        <li><a href="http://localhost:8888/bookingtaxi/bookingtaxi"><div>Booking</div><span>Let's Start here</span></a>
+                        <li><a href="<?php echo base_url();?>"><div>Booking</div><span>Let's Start here</span></a>
     
                             <ul>
                             
@@ -130,145 +130,12 @@
                             </ul>
     
                         </li>
-                        <li><a href="#"><div>Features</div><span>Out of the Box</span></a>
-    
-                            <ul>
-                            
-                                <li><a href="#"><div><i class="icon-tablet"></i> Responsive Design</div></a></li>
-                                <li><a href="#"><div><i class="icon-eye-open"></i> Retina Ready</div></a></li>
-                                <li><a href="#"><div><i class="icon-picture"></i> Layer Slider</div></a></li>
-                                <li><a href="#"><div><i class="icon-gift"></i> Revolution Slider</div></a></li>
-                                <li><a href="#"><div><i class="icon-camera"></i> Custom Backgrounds</div></a></li>
-                                <li><a href="#"><div><i class="icon-calendar"></i> Coming Soon Page</div></a></li>
-                                <li><a href="#"><div><i class="icon-tint"></i> Unlimited Colors</div></a></li>
-                                <li><a href="#"><div><i class="icon-columns"></i> Boxed &amp; Wide Layout</div></a></li>
-                                <li><a href="#"><div><i class="icon-pencil"></i> Google Fonts</div></a></li>
-                                <li><a href="#"><div><i class="icon-thumbs-up"></i> Bootstrap Compatible</div></a></li>
-                                <li><a href="#"><div><i class="icon-time"></i> Dedicated Support</div></a></li>
-                                <li><a href="#"><div><i class="icon-info-sign"></i> Extended Docs</div></a></li>
-                                <li><a href="#"><div>and much more..</div></a></li>
-                            
-                            </ul>
-    
-                        </li>
+                       
                         <li><a href="portfolio-4.html"><div>Portfolio</div><span>Our Awesome Works</span></a>
                         
-                            <ul>
-                            
-                                <li><a href="portfolio-2.html"><div>2 Columns</div></a></li>
-                                <li><a href="portfolio-2-sidebar.html"><div>2 Columns w/Sidebar</div></a></li>
-                                <li><a href="portfolio-3.html"><div>3 Columns</div></a></li>
-                                <li><a href="portfolio-3-sidebar.html"><div>3 Columns w/Sidebar</div></a></li>
-                                <li><a href="portfolio-4.html"><div>4 Columns</div></a></li>
-                                <li><a href="portfolio-4-sidebar.html"><div>4 Columns w/Sidebar</div></a></li>
-                                <li><a href="portfolio-5.html"><div>5 Columns</div></a></li>
-                                <li><a href="portfolio-single.html"><div>Portfolio Single - Image</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="portfolio-single.html"><div>Half Layout</div></a></li>
-                                        <li><a href="portfolio-single-left.html"><div>Half Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-full.html"><div>Full Layout</div></a></li>
-                                        <li><a href="portfolio-single-full-left.html"><div>Full Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-sidebar.html"><div>Sidebar Layout</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="portfolio-single-gallery.html"><div>Portfolio Single - Gallery</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="portfolio-single-gallery.html"><div>Half Layout</div></a></li>
-                                        <li><a href="portfolio-single-gallery-left.html"><div>Half Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-full-gallery.html"><div>Full Layout</div></a></li>
-                                        <li><a href="portfolio-single-full-gallery-left.html"><div>Full Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-sidebar-gallery.html"><div>Sidebar Layout</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="portfolio-single-video.html"><div>Portfolio Single - Video</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="portfolio-single-video.html"><div>Half Layout</div></a></li>
-                                        <li><a href="portfolio-single-video-left.html"><div>Half Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-full-video.html"><div>Full Layout</div></a></li>
-                                        <li><a href="portfolio-single-full-video-left.html"><div>Full Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-sidebar-video.html"><div>Sidebar Layout</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                            
-                            </ul>
-                        
+                          
                         </li>
-                        <li><a href="#"><div>Pages</div><span>Inbuilt Templates</span></a>
-                        
-                            <ul>
-                            
-                                <li><a href="about.html"><div>About Us</div></a></li>
-                                <li><a href="services.html"><div>Services</div></a></li>
-                                <li><a href="side-navigation.html"><div>Side Navigation</div></a></li>
-                                <li><a href="#"><div>Page Styles</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="columns.html"><div>Full Width</div></a></li>
-                                        <li><a href="blog.html"><div>Right Sidebar</div></a></li>
-                                        <li><a href="left-sidebar.html"><div>Left Sidebar</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="team.html"><div>Team Members</div></a></li>
-                                <li><a href="faqs.html"><div>FAQs</div></a></li>
-                                <li><a href="buttons.html"><div>Shortcodes</div></a></li>
-                                <li><a href="comingsoon.html"><div>Under Construction</div></a></li>
-                                <li><a href="landing-1.html"><div>Landing Page</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="landing-1.html"><div>Layout 1</div></a></li>
-                                        <li><a href="landing-2.html"><div>Layout 2</div></a></li>
-                                        <li><a href="landing-3.html"><div>Layout 3</div></a></li>
-                                        <li><a href="landing-4.html"><div>Layout 4</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="contact.html"><div>Contact Page</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="contact.html"><div>Layout 1</div></a></li>
-                                        <li><a href="contact-left.html"><div>Layout 2</div></a></li>
-                                        <li><a href="contact-right.html"><div>Layout 3</div></a></li>
-                                        <li><a href="contact-sidebar.html"><div>Layout 4</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="pricing-1.html"><div>Pricing Tables</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="pricing-1.html"><div>Style 1</div></a></li>
-                                        <li><a href="pricing-2.html"><div>Style 2</div></a></li>
-                                        <li><a href="pricing-3.html"><div>Style 3</div></a></li>
-                                        <li><a href="pricing-4.html"><div>Style 4</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="sitemap.html"><div>Sitemap</div></a></li>
-                                <li><a href="404.html"><div>Error 404</div></a></li>
-                            
-                            </ul>
-                        
-                        </li>
+                       
                         <li><a href="<?php echo base_url(); ?>register"><div>Register</div><span>Latest News</span></a></li>
                         <li><a href="<?php echo base_url(); ?>login"><div>Login</div><span>Latest News</span></a></li>
 
@@ -452,60 +319,7 @@
                             </ul>
     
                         </li>
-                        <li><a href="portfolio-4.html"><div>Portfolio</div><span>Our Awesome Works</span></a>
-                        
-                            <ul>
-                            
-                                <li><a href="portfolio-2.html"><div>2 Columns</div></a></li>
-                                <li><a href="portfolio-2-sidebar.html"><div>2 Columns w/Sidebar</div></a></li>
-                                <li><a href="portfolio-3.html"><div>3 Columns</div></a></li>
-                                <li><a href="portfolio-3-sidebar.html"><div>3 Columns w/Sidebar</div></a></li>
-                                <li><a href="portfolio-4.html"><div>4 Columns</div></a></li>
-                                <li><a href="portfolio-4-sidebar.html"><div>4 Columns w/Sidebar</div></a></li>
-                                <li><a href="portfolio-5.html"><div>5 Columns</div></a></li>
-                                <li><a href="portfolio-single.html"><div>Portfolio Single - Image</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="portfolio-single.html"><div>Half Layout</div></a></li>
-                                        <li><a href="portfolio-single-left.html"><div>Half Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-full.html"><div>Full Layout</div></a></li>
-                                        <li><a href="portfolio-single-full-left.html"><div>Full Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-sidebar.html"><div>Sidebar Layout</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="portfolio-single-gallery.html"><div>Portfolio Single - Gallery</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="portfolio-single-gallery.html"><div>Half Layout</div></a></li>
-                                        <li><a href="portfolio-single-gallery-left.html"><div>Half Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-full-gallery.html"><div>Full Layout</div></a></li>
-                                        <li><a href="portfolio-single-full-gallery-left.html"><div>Full Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-sidebar-gallery.html"><div>Sidebar Layout</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="portfolio-single-video.html"><div>Portfolio Single - Video</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="portfolio-single-video.html"><div>Half Layout</div></a></li>
-                                        <li><a href="portfolio-single-video-left.html"><div>Half Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-full-video.html"><div>Full Layout</div></a></li>
-                                        <li><a href="portfolio-single-full-video-left.html"><div>Full Layout - Left</div></a></li>
-                                        <li><a href="portfolio-single-sidebar-video.html"><div>Sidebar Layout</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                            
-                            </ul>
-                        
-                        </li>
+                       
                        
                         <li><a href="<?php echo base_url();?>register"><div>register</div><span>Latest News</span></a>
                         
