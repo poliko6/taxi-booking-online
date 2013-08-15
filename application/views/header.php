@@ -525,7 +525,15 @@
                         <li><a href="<?php echo base_url();?>register"><div>register</div><span>Latest News</span></a>
                         
                         </li>
-                       <li><a href="<?php echo base_url(); ?>login"><div>Login</div><span>Get in Touch</span></a></li>
+                        <?php
+                        	if($this->session->userdata('usertype')=='4')
+								echo '<li><a href="'.base_url().'logout"><div>Logout</div><span>Get in Touch</span></a></li>';
+							else 
+							{
+								echo   '<li><a href="'.base_url().'login"><div>Login</div><span>Get in Touch</span></a></li>';
+							}
+                        ?>
+                       <!-- <li><a href="<?php echo base_url(); ?>login"><div>Login</div><span>Get in Touch</span></a></li>-->
                     
                     </ul>
                 

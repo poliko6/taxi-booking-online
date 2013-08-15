@@ -1,8 +1,5 @@
 <script>
 	$(document).ready(function(){
-		$('#getstreet').change(function(){
-			$('#street').load('register/getstreet',{suburb_id:$(this).val()});
-		});
 		$("span[id]").css("color","red");
 });
 </script>
@@ -19,7 +16,7 @@
 		var pnumber=document.frm_register.txt_Pnumber.value;
 		var mnumber=document.frm_register.txt_Mnumber.value;
 		var unit=document.frm_register.txt_Unit.value;
-		var snumber=document.frm_register.txt_Snumber.value;		
+		var address=document.frm_register.txt_Address.value;		
 		if(username=="" ||username==null)
 		{
 			 document.getElementById('error_Username').innerHTML=' Username not empty!!!';
@@ -90,12 +87,12 @@
 			 return false;
 		}
 		else  document.getElementById('error_Unit').innerHTML='';
-		if(snumber=="" ||snumber==null)
+		if(address=="" ||address==null)
 		{
-			 document.getElementById('error_Snumber').innerHTML=' Street number not empty!!!';
+			 document.getElementById('error_Address').innerHTML=' Address not empty!!!';
 			 return false;	
 		}
-		else  document.getElementById('error_Snumber').innerHTML='';
+		else  document.getElementById('error_Address').innerHTML='';
 	}
 </script> 
 
@@ -132,12 +129,7 @@
 		'Ms'=>"Ms",
 		'Mrs'=>"Mrs",
 		'Dr'=>"Dr",
-		);
-		$getstreet="id='getstreet'";
-		$listsuburb=array();
-		foreach ($suburb as $row) {
-			$listsuburb[$row->id]=$row->name;
-		}	
+		);		
 		$form='name="frm_register"';
 		$submit='onclick="return checkform()"';
 		echo form_open('register/signup',$form).'<br>';
@@ -153,10 +145,8 @@
 		echo form_label('Phone Number').form_input("txt_Pnumber").'<span id="error_Pnumber"></span>'.'<br>';
 		echo form_label('Mobile Number').form_input("txt_Mnumber").'<span id="error_Mnumber"></span>'.'<br>';
 		echo form_label('Your Address Details').'<br>';
-		echo form_label('Suburb').form_dropdown('ddl_Suburb',$listsuburb,FALSE,$getstreet).'<br>';
+		echo form_label('Address').form_input("txt_Address").'<span id="error_Address"></span>'.'<br>';
 		echo form_label('Unit or Flat').form_input("txt_Unit").'<span id="error_Unit"></span>'.'<br>';
-		echo form_label('Street Number').form_input("txt_Snumber").'<span id="error_Snumber"></span>'.'<br>';
-		echo '<div id="street">suburb<select name="ddl_Street"><option>Select Suburb First</option></select></div>';
 		echo form_fieldset_close(); 
 		echo form_submit('btnOK','Register',$submit);
 		echo form_close('');

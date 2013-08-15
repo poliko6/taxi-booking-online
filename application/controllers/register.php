@@ -12,16 +12,9 @@ class Register extends CI_Controller {
     }
 	public function index()
 	{
-		$data['suburb']=$this->register_model->getsuburb();
 		$this->load->view('header');
-		$this->load->view('register_view',$data);
+		$this->load->view('register_view');
 		$this->load->view('footer');	
-	}
-	public function getstreet()
-	{
-		$suburb_id=$this->input->post('suburb_id');
-		$data['streets']=$this->register_model->getstreet($suburb_id);
-		$this->load->view('liststreet',$data);
 	}
 	public function signup()
 	{
@@ -42,10 +35,8 @@ class Register extends CI_Controller {
 			"username"=>$this->input->post("txt_Username"),
 			"password"=>md5($this->input->post("txt_PW")),
 			"email"=>$email,
-			"suburb"=>$this->input->post("ddl_Suburb"),
 			"unit_or_flat"=>$this->input->post("txt_Unit"),
-			"street_number"=>$this->input->post("txt_Snumber"),
-			"street"=>$this->input->post("ddl_Street"),
+			"address"=>$this->input->post("txt_Address"),
 			"phone"=>$this->input->post("txt_Pnumber"),
 			"mobile"=>$this->input->post("txt_Mnumber"),
 			"usertype"=>"4",
@@ -56,7 +47,7 @@ class Register extends CI_Controller {
 		if($lastcount>$precount)
 		{
 			echo 'register success!!!';	
-			echo '<meta http-equiv="refresh" content="2;'.base_url().'register" />';
+			echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
 		}
 		else
 		{

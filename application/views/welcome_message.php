@@ -25,6 +25,12 @@
                     Page Content Start
                 ============================================= -->                  	 
 			<h1>Welcome to bookingtaxi</h1>
+			<?php
+			if(isset($_SESSION['usertype']))
+			{
+				echo $this->session->userdata('usertype');
+			} 
+			?>
                 <!-- ============================================
                     Page Content End
                 ============================================= -->
