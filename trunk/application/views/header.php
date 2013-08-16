@@ -71,8 +71,8 @@
                 <div class="sticky-menu-wrap">
                 
                     <ul>
-                    
-                        <li><a href="<?php echo base_url();?>"><div>Booking</div><span>Let's Start here</span></a>
+                    	<li><a href="<?php echo base_url();?>"><div>Home</div><span>Get in Touch</span></a></li>
+                        <li><a href="<?php echo base_url();?>bookingtaxi"><div>Booking</div><span>Let's Start here</span></a>
     
                             <ul>
                             
@@ -128,17 +128,20 @@
                                 </li>
                             
                             </ul>
-    
-                        </li>
-                       
-                        <li><a href="portfolio-4.html"><div>Portfolio</div><span>Our Awesome Works</span></a>
-                        
-                          
-                        </li>
-                       
-                        <li><a href="<?php echo base_url(); ?>register"><div>Register</div><span>Latest News</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>login"><div>Login</div><span>Latest News</span></a></li>
-
+                         </li>                       
+                        <?php 
+                        if($this->session->userdata('usertype')=='4')
+							{
+								echo '<li><a href="'.base_url().'history_booking"><div>booking history</div><span>Get in Touch</span></a></li>';	
+								echo '<li><a href="'.base_url().'update"><div>update</div><span>Get in Touch</span></a></li>';
+								echo '<li><a href="'.base_url().'logout"><div>Logout</div><span>Get in Touch</span></a></li>';
+							}
+							else 
+							{
+								echo '<li><a href="'.base_url().'register"><div>Register</div><span>Latest News</span></a></li>';
+								echo '<li><a href="'.base_url().'login"><div>Login</div><span>Get in Touch</span></a></li>';
+							}
+							?>
                     
                     </ul>
                 
@@ -290,51 +293,26 @@
                             
                             </ul>
     
-                        </li>
-                        <li><a href="#"><div>Features</div><span>Out of the Box</span></a>
-    
-                            <ul>
-                            
-                                <li><a href="#"><div><i class="icon-tablet"></i> Responsive Design</div></a></li>
-                                <li><a href="#"><div><i class="icon-eye-open"></i> Retina Ready</div></a></li>
-                                <li><a href="#"><div><i class="icon-picture"></i> Layer Slider</div></a></li>
-                                <li><a href="#"><div><i class="icon-gift"></i> Revolution Slider</div></a></li>
-                                <li><a href="#"><div><i class="icon-camera"></i> Custom Backgrounds</div></a></li>
-                                <li><a href="#"><div><i class="icon-lightbulb"></i> Custom Widgets</div></a></li>
-                                <li><a href="#"><div><i class="icon-calendar"></i> Coming Soon Page</div></a></li>
-                                <li><a href="#"><div><i class="icon-plane"></i> Landing Page</div></a></li>
-                                <li><a href="#"><div><i class="icon-tint"></i> Unlimited Colors</div></a></li>
-                                <li><a href="#"><div><i class="icon-list-alt"></i> Unlimited Sidebars</div></a></li>
-                                <li><a href="#"><div><i class="icon-heart"></i> Unlimited Patterns</div></a></li>
-                                <li><a href="#"><div><i class="icon-columns"></i> Boxed &amp; Wide Layout</div></a></li>
-                                <li><a href="#"><div><i class="icon-hand-right"></i> Dark &amp; Light Footer</div></a></li>
-                                <li><a href="#"><div><i class="icon-pencil"></i> Google Fonts</div></a></li>
-                                <li><a href="#"><div><i class="icon-file-alt"></i> PSD Files Included</div></a></li>
-                                <li><a href="#"><div><i class="icon-thumbs-up"></i> Bootstrap Compatible</div></a></li>
-                                <li><a href="#"><div><i class="icon-time"></i> Dedicated Support</div></a></li>
-                                <li><a href="#"><div><i class="icon-info-sign"></i> Extended Docs</div></a></li>
-                                <li><a href="#"><div><i class="icon-star"></i> Clean &amp; Valid Code</div></a></li>
-                            
-                            </ul>
-    
-                        </li>
-                       
-                       
-                        <li><a href="<?php echo base_url();?>register"><div>register</div><span>Latest News</span></a>
+                        </li>                        
                         
-                        </li>
+                        
                         <?php
                         	if($this->session->userdata('usertype')=='4')
 							{
+								echo '<li><a href="'.base_url().'history_booking"><div>booking history</div><span>Get in Touch</span></a></li>';	
+								echo '<li><a href="'.base_url().'update"><div>update</div><span>Get in Touch</span></a></li>';
 								echo '<li><a href="'.base_url().'logout"><div>Logout</div><span>Get in Touch</span></a></li>';
-								echo '<li><a href="'.base_url().'history_booking"><div>booking history</div><span>Get in Touch</span></a></li>';
 							}
 							else 
 							{
+<<<<<<< .mine
+								echo '<li><a href="'.base_url().'register"><div>Register</div><span>Latest News</span></a></li>';
+								echo '<li><a href="'.base_url().'login"><div>Login</div><span>Get in Touch</span></a></li>';
+=======
 								echo   '<li><a href="'.base_url().'login"><div>Login</div><span>Get in Touch</span></a></li>';
+>>>>>>> .r128
 							}
                         ?>
-                       <!-- <li><a href="<?php echo base_url(); ?>login"><div>Login</div><span>Get in Touch</span></a></li>-->
                     
                     </ul>
                 
