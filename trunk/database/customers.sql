@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 15, 2013 at 04:16 AM
+-- Generation Time: Aug 16, 2013 at 02:15 PM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -48,8 +48,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 INSERT INTO `customers` (`customer_id`, `title`, `fullname`, `username`, `password`, `email`, `address`, `unit_or_flat`, `phone`, `mobile`, `usertype`) VALUES
 (2, 'Ms', 'hai do', 'lifog', 'd41d8cd98f00b204e9800998ecf8427e', 'lifog@gmail.com', '', 'unit', '123456', '123456789', 4),
-(3, 'null', 'hai do', 'asdasd', 'e10adc3949ba59abbe56e057f20f883e', 'lifog@gmail.com', '', 'unit', '123456', '123456789', 4),
-(4, 'Mrs', 'hai do', 'lifog1', 'e10adc3949ba59abbe56e057f20f883e', 'lifog721989@gmail.com', 'phuong 13 quan go vap tp ho chi minh', 'unit', '0123456789', '01201201201', 4);
+(4, 'Mr', 'hai do', 'lifog1', 'e10adc3949ba59abbe56e057f20f883e', 'lifog721989@gmail.com', 'phuong 13 quan go vap tp ho chi minh', 'flat', '0123456789', '01201201201', 4);
 
 --
 -- Constraints for dumped tables
