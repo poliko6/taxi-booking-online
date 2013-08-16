@@ -14,6 +14,7 @@ class History_booking extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('history_booking_view',$data);
         $this->load->view('footer');
+		
 	}	
 }
 
