@@ -817,8 +817,9 @@ form small {
 top:51%;
 left:30%;
 width:70% ; height:120px;
+
 }
-#header #primary-menu{margin-left:10% ; height:120px; }
+#header #primary-menu{margin-left:35% ; height:120px; }
 .rs-menu,
 .select-menu { display: none; }
 
@@ -1725,7 +1726,7 @@ left:35%;
 #submitbooking{background: url(../images/BOOKING_TAXI_CUT/Bn_Book_Now.png) ; width:259px ; height:79px} 
 #submitfeedback{background:url(../images/BOOKING_TAXI_CUT/bn_sendMail.png) ; width:94px; height:29px;}
 #sideb{ position:absolute;
-top:-10% ;
+top:-11% ;
 left:82%;
 }
 #distantimg{
