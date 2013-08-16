@@ -301,16 +301,12 @@
 							{
 								echo '<li><a href="'.base_url().'history_booking"><div>booking history</div><span>Get in Touch</span></a></li>';	
 								echo '<li><a href="'.base_url().'update"><div>update</div><span>Get in Touch</span></a></li>';
-								echo '<li><a href="'.base_url().'logout"><div>Logout</div><span>Get in Touch</span></a></li>';
+								echo '<li><a href="'.base_url().'logout"><div>Logout</div><span>Hello '.$this->session->userdata('fullname').'</span></a></li>';
 							}
 							else 
 							{
-<<<<<<< .mine
 								echo '<li><a href="'.base_url().'register"><div>Register</div><span>Latest News</span></a></li>';
 								echo '<li><a href="'.base_url().'login"><div>Login</div><span>Get in Touch</span></a></li>';
-=======
-								echo   '<li><a href="'.base_url().'login"><div>Login</div><span>Get in Touch</span></a></li>';
->>>>>>> .r128
 							}
                         ?>
                     
