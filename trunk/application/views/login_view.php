@@ -47,7 +47,7 @@ $this->session->sess_destroy();
                 <!-- ============================================
                     Page Content Start
                 ============================================= -->
-<div id="register" >
+<div id="login" >
 <h2 style="font:bold">Login</h2>
 	<?php		
 		$submitid=array(
@@ -64,7 +64,7 @@ $this->session->sess_destroy();
 		echo '<tr><td>'.form_label('Username').'</td><td>'.form_input('txt_UN').'</td></tr>';
 		echo '<tr><td>'.form_label('Password').'</td><td>'.form_password('txt_PW').'</td></tr>';
 		echo '<tr><td colspan="2">Remember  '.form_checkbox('chk_Remember','1',FALSE).'</td></tr>';
-		echo '<tr><center><td colspan="2" align="center">'.form_submit($submitid,'',$submit).'</td></center></tr>';
+		echo '<tr><center><td colspan="2" align="center">'.form_submit($submitid,'Login',$submit).'</td></center></tr>';
 		echo form_close('');
 		echo '</table>';
 	?>                   	 
