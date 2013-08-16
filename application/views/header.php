@@ -133,8 +133,9 @@
                         if($this->session->userdata('usertype')=='4')
 							{
 								echo '<li><a href="'.base_url().'history_booking"><div>booking history</div><span>Get in Touch</span></a></li>';	
-								echo '<li><a href="'.base_url().'update"><div>update</div><span>Get in Touch</span></a></li>';
-								echo '<li><a href="'.base_url().'logout"><div>Logout</div><span>Get in Touch</span></a></li>';
+								echo '<li><a href="'.base_url().'update"><div>update info</div></a></li>';
+								echo '<li><a href="'.base_url().'change_pw"><div>change password</div></a></li>';
+								echo '<li><a href="'.base_url().'logout"><div>Logout</div></a></li>';
 							}
 							else 
 							{
