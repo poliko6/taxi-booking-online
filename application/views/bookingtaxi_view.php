@@ -372,7 +372,7 @@ $('span[id]').css("color","red");
             ============================================= -->
            
             <div id="page-title">
-               <img src="images/BOOKING_TAXI_CUT/bg_search.jpg" id="distantimg"  />
+             
             </div>
             <div class="content-wrap">
                 <div class="container clearfix">

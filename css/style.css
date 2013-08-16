@@ -1718,14 +1718,14 @@ html[xmlns] .slider-wrap {display: block;}
 .leng{color:#000; font:bold;
 font-family:Georgia,'Times New Roman', Times, serif}
 #sidea{position:absolute;
-top:-13%;
+top:-10%;
 left:35%;
 }
 #contentleft input{background-color: #F7F7F7}
 #submitbooking{background: url(../images/BOOKING_TAXI_CUT/Bn_Book_Now.png) ; width:259px ; height:79px} 
 #submitfeedback{background:url(../images/BOOKING_TAXI_CUT/bn_sendMail.png) ; width:94px; height:29px;}
 #sideb{ position:absolute;
-top:-13% ;
+top:-10% ;
 left:82%;
 }
 #distantimg{
@@ -1748,13 +1748,15 @@ left:82%;
 }
 #page-title{ position:absolute;
 padding-top:0px;
- top:-140px;
+ top:-111px;
  left:30%;
- height:60px;
+ height:50px;
  width:70%;
  padding-bottom:5px;
+ 
 }
 
+.stretched #logo2{position:relative; width:100% }
 
 #page-title h1 {
     font-size: 24px;
