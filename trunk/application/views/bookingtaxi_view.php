@@ -22,7 +22,7 @@ var directionsService = new google.maps.DirectionsService();
 var map;
 var markers = [];
 var s=0;
-var site= prompt('your country:','vietname');
+var site= prompt('your country:','vietnam');
 var pos;
 var mapOptions;
 function initialize() {
@@ -34,8 +34,8 @@ function initialize() {
 	directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 	
    mapOptions = {
-    	zoom: 8,
     	center: new google.maps.LatLng(10.8230723, 106.73155680000002),
+    	zoom: 8,    	
     	mapTypeId: google.maps.MapTypeId.ROADMAP
   	}; 
   	
@@ -265,6 +265,10 @@ function handleNoGeolocation(errorFlag) {
 
 }
 
+function changvalue()
+{
+	document.getElementById("distancetext").value=document.getElementById("distance").value;
+}
 google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
@@ -372,7 +376,7 @@ $('span[id]').css("color","red");
             ============================================= -->
            
             <div id="page-title">
-             
+             <p id="distancetext"></p>
             </div>
             <div class="content-wrap">
                 <div class="container clearfix">
@@ -445,7 +449,7 @@ $('span[id]').css("color","red");
 		'id'=>'distance',
 		'readonly'=>'readonly',
 		);
-		
+		$distance_event='onChange="changvalue()"';
 		$node=array(
 		'No Notes'=>'No Notes',
 		'Waiting Out Front'=>'Waiting Out Front',
@@ -500,7 +504,7 @@ $('span[id]').css("color","red");
 		
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
 		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'<span id="error_End_Address"></span>'.'</td></tr>';
-		echo '<tr><td>Distance (km)</td><td>'.form_input($distance).'<span id="error_Distance"></span>'.'</td></tr>';
+		echo '<tr><td>Distance (km)</td><td>'.form_input($distance,'',$distance_event).'<span id="error_Distance"></span>'.'</td></tr>';
 		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment&nbsp;&nbsp;&nbsp;'.form_radio($paypal_payment).'Paypal Payment'.'</td></tr>';
 		
 		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Order Details</legend><table width="100%">';

@@ -14,10 +14,7 @@ class Update extends CI_Controller {
 		$data['query']=$this->update_model->customer_info($customer_id);
 		$this->load->view('header');
 		$this->load->view('update_view',$data);
-		$this->load->model('bookingtaxi_model');
-		$data['query']=$this->bookingtaxi_model->infocompany();		
-		
-		$this->load->view('footer',$data);	
+		$this->load->view('footer');	
 	}	
 	public function update_customer()
 	{
