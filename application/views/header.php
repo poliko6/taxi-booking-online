@@ -212,10 +212,9 @@
         <!-- ============================================
             Header
         ============================================= -->
-         <div id="logo2">
+         <div id="logo2" style="position:relative">
             <img src="images/BOOKING_TAXI_CUT/bg_banner.jpg"  width="100%" >
-            </div>
-        <div id="header">
+          <div id="header">
         
             
             <div class="container clearfix">
@@ -347,3 +346,5 @@
     
        
         </div>
+         </div>
+      

@@ -767,7 +767,6 @@ form small {
 -----------------------------------------------------------------*/
 
 
-#header { position: relative;  width:70% ; height:120px;}
 
 
 /* ----------------------------------------------------------------
@@ -815,8 +814,9 @@ form small {
     height: 120px;
 }
 #header  { position:absolute;
-top:280px;
+top:51%;
 left:30%;
+width:70% ; height:120px;
 }
 #header #primary-menu{margin-left:10% ; height:120px; }
 .rs-menu,
@@ -1695,7 +1695,7 @@ html[xmlns] .slider-wrap {display: block;}
 -----------------------------------------------------------------*/
 
 
-#content {  background:url(../images/BOOKING_TAXI_CUT/bg_HEAD.jpg); width:100%  ;}
+#content {  background:url(../images/BOOKING_TAXI_CUT/bg_HEAD.jpg); width:100%  ; position:relative}
 
 .content-wrap { 
    width:100%;
@@ -1718,14 +1718,14 @@ html[xmlns] .slider-wrap {display: block;}
 .leng{color:#000; font:bold;
 font-family:Georgia,'Times New Roman', Times, serif}
 #sidea{position:absolute;
-top:430px;
+top:-13%;
 left:35%;
 }
 #contentleft input{background-color: #F7F7F7}
 #submitbooking{background: url(../images/BOOKING_TAXI_CUT/Bn_Book_Now.png) ; width:259px ; height:79px} 
 #submitfeedback{background:url(../images/BOOKING_TAXI_CUT/bn_sendMail.png) ; width:94px; height:29px;}
 #sideb{ position:absolute;
-top:430px ;
+top:-13% ;
 left:82%;
 }
 #distantimg{
@@ -1748,7 +1748,7 @@ left:82%;
 }
 #page-title{ position:absolute;
 padding-top:0px;
- top:400px;
+ top:-140px;
  left:30%;
  height:60px;
  width:70%;
@@ -2012,8 +2012,18 @@ ul.landing-features li:hover { font-weight: bold; }
 #register
 {
 	width:800px;
-	background-color:#CCC;
+	background:url(../images/BOOKING_TAXI_CUT/bg_login.png) no-repeat;
+	margin:0 auto;
+    font-family: "Open Sans", sans-serif;
+	width:710px;
+	height:548px;
+	padding-top:150px;
+	padding-left:200px	;
+	padding-right:inherit;
 }
+#register input{background-color: #F7F7F7}
+
+#submitlogin{background:url(../images/BOOKING_TAXI_CUT/bn_login.png); width:228px; height:60px}
 #feedback
 {
 	width:800px;
@@ -5479,8 +5489,8 @@ a.twitter-follow-me:hover,
     Stretched Layout
 -----------------------------------------------------------------*/
 
-
-.stretched #wrapper{
+.stretched{position:relative;}
+.stretched #wrapper{ 
     margin: 0 auto;
     width: 100%;
 }
