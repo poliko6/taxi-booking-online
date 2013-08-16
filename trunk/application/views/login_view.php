@@ -42,11 +42,7 @@ $this->session->sess_destroy();
             
             </div>
         
-            
-            <div class="content-wrap">
-            
-            
-                <div class="container clearfix">
+         
                 
                 <!-- ============================================
                     Page Content Start
@@ -68,7 +64,7 @@ $this->session->sess_destroy();
 		echo '<tr><td>'.form_label('Username').'</td><td>'.form_input('txt_UN').'</td></tr>';
 		echo '<tr><td>'.form_label('Password').'</td><td>'.form_password('txt_PW').'</td></tr>';
 		echo '<tr><td colspan="2">Remember  '.form_checkbox('chk_Remember','1',FALSE).'</td></tr>';
-		echo '<tr><center><td colspan="2" align="center">'.form_submit($submitid,'Submit',$submit).'</td></center></tr>';
+		echo '<tr><center><td colspan="2" align="center">'.form_submit($submitid,'',$submit).'</td></center></tr>';
 		echo form_close('');
 		echo '</table>';
 	?>                   	 
@@ -76,10 +72,7 @@ $this->session->sess_destroy();
                 <!-- ============================================
                     Page Content End
                 ============================================= -->
-                </div>
             
-            
-            </div>
         
         
         </div>
