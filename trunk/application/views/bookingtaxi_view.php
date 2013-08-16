@@ -533,7 +533,7 @@ $('span[id]').css("color","red");
 		<div id="mapside"><div id="map-canvas" ></div>		
 			<center><div id=" panel" >    
       	
-               <img  src="images/BOOKING_TAXI_CUT/Bn_Delete_Oerlay.png" onclick="deleteOverlays()" width="100%" />
+               <img  src="images/BOOKING_TAXI_CUT/Bn_Delete_Oerlay.png" onclick="deleteOverlays()"  />
   			</div>	</center>
 		</div>
             

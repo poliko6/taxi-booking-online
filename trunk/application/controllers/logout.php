@@ -11,7 +11,10 @@ class Logout extends CI_Controller {
 		$this->session->sess_destroy();
 		$this->load->view('header');
 		$this->load->view('welcome_message');
-		$this->load->view('footer');		
+		 $this->load->model('bookingtaxi_model');
+		$data['query']=$this->bookingtaxi_model->infocompany();		
+		
+		$this->load->view('footer',$data);	
 	}
 }
 

@@ -15,7 +15,10 @@ class Login extends CI_Controller {
 	{
 			$this->load->view('header');
 			$this->load->view('login_view');
-			$this->load->view('footer');		
+		 $this->load->model('bookingtaxi_model');
+		$data['query']=$this->bookingtaxi_model->infocompany();		
+		
+		$this->load->view('footer',$data);	
 	}
 	function check_user()
 	{

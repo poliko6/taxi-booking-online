@@ -1705,7 +1705,7 @@ html[xmlns] .slider-wrap {display: block;}
   
 .content-wrap .container {width:100% }
 #content #mapside{background:url(../images/BOOKING_TAXI_CUT/bg_Map.png) no-repeat ; width:710px ; height:750px; float:left ; margin-left:5px ; padding-top:30px; padding-bottom:30px; position: relative}
-#contentleft{ background:url(../images/BOOKING_TAXI_CUT/bg_formDangKi.png) no-repeat ; float:left; width:600px; padding:20px 20px 40px 20px ;  margin-left:2%; }
+#contentleft{ background:url(../images/BOOKING_TAXI_CUT/bg_formDangKi.png); height:930px  ; float:left; width:600px; padding:20px 20px 40px 20px ;  margin-left:2%;  }
 #mapside #map-canvas {
         height: 650px;
         width: 90%;
