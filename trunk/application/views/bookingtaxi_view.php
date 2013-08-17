@@ -4,12 +4,7 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <style>
- 
-     
-
-
-        
+    <style>      
       
     </style>
      
@@ -203,6 +198,7 @@ function addMarker(location) {
     	
   		
     calcRoute();
+   
   }
  function changstart()
   {
@@ -243,7 +239,7 @@ function calcRoute() {
     	alert("Error: address not be empty ");
     }
   });
-
+  $("#distancetext").text(document.getElementById("distance").value);
 }
 
 
@@ -265,10 +261,7 @@ function handleNoGeolocation(errorFlag) {
 
 }
 
-function changvalue()
-{
-	document.getElementById("distancetext").value=document.getElementById("distance").value;
-}
+
 google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
@@ -376,7 +369,7 @@ $('span[id]').css("color","red");
             ============================================= -->
            
             <div id="page-title">
-             <p id="distancetext"></p>
+             <p id="distancetext"  style="margin-left: 40%; font-size: 12; color: red">hai bang</p>
             </div>
             <div class="content-wrap">
                 <div class="container clearfix">
