@@ -1,18 +1,11 @@
 <?php
 $this->session->sess_destroy(); 
 ?>
-<script>
-	$(document).ready(function(){
-		$('#getstreet').change(function(){
-			$('#street').load('register/getstreet',{suburb_id:$(this).val()});
-		});
-});
-</script>
 <script type="text/javascript">
 	function checkform()
 	{		
-		var username=document.frm_register.txt_UN.value;
-		var password=document.frm_register.txt_PW.value;		
+		var username=document.frm_login.txt_UN.value;
+		var password=document.frm_login.txt_PW.value;		
 		if(username=="" ||username==null)
 		{
 			 alert('Username not empty!!!');
@@ -55,7 +48,7 @@ $this->session->sess_destroy();
 					  'name'=>'btnLogin',
 					  );
 		$form=array(
-		'name'=>'frm_register',
+		'name'=>'frm_login',
 		);		
 		$submit='onclick="return checkform()"';
 		if(isset($_SESSION['user'])) echo $_SESSION['user'];
