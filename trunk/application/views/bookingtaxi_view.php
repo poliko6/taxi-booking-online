@@ -368,11 +368,11 @@ $('span[id]').css("color","red");
                 Page Title
             ============================================= -->
            
-            <div id="page-title">
-             <p id="distancetext"  style="margin-left: 40%; font-size: 12; color: red">hai bang</p>
+            <div id="page-title" >
+             <p id="distancetext"  style="margin-left: 40%; font-size:36px; color:#F00; font: 'Courier New', Courier, monospace">hai bang</p>
             </div>
-            <div class="content-wrap">
-                <div class="container clearfix">
+            <div class="content-wrap" >
+                <div class="container clearfix" >
                 
                 <!-- ============================================
                     Page Content Start
@@ -537,12 +537,13 @@ $('span[id]').css("color","red");
                 <!-- ============================================
                     Page Content End
                 ============================================= -->
+                   <img src="images/BOOKING_TAXI_CUT/Ico_Search_A.png" width="200px" id="sidea" />
+				<img src="images/BOOKING_TAXI_CUT/Ico_Search_B.png"  width="190px" id="sideb"/>
                 </div>
             	
             </div>
         
-        <img src="images/BOOKING_TAXI_CUT/Ico_Search_A.png" width="200px" id="sidea" />
-				<img src="images/BOOKING_TAXI_CUT/Ico_Search_B.png"  width="190px" id="sideb"/>
+     
         </div> 	
         
 

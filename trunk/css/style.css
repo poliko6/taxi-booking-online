@@ -341,7 +341,7 @@ img { max-width: 100%; }
 .tleft { text-align: left !important; }
 .fright { float: right !important; }
 .fleft { float: left !important; }
-#wrapper { width: 1020px; margin: 50px auto; position: relative; background-color: #FFF; box-shadow: 0 0 10px rgba(0,0,0,0.1); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1); -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+#wrapper { width: 1600px; margin: 50px auto; position: relative; background-color: #FFF; box-shadow: 0 0 10px rgba(0,0,0,0.1); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1); -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1); }
 .container { width: 960px; margin: 0 auto; position: relative; }
 .line,
 .double-line { clear: both; position: relative; width: 100%; margin: 30px 0; border-top: 1px solid #EEE;}
@@ -816,7 +816,8 @@ form small {
 #header  { position:absolute;
 top:51%;
 left:30%;
-width:70% ; height:120px;
+width:60% ; height:120px;
+
 
 }
 #header #primary-menu{margin-left:35% ; height:120px; }
@@ -1696,17 +1697,17 @@ html[xmlns] .slider-wrap {display: block;}
 -----------------------------------------------------------------*/
 
 
-#content {  background:url(../images/BOOKING_TAXI_CUT/bg_HEAD.jpg); width:100%  ; position:relative}
+#content {  background:url(../images/BOOKING_TAXI_CUT/bg_HEAD.jpg); position:relative}
 
 .content-wrap { 
-   width:100%;
    padding-top:40px;
-   position: static														 
+  		position:relative;
+	
    }
   
-.content-wrap .container {width:100% }
-#content #mapside{background:url(../images/BOOKING_TAXI_CUT/bg_Map.png) no-repeat ; width:710px ; height:750px; float:left ; margin-left:5px ; padding-top:30px; padding-bottom:30px; position: relative}
-#contentleft{ background:url(../images/BOOKING_TAXI_CUT/bg_formDangKi.png); height:930px  ; float:left; width:600px; padding:20px 20px 40px 20px ;  margin-left:2%;  }
+.content-wrap .container {width: 1580px;  position:relative;margin:0 auto; position:relative }
+#content #mapside{background:url(../images/BOOKING_TAXI_CUT/bg_Map.png) no-repeat ; width:710px ; height:750px; float:left ; margin-left:20px ; padding-top:30px; padding-bottom:30px; position: relative}
+#contentleft{ background:url(../images/BOOKING_TAXI_CUT/bg_formDangKi.png); height:930px  ; float:left; width:600px; padding:20px 20px 40px 20px ;  margin-left:5%;  }
 #mapside #map-canvas {
         height: 650px;
         width: 90%;
@@ -1719,15 +1720,15 @@ html[xmlns] .slider-wrap {display: block;}
 .leng{color:#000; font:bold;
 font-family:Georgia,'Times New Roman', Times, serif}
 #sidea{position:absolute;
-top:-10%;
-left:35%;
+top:-15%;
+left:30%;
 }
 #contentleft input{background-color: #F7F7F7}
 #submitbooking{background: url(../images/BOOKING_TAXI_CUT/Bn_Book_Now.png) ; width:259px ; height:79px} 
 #submitfeedback{background:url(../images/BOOKING_TAXI_CUT/bn_sendMail.png) ; width:94px; height:29px;}
 #sideb{ position:absolute;
-top:-11% ;
-left:82%;
+top:-16% ;
+left:75%;
 }
 #distantimg{
 	margin-bottom:5px;
@@ -1752,12 +1753,12 @@ padding-top:0px;
  top:-111px;
  left:30%;
  height:50px;
- width:70%;
+ width:50%;
  padding-bottom:5px;
  
 }
 
-.stretched #logo2{position:relative; width:100% }
+.stretched #logo2{position:relative; width:1580px; margin:0 auto }
 
 #page-title h1 {
     font-size: 24px;
@@ -4903,6 +4904,7 @@ body > iframe { display: none; }
 	background-color: #EEE;
 	padding: 40px 30px;
     border-top: 3px solid #57B3DF;
+	
 }
 
 #footer.footer-dark {
@@ -5492,7 +5494,7 @@ a.twitter-follow-me:hover,
     Stretched Layout
 -----------------------------------------------------------------*/
 
-.stretched{position:relative;}
+.stretched{position:relative; }
 .stretched #wrapper{ 
     margin: 0 auto;
     width: 100%;
@@ -5504,11 +5506,13 @@ a.twitter-follow-me:hover,
 
 .stretched #header,
 .stretched .content-wrap {
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	
+   
     -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);            
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+	
 }
-
+.stretched #content{ }
 .stretched #header.header2 #primary-menu ul,
 .stretched #header.header3 #primary-menu ul { margin: 0; }
 
@@ -5576,7 +5580,6 @@ a.twitter-follow-me:hover,
 }
 
 .stretched #page-title { padding: 30px 0; }
-
 .stretched #page-title,
 .stretched #countdown-wrap,
 .stretched #landing-area {
