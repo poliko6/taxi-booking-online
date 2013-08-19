@@ -368,17 +368,18 @@ $('span[id]').css("color","red");
                 Page Title
             ============================================= -->
            
-            <div id="page-title" >
-             <p id="distancetext"  style="margin-left: 40%; font-size:90px; color:#F00; font: Arial, Helvetica, sans-serif">120KM</p>
-            </div>
+           
             <div class="content-wrap" >
+            
                 <div class="container clearfix" >
                 
                 <!-- ============================================
                     Page Content Start
                 ============================================= -->
                 <div id="contentleft">
-                 
+                  <div id="page-title" >
+             		<p id="distancetext"  style="margin-left: 40%; font-size:90px; color:#F00; font: Arial, Helvetica, sans-serif">120KM</p>
+            	  </div>
 <?php
 		
 		$now=array(
