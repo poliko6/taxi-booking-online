@@ -1720,15 +1720,15 @@ html[xmlns] .slider-wrap {display: block;}
 .leng{color:#000; font:bold;
 font-family:Georgia,'Times New Roman', Times, serif}
 #sidea{position:absolute;
-top:-15%;
+top:-19%;
 left:30%;
 }
 #contentleft input{background-color: #F7F7F7}
 #submitbooking{background: url(../images/BOOKING_TAXI_CUT/Bn_Book_Now.png) ; width:259px ; height:79px} 
 #submitfeedback{background:url(../images/BOOKING_TAXI_CUT/bn_sendMail.png) ; width:94px; height:29px;}
 #sideb{ position:absolute;
-top:-16% ;
-left:75%;
+top:-20% ;
+left:80%;
 }
 #distantimg{
 	margin-bottom:5px;
@@ -1750,10 +1750,10 @@ left:75%;
 }
 #page-title{ position:absolute;
 padding-top:50px;
- top:-111px;
+ top:-19%;
  left:30%;
  height:50px;
- width:55%;
+ width:60%;
  padding-bottom:0;
  background:bottom url(../images/BOOKING_TAXI_CUT/bg_search.jpg)  repeat-x;
  
@@ -2014,8 +2014,8 @@ ul.landing-features li:hover { font-weight: bold; }
 /* ----------------------------------------------------------------
     Portfolio
 -----------------------------------------------------------------*/
-#register
-{
+#login
+{	
 	width:800px;
 	background:url(../images/BOOKING_TAXI_CUT/bg_login.png) no-repeat;
 	margin:0 auto;
@@ -2023,8 +2023,11 @@ ul.landing-features li:hover { font-weight: bold; }
 	width:710px;
 	height:548px;
 	padding-top:150px;
-	padding-left:200px	;
+	margin:0 auto;
 	padding-right:inherit;
+}
+#frm_login
+{margin:0 auto;
 }
 #register input{background-color: #F7F7F7}
 
