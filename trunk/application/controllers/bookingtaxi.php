@@ -82,9 +82,12 @@ class Bookingtaxi extends CI_Controller {
 					{
 						$payment['price']=floatval($this->input->post("txt_Distance"))*'1.617';
 						
-						$this->load->view('paypalonline',$payment);  	
-					
 						
+							$this->load->view('header');
+						$this->load->view('paypalonline',$payment);  	
+							
+							$this->load->view('footer');
+							
 					}
 					else {
 						echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
