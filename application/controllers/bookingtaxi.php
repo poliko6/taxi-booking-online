@@ -14,8 +14,7 @@ class Bookingtaxi extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('header');
-		$this->load->view('bookingtaxi_view');
-        $this->load->model('bookingtaxi_model');		
+		$this->load->view('bookingtaxi_view');        	
 		$this->load->view('footer');
 	}
 	public function book()
@@ -74,12 +73,23 @@ class Bookingtaxi extends CI_Controller {
 				"building_type"=>$this->input->post("rad_Building_Type"),
 				"business_name"=>$this->input->post("txt_Business_name"),
 				);
-				$this->bookingtaxi_model->booking($object);
+				$payment["id"]=$this->bookingtaxi_model->booking($object);
 				$lastcount=$this->bookingtaxi_model->count_order_temp();
 				if($lastcount>$precount)
 				{
 					echo ('booking success!!!');
-					echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
+					if($this->input->post('rad_Payment')=='paypal_payment')    
+					{
+						$payment['price']=floatval($this->input->post("txt_Distance"))*'1.617';
+						
+						$this->load->view('paypalonline',$payment);  	
+					
+						
+					}
+					else {
+						echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
+					}
+					
 				}
 				else 
 				{
@@ -89,7 +99,8 @@ class Bookingtaxi extends CI_Controller {
 				if($this->input->post("chk_Remember_Details")=='1')
 				{
 				 	$this->bookingtaxi_model->addcustomer_temp($inform);
-				}    
+				}
+				
 			} 	
 	}
 	

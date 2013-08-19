@@ -369,7 +369,7 @@ $('span[id]').css("color","red");
             ============================================= -->
            
             <div id="page-title" >
-             <p id="distancetext"  style="margin-left: 40%; font-size:36px; color:#F00; font: 'Courier New', Courier, monospace">hai bang</p>
+             <p id="distancetext"  style="margin-left: 40%; font-size:90px; color:#F00; font: Arial, Helvetica, sans-serif">120KM</p>
             </div>
             <div class="content-wrap" >
                 <div class="container clearfix" >

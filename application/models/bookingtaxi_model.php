@@ -9,7 +9,13 @@
     		}
 		function booking($object)
     		{
-    			$this->db->insert('order_temp',$object);    			
+    			$this->db->select('*');
+				$this->db->from('order_temp');
+				$this->db->limit("1");		
+				$this->db->order_by('order_id','DESC');	
+				$query=$this->db->get();
+    			$this->db->insert('order_temp',$object); 
+				return $query->result_array();  			
     		}
 		function addcustomer_temp($inform)
 		{

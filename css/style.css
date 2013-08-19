@@ -1749,12 +1749,13 @@ left:75%;
     border-bottom: 1px solid #EEE;
 }
 #page-title{ position:absolute;
-padding-top:0px;
+padding-top:50px;
  top:-111px;
  left:30%;
  height:50px;
- width:50%;
- padding-bottom:5px;
+ width:55%;
+ padding-bottom:0;
+ background:bottom url(../images/BOOKING_TAXI_CUT/bg_search.jpg)  repeat-x;
  
 }
 
