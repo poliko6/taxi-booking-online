@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<?php echo base_url('css/font-awesome.css');?>" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url('css/prettyPhoto.css');?>" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url('css/responsive.css');?>" type="text/css" />
-    <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+    <!--<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
     <!--[if lt IE 9]>

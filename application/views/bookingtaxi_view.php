@@ -4,8 +4,26 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <style>      
-      
+    <style>
+    
+
+      #map-canvas {
+        margin-right: 400px;
+		max-width:inherit;
+		height:100%
+      }
+
+
+      @media print {
+        #map-canvas {
+          height: 100%;
+		  max-width:inherit;
+        }
+
+  	 #map-canvas img{ max-width: none; !important }
+	 #map-canvas label { 
+  width: auto; display:inline; 
+} 
     </style>
      
       <script>
@@ -30,7 +48,9 @@ function initialize() {
 	
    mapOptions = {
     	center: new google.maps.LatLng(10.8230723, 106.73155680000002),
-    	zoom: 8,    	
+    	zoom: 8, 
+		zoomControl: true,
+        
     	mapTypeId: google.maps.MapTypeId.ROADMAP
   	}; 
   	
