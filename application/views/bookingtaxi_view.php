@@ -233,13 +233,14 @@ function calcRoute() {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
     $("#distance").val(response.routes[0].legs[0].distance.text);
-    directionsDisplay.setMap(map)
+    directionsDisplay.setMap(map);
+    $("#distancetext").text(document.getElementById("distance").value);
     }
     else{
     	alert("Error: address not be empty ");
     }
   });
-  $("#distancetext").text(document.getElementById("distance").value);
+  
 }
 
 
@@ -378,7 +379,7 @@ $('span[id]').css("color","red");
                 ============================================= -->
                 <div id="contentleft">
                   <div id="page-title" >
-             		<p id="distancetext"  style="margin-left: 40%; font-size:90px; color:#F00; font: Arial, Helvetica, sans-serif">120KM</p>
+             		<p id="distancetext"  style="margin-left: 40%; font-size:50px; color:#F00; font: Arial, Helvetica, sans-serif">120KM</p>
             	  </div>
 <?php
 		
@@ -460,7 +461,10 @@ $('span[id]').css("color","red");
 		'AM'=>'AM',
 		'PM'=>'PM',
 		);
-		
+		$contectnumber=array(
+		'id'=>'contectnumber',
+		'name'=>'txt_Contact_Number',
+		);
 		
 		$str = date('Ymd');
 		$tts = strtotime($str);
@@ -480,41 +484,41 @@ $('span[id]').css("color","red");
 		$submit='onclick="return checkform()"';
 		$frm='name="frm_booking"';
 		echo form_open('bookingtaxi/book',$frm);
-		echo '<table width="100%" id="left_table">'; 
-		echo '<tr><td colspan="2">'.form_label('How many passengers?').'&nbsp;&nbsp; Number of People '.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.form_radio('rad_passenger','4',TRUE).'1-4'.'&nbsp;'.form_radio('rad_passenger','5',FALSE).'more'.'</td></tr>';
+		echo '<table width="40%" id="left_table">'; 
+		echo '<tr><td colspan="2">'.form_label('How many passengers?').'Number of People: '.form_radio('rad_passenger','4',TRUE).'1-4'.form_radio('rad_passenger','5',FALSE).'more'.'</td></tr>';
 		
-		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Your Name & Contact Number</legend><table width="100%">';	
-		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'</td><td>Contact Number</td><td>'.form_input("txt_Contact_Number").'</td></tr>';
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Your Name & Contact Number</legend><table width="100%" style="padding:0px; margin:0px">';	
+		echo '<tr><td>Name</td><td>'.form_input("txt_Name").'</td><td>Contact Number</td><td >'.form_input($contectnumber).'</td></tr>';
 		echo '<tr><td></td><td><span id="error_Name"></span></td><td></td><td><span id="error_Contact_Number"></span></td></tr>';
 		echo '</table></fieldset></td></tr>';
 		
 		
-		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Your Pickup Address</legend><table width="100%">';
-		echo '<tr><td>Your Address</td><td>'.form_input($start_address,'',$start_address_event).'<span id="error_Start_Address"></span>'.'</td></tr>';
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Your Pickup Address</legend><table width="100%" style="padding:0px; margin:0px">';
+		echo '<tr><td>Your Address</td><td class="le" >'.form_input($start_address,'',$start_address_event).'<span id="error_Start_Address"></span>'.'</td></tr>';
 		echo '<tr><td>Unit or Flat</td><td>'.form_input("txt_Unit_or_Flat").'<span id="error_Unit"></span>'.'</td></tr>';
-		echo '<tr><td>Building Type</td><td>'.form_radio($unit).'Unit/House&nbsp;&nbsp;&nbsp;'.form_radio($business).'Business'.'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remember My Details:&nbsp;&nbsp;&nbsp;'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
+		echo '<tr><td>Building Type</td><td  style="padding:0; margin:0; float:left">'.form_radio($unit).'Unit/House'.form_radio($business).'Business'.'Remember My Details:'.form_checkbox('chk_Remember_Details', '1', FALSE).'</td></tr>';
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';		
 		echo '</table></fieldset></td></tr>';
 		
 		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
 		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'<span id="error_End_Address"></span>'.'</td></tr>';
 		echo '<tr><td>Distance (km)</td><td>'.form_input($distance,'',$distance_event).'<span id="error_Distance"></span>'.'</td></tr>';
-		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment&nbsp;&nbsp;&nbsp;'.form_radio($paypal_payment).'Paypal Payment'.'</td></tr>';
+		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.form_radio($paypal_payment).'Paypal Payment'.'</td></tr>';
 		
-		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Order Details</legend><table width="100%">';
-		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType&nbsp;&nbsp;&nbsp;'.form_radio($wagon).'Wagon&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No Vans Please:'.form_checkbox('chk_No_Vans', '1', FALSE).'</td></tr>';		
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Order Details</legend><table width="100%" style="padding:0px; margin:0px">';
+		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType '.form_radio($wagon).'Wagon No Vans Please:'.form_checkbox('chk_No_Vans', '1', FALSE).'</td></tr>';		
 		echo '<tr><td>Notes For Driver </td><td>'.form_dropdown('ddl_Notes',$node,'No Notes').'</td></tr>';
 		echo '</table></fieldset></td></tr>';
 		
 		
-		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Ready To Go?</legend><table width="100%">';
-		echo '<tr><td width="30%">When &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</td><td>'.form_radio($now).'Now&nbsp;&nbsp;&nbsp;&nbsp'.form_radio($later).'Later'.'</td></tr>';
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Ready To Go?</legend><table width="100%" style="padding:0px; margin:0px">';
+		echo '<tr><td width="30%">When:</td><td>'.form_radio($now).'Now '.form_radio($later).'Later'.'</td></tr>';
 		echo '<tr class="later"><td>Select Date</td><td>'.form_dropdown('ddl_Select_Date',$select_date).'</td></tr>';
 		echo '<tr class="later"><td>Time</td><td>'.form_dropdown('ddl_hours',$hours).':'.form_dropdown('ddl_minutes',$minutes).' '.form_dropdown('ddl_AM',$am).'</td></tr>';
 		echo '</table></fieldset></td></tr>';
 		
 		echo '<tr class="now"><td colspan="2" style="color: #333; font-family:Georgia, \'Times New Roman\', Times, serif;font:bold">You request will be processed immediately. The first available taxi will be sent to your pickup address. </td></tr>';
-		echo '<tr><td colspan="2"><fieldset class="fields"><table width="100%">';
+		echo '<tr><td colspan="2"><fieldset class="fields"><table width="100%" style="padding:0px; margin:0px">';
 		echo '<tr><td stype=" color:#03F"><strong>Security Code</strong></td><td>';
 		require_once('recaptchalib.php');
   		$publickey = "6LdEweMSAAAAANK_k0Gl9-OkMnHobf3Ohhp42Xid"; // you got this from the signup page
@@ -538,8 +542,8 @@ $('span[id]').css("color","red");
                 <!-- ============================================
                     Page Content End
                 ============================================= -->
-                   <img src="images/BOOKING_TAXI_CUT/Ico_Search_A.png" width="200px" id="sidea" />
-				<img src="images/BOOKING_TAXI_CUT/Ico_Search_B.png"  width="190px" id="sideb"/>
+                   <img src="images/BOOKING_TAXI_CUT/Ico_Search_A.png" width="100px" height="90px" id="sidea"  />
+				<img src="images/BOOKING_TAXI_CUT/Ico_Search_B.png"  width="100px" height="90px" id="sideb"/>
                 </div>
             	
             </div>
