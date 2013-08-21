@@ -11,7 +11,7 @@
         Stylesheets
     ============================================= -->
 	<link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Open+Sans:400,300,600,700" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url('../css/style.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_url('css/style.css');?>" type="text/css" />
     <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="<?php echo base_url('../css/retina.css');?>" />
 	<link rel="stylesheet" href="<?php echo base_url('../css/colors.php');?>" type="text/css" />
 	<link rel="stylesheet" href="<?php echo base_url('../css/tipsy.css');?>" type="text/css" />
