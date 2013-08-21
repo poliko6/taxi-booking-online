@@ -1,5 +1,4 @@
-
-<div id="footer" class="footer-dark">
+  <div id="footer" class="footer-dark">
         
             
             <div class="container clearfix">
@@ -102,35 +101,31 @@
                             
                             <script type="text/javascript">                            
                             
-                                jQuery(document).ready(function($) {
-                                
-                                    $("#quick-contact-form").validate({
-                                        messages: { 
-                                            'quick-contact-form-name': '',
-                                            'quick-contact-form-email': '',
-                                            'quick-contact-form-message': ''
-                                        },
-                                		submitHandler: function(form) {
-                                			
-                                            $(form).find('.btn').prepend('<i class="icon-spinner icon-spin"></i>').addClass('disabled').attr('disabled', 'disabled');
-                                            
-                                			$(form).ajaxSubmit({
-                                				target: '#quick-contact-form-result',
-                                                success: function() {
-                                                    $("#quick-contact-form").fadeOut(500, function(){
-                                                        $('#quick-contact-form-result').fadeIn(500);
-                                                    });
-                                                },
-                                                error: function() {
+                                $("#quick-contact-form").validate({
+                                    messages: { 
+                                        'quick-contact-form-name': '',
+                                        'quick-contact-form-email': '',
+                                        'quick-contact-form-message': ''
+                                    },
+                            		submitHandler: function(form) {
+                            			
+                                        $(form).find('.btn').prepend('<i class="icon-spinner icon-spin"></i>').addClass('disabled').attr('disabled', 'disabled');
+                                        
+                            			$(form).ajaxSubmit({
+                            				target: '#quick-contact-form-result',
+                                            success: function() {
+                                                $("#quick-contact-form").fadeOut(500, function(){
                                                     $('#quick-contact-form-result').fadeIn(500);
-                                                    $("#quick-contact-form").find('.btn').remove('<i class="icon-spinner icon-spin"></i>').removeClass('disabled').removeAttr('disabled');
-                                                }
-                                			});
-                                            
-                                		}
-                                	});
-                                
-                                });
+                                                });
+                                            },
+                                            error: function() {
+                                                $('#quick-contact-form-result').fadeIn(500);
+                                                $("#quick-contact-form").find('.btn').remove('<i class="icon-spinner icon-spin"></i>').removeClass('disabled').removeAttr('disabled');
+                                            }
+                            			});
+                                        
+                            		}
+                            	});
                              
                             </script>
                                                                                     
@@ -151,7 +146,6 @@
         
         
         <div class="clear"></div>
-        
         
         <!-- ============================================
             Copyrights
