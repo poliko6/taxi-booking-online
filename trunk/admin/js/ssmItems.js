@@ -38,22 +38,20 @@ barText="SIDE MENU"; // <IMG> tag supported. Put exact html for an image to show
 
 // ssmItems[...]=[name, link, target, colspan, endrow?] - leave 'link' and 'target' blank to make a header
 ssmItems[0]=["Menu"] //create header
-ssmItems[1]=["Listbooking", "http://localhost:8888/bookingtaxi/admin/listbooking", ""]
-ssmItems[2]=["Listorder", "http://www.dynamicdrive.com/new.htm",""]
+ssmItems[1]=["Home", "http://localhost:8888/bookingtaxi/admin/",""]
+ssmItems[2]=["Listbooking", "http://localhost:8888/bookingtaxi/admin/listbooking", ""]
 ssmItems[3]=["What's Hot", "http://www.dynamicdrive.com/hot.htm", ""]
 ssmItems[4]=["Message Forum", "http://www.codingforums.com", "_new"]
 ssmItems[5]=["Submit Script", "http://www.dynamicdrive.com/submitscript.htm", ""]
 ssmItems[6]=["Link to Us", "http://www.dynamicdrive.com/link.htm", ""]
 
-ssmItems[7]=["Bookingtaxi", "http://www.dynamicdrive.com/faqs.htm", "", 1, "no"] //create two column row
+ssmItems[7]=["FAQ", "http://www.dynamicdrive.com/faqs.htm", "", 1, "no"] //create two column row
 ssmItems[8]=["Email", "http://www.dynamicdrive.com/contact.htm", "",1]
 
 ssmItems[9]=["External Links", "", ""] //create header
 ssmItems[10]=["JavaScript Kit", "http://www.javascriptkit.com", ""]
 ssmItems[11]=["Freewarejava", "http://www.freewarejava.com", ""]
 ssmItems[12]=["Coding Forums", "http://www.codingforums.com", ""]
-
-ssmItems[13]=["24h", "http://www.24h.com.vn", ""]
 
 buildMenu();
 
