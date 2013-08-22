@@ -339,7 +339,7 @@ img { max-width: 100%; }
 .fright { float: right !important; }
 .fleft { float: left !important; }
 #wrapper { width: 1020px; margin: 50px auto; position: relative; background-color: #FFF; box-shadow: 0 0 10px rgba(0,0,0,0.1); -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1); -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-.container { width: 960px; margin: 0 auto; position: relative; }
+.container { width: 1020px; margin: 0 auto; position: relative; }
 .line,
 .double-line { clear: both; position: relative; width: 100%; margin: 30px 0; border-top: 1px solid #EEE;}
 .double-line { border-top: 3px double #E5E5E5; }
@@ -774,8 +774,9 @@ form small {
 
 #logo {
     position: relative;
-    height: 160px;
-    max-width: 100%;
+    float: left;
+    height: 170px;
+    max-width: 1020px;
     margin-right: 20px;
     font-family: 'Open Sans', sans-serif;
     font-size: 36px;
@@ -805,6 +806,7 @@ form small {
 #primary-menu,
 #lp-contacts,
 .sticky-menu-wrap {
+	margin-bottom:70px;
     position: relative;
     float: right;
     max-width: 710px;
@@ -1242,7 +1244,7 @@ form small {
 #sticky-menu .sticky-menu-wrap {
     float: right;
     max-width: none;
-    height: 60px;
+    height: 0px;
 }
 
 #sticky-menu .sticky-menu-wrap ul li { height: 60px; }
