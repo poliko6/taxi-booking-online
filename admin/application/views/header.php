@@ -55,6 +55,7 @@
         <div id="sticky-menu" class="clearfix">
         
             <div class="container clearfix">
+
             
                 <div class="sticky-logo">
                 
@@ -312,7 +313,7 @@
         
         </div>
         
-        
+                  
         <!-- ============================================
             Top Bar
         ============================================= -->
@@ -369,10 +370,7 @@
                     Logo
                 ============================================= -->
                 <div id="logo">
-                
-                    <a href="index.html" class="standard-logo"><img src="images/logo.png" alt="CoWorker" title="CoWorker" /></a>
-                    <a href="index.html" class="retina-logo"><img src="images/logo@2x.png" alt="CoWorker" title="CoWorker" width="204" height="120" /></a>
-                
+                <a href="<?php echo base_url();?>"><img src="images/BOOKING_TAXI_1024/bg_banner.jpg" width="100%" /></a>                
                 </div>
                 
                 <!-- ============================================
@@ -522,7 +520,8 @@
                             </ul>
                         
                         </li>
-                        <li class="current"><a href="#"><div>Pages</div><span>Inbuilt Templates</span></a>
+
+                        <li><a href="#"><div>Pages</div><span>Inbuilt Templates</span></a>
                         
                             <ul>
                             

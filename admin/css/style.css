@@ -774,9 +774,8 @@ form small {
 
 #logo {
     position: relative;
-    float: left;
-    height: 120px;
-    max-width: 230px;
+    height: 160px;
+    max-width: 100%;
     margin-right: 20px;
     font-family: 'Open Sans', sans-serif;
     font-size: 36px;
@@ -808,9 +807,9 @@ form small {
 .sticky-menu-wrap {
     position: relative;
     float: right;
-    max-width: 710px;
-    height: 120px;
-}
+    max-width: 680px;
+    height: 150px;
+	}
 
 .rs-menu,
 .select-menu { display: none; }
@@ -1688,11 +1687,16 @@ html[xmlns] .slider-wrap {display: block;}
 -----------------------------------------------------------------*/
 
 
-#content { position: relative; }
+#content { 
+position: relative; 
+background-image:url(../images/BOOKING_TAXI_1024/bg_HEAD.jpg);
+min-height:1000px;
+	}
 
 .content-wrap {
     position: relative;
     padding: 40px 0;
+
 }
 
 
