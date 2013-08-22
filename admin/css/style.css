@@ -807,8 +807,8 @@ form small {
 .sticky-menu-wrap {
     position: relative;
     float: right;
-    max-width: 680px;
-    height: 150px;
+    max-width: 710px;
+    height: 100px;
 	}
 
 .rs-menu,
