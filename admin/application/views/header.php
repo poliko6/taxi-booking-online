@@ -46,11 +46,11 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
 //-->
 </style>
 
-<SCRIPT SRC="<?php echo base_url('js/ssm.js');?>" language="JavaScript1.2">
+<SCRIPT SRC="<?php echo base_url('ssm.js');?>" language="JavaScript1.2">
 
 </SCRIPT>
 
-<SCRIPT SRC="<?php echo base_url('js/ssmItems.js');?>" language="JavaScript1.2"></SCRIPT>
+<SCRIPT SRC="<?php echo base_url('ssmItems.js');?>" language="JavaScript1.2"></SCRIPT>
         <title>Booking Taxi</title>
 
 
