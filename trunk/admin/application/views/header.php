@@ -375,16 +375,16 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
         ============================================= -->
         <div id="header">
         
-            
+             
             <div class="container clearfix">
             
                 <!-- ============================================
                     Logo
                 ============================================= -->
-                <div id="logo">
-                <a href="<?php echo base_url();?>"><img src="images/BOOKING_TAXI_1024/bg_banner.jpg" width="100%" /></a>                
+              
+                 <div id="logo">
+                <a href="<?php echo base_url();?>"><img src="images/BOOKING_TAXI_1024/bg_banner.jpg" width="1024px" /></a>                
                 </div>
-                
                 <!-- ============================================
                     Menu
                 ============================================= -->
