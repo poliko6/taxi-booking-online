@@ -38,7 +38,7 @@ class Listbooking_detail extends CI_Controller {
 				$data['query']=$this->listbooking_model->get_detail_booking($id);
 				$this->load->view('header');
 				$this->load->view('listbooking_detail_view',$data);
-				$this->load->view('footer');	
+				$this->load->view('footer');						
 			}
 		}
 		else{

@@ -252,9 +252,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                                     
                                     </ul>
                                 
-                                </li>
-                                <li><a href="contact.html"><div>Contact Page</div></a>
-                                
+                                </li>                                
                                     <ul>
                                     
                                         <li><a href="contact.html"><div>Layout 1</div></a></li>
@@ -301,6 +299,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                         
                         </li>
                         <li><a href="contact.html"><div>Contact</div><span>Get in Touch</span></a></li>
+                        <li><a href="http://localhost:8888/bookingtaxi/login"><div>Sign Out</div></a></li>
                     
                     </ul>
                 
@@ -619,25 +618,8 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                             
                             </ul>
                         
-                        </li>
-                        <li><a href="blog.html"><div>Blog</div><span>Latest News</span></a>
-                        
-                            <ul>
-                            
-                                <li><a href="blog.html"><div>Default Layout</div></a></li>
-                                <li><a href="blog-alt.html"><div>Alternate Layout</div></a></li>
-                                <li><a href="blog-full.html"><div>Full Layout</div></a></li>
-                                <li><a href="blog-full-alt.html"><div>Full Layout 2</div></a></li>
-                                <li><a href="blog-small.html"><div>Small Thumbs</div></a></li>
-                                <li><a href="blog-small-full.html"><div>Small Thumbs - Full</div></a></li>
-                                <li><a href="blog-single.html"><div>Single Post</div></a></li>
-                                <li><a href="blog-single-full.html"><div>Single Post - Full</div></a></li>
-                                <li><a href="blog-single-split.html"><div>Single Post - Split</div></a></li>
-                            
-                            </ul>
-                        
-                        </li>
-                        <li><a href="http://localhost:8888/bookingtaxi/login"><div>Hello <?php  ?></div><span>Sign Out</span></a></li>
+                        </li>                       
+                        <li><a href="http://localhost:8888/bookingtaxi/login"><div>Sign Out</div></a></li>
                     
                     </ul>
                 
