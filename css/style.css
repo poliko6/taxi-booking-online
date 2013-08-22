@@ -116,6 +116,7 @@ body {
 	color: #777;
 	font: 12px/20px "Open Sans", Helvetica, Arial, sans-serif;
 	background: #EEE url("images/BOOKING_TAXI_CUT/bg_HEAD.jpg") repeat ;
+	margin:0 auto;
 }
 
 input,
@@ -816,12 +817,12 @@ form small {
 }
 #header  { position:absolute;
 top:51%;
-left:10%;
-width:60% ; height:120px;
 
+width:40% ; height:120px;
 
 }
-#header #primary-menu{margin-left:35% ; height:120px; }
+#header .container{  }
+#header #primary-menu{  height:120px;  width: 50%; margin-left:45% }
 .rs-menu,
 .select-menu { display: none; }
 
@@ -1698,7 +1699,7 @@ html[xmlns] .slider-wrap {display: block;}
 -----------------------------------------------------------------*/
 
 
-#content {  background:url(../images/BOOKING_TAXI_CUT/bg_HEAD.jpg); position:relative}
+#content {  background:url(../images/BOOKING_TAXI_CUT/bg_HEAD.jpg); position:relative; }
 
 .content-wrap { 
    padding-top:40px;
@@ -1706,8 +1707,8 @@ html[xmlns] .slider-wrap {display: block;}
 	
    }
   
-.content-wrap .container {width: 1024px;  position:relative;margin:0 auto; position:relative }
-#content #mapside{background:url(../images/BOOKING_TAXI_CUT/bg_Map.png) no-repeat ; width:514px ; height:567px; float:left ; margin-left:20px ; padding-top:30px; padding-bottom:30px; position: relative}
+.content-wrap .container {width: 1024px;  position:relative;margin:0 auto; position:relative; }
+#content #mapside{background:url(../images/BOOKING_TAXI_CUT/bg_Map.png) no-repeat ; width:514px ; height:567px; float:left ; margin-left:20px ; padding-top:30px; padding-bottom:30px; position: relative ; }
 #contentleft { background:url(../images/BOOKING_TAXI_CUT/bg_formDangKi.png) no-repeat; height:930px  ; float:left; width:440px; padding:20px 20px 40px 20px ; font-size:10px;    }
 #mapside #map-canvas {
         height: 70%;
@@ -1717,15 +1718,15 @@ html[xmlns] .slider-wrap {display: block;}
 		      }
 #deleteOverlay{ }
 
-.fields{border:1px solid #CCC; color:#00F;font-family:Georgia,'Times New Roman', Times, serif}
+.fields{border:1px solid #CCC; color:#00F;font-family: 'Open Sans', sans-serif;, Times, serif}
 .leng{color:#000; font:bold;
-font-family:Georgia,'Times New Roman', Times, serif}
+font-family: 'Open Sans', sans-serif;, Times, serif}
 #sidea{position:absolute;
 top:-11%;
 left:30%;
 }
 #contentleft input{background-color: #F7F7F7; }
-#submitbooking{background: url(../images/BOOKING_TAXI_CUT/Bn_Book_Now.png) ; width:259px ; height:79px} 
+#submitbooking{background: url(../images/BOOKING_TAXI_CUT/Bn_Book_Now.png) ; width:189px ; height:58px} 
 #submitfeedback{background:url(../images/BOOKING_TAXI_CUT/bn_sendMail.png) ; width:94px; height:29px;}
 #sideb{ position:absolute;
 top:-11% ;
@@ -1758,10 +1759,10 @@ padding-top:50px;
  width:60%;
  padding-bottom:0;
  background:bottom url(../images/BOOKING_TAXI_CUT/bg_search.jpg)  repeat-x;
- 
+
 }
 
-.stretched #logo2{position:relative; width:1024px; margin:0 auto }
+.stretched #logo2{position:relative; width:1050px; margin:0 auto;}
 
 #page-title h1 {
     font-size: 24px;
@@ -5503,10 +5504,11 @@ a.twitter-follow-me:hover,
     Stretched Layout
 -----------------------------------------------------------------*/
 
-.stretched{position:relative; width:1024px; margin:0 auto }
+.stretched{position:relative; margin:0 auto }
 .stretched #wrapper{ 
     margin: 0 auto;
     width: 100%;
+	
 }
 
 .stretched #top-social { margin-right: 0; }

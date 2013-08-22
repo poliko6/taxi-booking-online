@@ -520,10 +520,11 @@ $('span[id]').css("color","red");
 		echo '<tr class="business_name"><td>Business Name</td><td>'.form_input("txt_Business_name").'</td></tr>';		
 		echo '</table></fieldset></td></tr>';
 		
-		echo '<tr><td colspan="2"><strong>Where Are You Going?</strong></td></tr>';
+		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Where Are You Going?</legend><table width="100%" style="padding:0px; margin:0px">';
 		echo '<tr><td>Address</td><td>'.form_input($end_address,'',$end_address_event).'<span id="error_End_Address"></span>'.'</td></tr>';
 		echo '<tr><td>Distance (km)</td><td>'.form_input($distance,'',$distance_event).'<span id="error_Distance"></span>'.'</td></tr>';
 		echo '<tr><td>Payment option</td><td>'.form_radio($direct_payment).'Direct Payment'.form_radio($paypal_payment).'Paypal Payment'.'</td></tr>';
+		echo '</table></fieldset></td></tr>';
 		
 		echo '<tr><td colspan="2"><fieldset class="fields"><legend class="leng">Order Details</legend><table width="100%" style="padding:0px; margin:0px">';
 		echo '<tr><td>Car Type</td><td>'.form_radio($anytype).'AnyType '.form_radio($wagon).'Wagon No Vans Please:'.form_checkbox('chk_No_Vans', '1', FALSE).'</td></tr>';		
