@@ -37,7 +37,20 @@
     <!-- ============================================
         Document Title
     ============================================= -->
-	
+	<style type="text/css">
+<!--
+A.ssmItems:link      {color:black;text-decoration:none;}
+A.ssmItems:hover   {color:black;text-decoration:none;}
+A.ssmItems:active   {color:black;text-decoration:none;}
+A.ssmItems:visited   {color:black;text-decoration:none;}
+//-->
+</style>
+
+<SCRIPT SRC="<?php echo base_url('js/ssm.js');?>" language="JavaScript1.2">
+
+</SCRIPT>
+
+<SCRIPT SRC="<?php echo base_url('js/ssmItems.js');?>" language="JavaScript1.2"></SCRIPT>
         <title>Booking Taxi</title>
 
 
