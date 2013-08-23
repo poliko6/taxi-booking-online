@@ -766,7 +766,9 @@ form small {
 
 
 #header { position: relative; }
-
+#header .container{
+	width:1200px;
+}
 
 /* ----------------------------------------------------------------
     Logo
@@ -777,8 +779,7 @@ form small {
     position: relative;
     float: left;
     height: 170px;
-    max-width: 1020px;
-    margin-right: 20px;
+    width: 1200px;
     font-family: 'Open Sans', sans-serif;
     font-size: 36px;
     line-height: 120px;
@@ -791,7 +792,8 @@ form small {
 
 #logo img {
     display: block;
-    max-width: 100%;
+    width: 100%;
+	height:340px !important;
 }
 
 #logo a.standard-logo { display: block; }
@@ -810,9 +812,9 @@ form small {
 	margin-bottom:70px;
     position: relative;
     float: right;
-    max-width: 710px;
+    width: 810px;
     height: 100px;
-	margin-top:5px;
+	margin-top:7px;
 	}
 
 .rs-menu,
@@ -1693,14 +1695,13 @@ html[xmlns] .slider-wrap {display: block;}
 
 #content { 
 position: relative; 
-background-image:url(../images/BOOKING_TAXI_1024/bg_HEAD.jpg);
-min-height:600px;
 	}
 
 .content-wrap {
     position: relative;
     padding: 40px 0;
-
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 
@@ -5438,6 +5439,7 @@ a.twitter-follow-me:hover,
 .stretched #wrapper{
     margin: 0 auto;
     width: 100%;
+	background-image:url(../images/BOOKING_TAXI_1024/bg_HEAD.jpg);
 }
 
 .stretched #top-social { margin-right: 0; }
