@@ -31,7 +31,7 @@ class Listbooking extends CI_Controller {
 		}
 		else {
 			echo 'please login to continue!!!';
-			echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
+			echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
 		}	
 	}
 }

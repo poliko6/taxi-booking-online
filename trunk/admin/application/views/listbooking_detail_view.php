@@ -46,7 +46,7 @@ foreach($query as $row)
 	echo '<tr><td>payment</td><td>'.$row['payment'].'</td></tr>';
 	echo '<tr><td>driver</td><td>'.$row['fullname'].'</td></tr>';
 	$this->session->set_userdata('driver',$row['driver']);
-	echo '<tr><td colspan="2"><a href="http://localhost:8888/bookingtaxi/admin/listbooking_detail?id='.$row['order_id'].'">'."update".'</td></tr>';
+	echo '<tr><td colspan="2"><a href="<?php echo base_url(); ?>listbooking_detail?id='.$row['order_id'].'">'."update".'</td></tr>';
 }
 ?>	
 </table>

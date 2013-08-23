@@ -299,7 +299,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                         
                         </li>
                         <li><a href="contact.html"><div>Contact</div><span>Get in Touch</span></a></li>
-                        <li><a href="http://localhost:8888/bookingtaxi/login"><div>Sign Out</div></a></li>
+                        <li><a href="<?php echo base_url(); ?>login"><div>Sign Out</div></a></li>
                     
                     </ul>
                 
@@ -393,7 +393,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                 
                     <ul id="main-menu">
                     
-                        <li><a href="http://localhost:8888/bookingtaxi/admin/listbooking"><div>Listbooking</div><span>Let's Start here</span></a>
+                        <li><a href="<?php echo base_url(); ?>listbooking"><div>Listbooking</div><span>Let's Start here</span></a>
     
                             <ul>
                             
@@ -619,7 +619,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                             </ul>
                         
                         </li>                       
-                        <li><a href="http://localhost:8888/bookingtaxi/login"><div>Sign Out</div></a></li>
+                        <li><a href="<?php echo base_url(); ?>login"><div>Sign Out</div></a></li>
                     
                     </ul>
                 
