@@ -591,7 +591,7 @@ form small {
 
 #top-bar {
     position: relative;
-    background-color: #EEE;
+    background-color: #FFF;
     height: 40px;
 }
 
@@ -599,6 +599,7 @@ form small {
     position: relative;
     float: left;
     height: 40px;
+    background-color: #EEE;
 }
 
 #top-menu li {
@@ -1710,10 +1711,8 @@ min-height:600px;
 #page-title,
 #countdown-wrap {
     position: relative;
-    background-color: #F5F5F5;
     padding: 25px 0;
-    border-top: 1px solid #EEE;
-    border-bottom: 1px solid #EEE;
+    background-color: #FFF;
 }
 
 #page-title h1 {
