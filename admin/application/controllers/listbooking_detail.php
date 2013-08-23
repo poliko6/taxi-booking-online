@@ -25,7 +25,7 @@ class Listbooking_detail extends CI_Controller {
 		}
 		else {
 			echo 'please login to continue!!!';
-			echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
+			echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
 		}
 	}
 	public function get_detail_booking()
@@ -43,7 +43,7 @@ class Listbooking_detail extends CI_Controller {
 		}
 		else{
 			echo 'please login to continue!!!';
-			echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';	
+			echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';	
 		}
 	}
 	public function update_booking()
@@ -56,7 +56,7 @@ class Listbooking_detail extends CI_Controller {
 				if(!isset($_POST['ddl_Status'])||!isset($_POST['ddl_Driver'])||$this->input->post('ddl_Status')==0)
 				{
 					echo 'update fail';
-					echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi/admin/listbooking_detail?id='.$id.'" />';
+					echo '<meta http-equiv="refresh" content="2;'.base_url().'listbooking_detail?id='.$id.'" />';
 				}
 				else
 				{
@@ -71,12 +71,12 @@ class Listbooking_detail extends CI_Controller {
 					$this->listbooking_model->update($id,$stt,$driver);
 					$this->listbooking_model->update_status_driver1($driver);
 					echo 'update success';
-					echo '<meta http-equiv="refresh" content="2;http://localhost:8888/bookingtaxi/admin/listbooking_detail/get_detail_booking?id='.$id.'" />';
+					echo '<meta http-equiv="refresh" content="2;'.base_url().'listbooking_detail/get_detail_booking?id='.$id.'" />';
 				}	
 			}
 		}else{
 			echo 'please login to continue!!!';
-			echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';	
+			echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';	
 		}
 	}
 }

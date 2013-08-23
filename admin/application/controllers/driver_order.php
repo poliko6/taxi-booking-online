@@ -23,13 +23,13 @@ class Driver_order extends CI_Controller {
 			}
 			else {
 				echo 'please login to continue';
-				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
+				echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
 			}
 		}
 		else 
 			{
 				echo 'please login to continue';
-				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
+				echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
 			}
 	}
 	public function update_status()
@@ -46,17 +46,17 @@ class Driver_order extends CI_Controller {
 				echo '<script type="text/javascript">
 				window.onload = function(){
 				alert("update success!!!");}</script>';
-				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/admin/driver_order?id='.$id.'" />';
+				echo '<meta http-equiv="refresh" content="1;'.base_url().'driver_order?id='.$id.'" />';
 			}
 			else 
 			{
 				echo 'please login before';
-				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
+				echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
 			}
 		}
 		else{
 			echo 'please login before';
-				echo '<meta http-equiv="refresh" content="1;http://localhost:8888/bookingtaxi/login" />';
+				echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
 		}
 	
 	}

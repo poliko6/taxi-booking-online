@@ -1,13 +1,6 @@
 <?php
 $this->session->sess_destroy(); 
 ?>
-<script>
-	$(document).ready(function(){
-		$('#getstreet').change(function(){
-			$('#street').load('register/getstreet',{suburb_id:$(this).val()});
-		});
-});
-</script>
 <script type="text/javascript">
 	function checkform()
 	{		
