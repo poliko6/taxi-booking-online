@@ -218,69 +218,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                             
                             </ul>
                         
-                        </li>
-                        <li><a href="#"><div>Pages</div><span>Inbuilt Templates</span></a>
-                        
-                            <ul>
-                            
-                                <li><a href="about.html"><div>About Us</div></a></li>
-                                <li><a href="services.html"><div>Services</div></a></li>
-                                <li><a href="side-navigation.html"><div>Side Navigation</div></a></li>
-                                <li><a href="#"><div>Page Styles</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="columns.html"><div>Full Width</div></a></li>
-                                        <li><a href="blog.html"><div>Right Sidebar</div></a></li>
-                                        <li><a href="left-sidebar.html"><div>Left Sidebar</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="team.html"><div>Team Members</div></a></li>
-                                <li><a href="faqs.html"><div>FAQs</div></a></li>
-                                <li><a href="buttons.html"><div>Shortcodes</div></a></li>
-                                <li><a href="comingsoon.html"><div>Under Construction</div></a></li>
-                                <li><a href="landing-1.html"><div>Landing Page</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="landing-1.html"><div>Layout 1</div></a></li>
-                                        <li><a href="landing-2.html"><div>Layout 2</div></a></li>
-                                        <li><a href="landing-3.html"><div>Layout 3</div></a></li>
-                                        <li><a href="landing-4.html"><div>Layout 4</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>                                
-                                    <ul>
-                                    
-                                        <li><a href="contact.html"><div>Layout 1</div></a></li>
-                                        <li><a href="contact-left.html"><div>Layout 2</div></a></li>
-                                        <li><a href="contact-right.html"><div>Layout 3</div></a></li>
-                                        <li><a href="contact-sidebar.html"><div>Layout 4</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="pricing-1.html"><div>Pricing Tables</div></a>
-                                
-                                    <ul>
-                                    
-                                        <li><a href="pricing-1.html"><div>Style 1</div></a></li>
-                                        <li><a href="pricing-2.html"><div>Style 2</div></a></li>
-                                        <li><a href="pricing-3.html"><div>Style 3</div></a></li>
-                                        <li><a href="pricing-4.html"><div>Style 4</div></a></li>
-                                    
-                                    </ul>
-                                
-                                </li>
-                                <li><a href="sitemap.html"><div>Sitemap</div></a></li>
-                                <li><a href="404.html"><div>Error 404</div></a></li>
-                            
-                            </ul>
-                        
-                        </li>
+                        </li>                      
                         <li><a href="blog.html"><div>Blog</div><span>Latest News</span></a>
                         
                             <ul>
