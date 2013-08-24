@@ -778,7 +778,7 @@ form small {
 #logo {
     position: relative;
     float: left;
-    height: 170px;
+    height: 177px;
     width: 1200px;
     font-family: 'Open Sans', sans-serif;
     font-size: 36px;
@@ -804,18 +804,15 @@ form small {
 /* ----------------------------------------------------------------
     Primary Menu
 -----------------------------------------------------------------*/
-
 #primary-menu,
 #lp-contacts,
 .sticky-menu-wrap {
     margin-bottom:70px;
     position: relative;
     float: right;
-    width: 810px;
-    height: 100px;
-    margin-top:7px;
+    width: 710px;
+    height: 120px;
 	}
-
 .rs-menu,
 .select-menu { display: none; }
 
@@ -1247,7 +1244,8 @@ form small {
 #sticky-menu .sticky-menu-wrap {
     float: right;
     max-width: none;
-    height: 0px;
+    height:0px;
+    
 }
 
 #sticky-menu .sticky-menu-wrap ul li { height: 60px; }
