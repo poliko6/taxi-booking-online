@@ -44,8 +44,15 @@ A.ssmItems:hover   {color:black;text-decoration:none;}
 A.ssmItems:active   {color:black;text-decoration:none;}
 A.ssmItems:visited   {color:black;text-decoration:none;}
 //-->
+#info{}
 </style>
-
+  <script>
+				$("document").ready(function(){
+											 $("tr:even").css("background","url(images/BOOKING_TAXI_1024/bg2.png)");
+											  $("tr:odd").css("background","url(images/BOOKING_TAXI_1024/bg3.png)");
+											   $("#info").css("background","url(images/BOOKING_TAXI_1024/bg1.png)");
+											 });
+				</script>
 <SCRIPT SRC="<?php echo base_url('ssm.js');?>" language="JavaScript1.2">
 
 </SCRIPT>

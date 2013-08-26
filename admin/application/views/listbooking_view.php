@@ -24,10 +24,11 @@
                 <!-- ============================================
                     Page Content Start
                 ============================================= -->
-                  
-  <table border="1" width="1200px">
-	<tr>
-	<td>order id</td>
+              
+                 
+  <table border="1" width="1200px" style="color:#FFF; font-size:14px ; width:1024px ; border:1px solid " >
+	<tr id="info" style="background:url(images/BOOKING_TAXI_1024/bg1.png); font-size:18px" align="center">
+	<td >order id</td>
 	<td>passenger</td>
 	<td>name</td>
 	<td>contact number</td>
@@ -51,7 +52,7 @@
 echo "Xin chào ".$this->session->userdata('fullname');
 foreach($query as $row)
 {	
-	echo '<tr>';
+	echo '<tr align="center">';
 	echo '<td><a href="'.base_url().'listbooking_detail/get_detail_booking?id='.$row['order_id'].'">'.$row['order_id'].'</td>';
 	echo '<td>'.$row['passenger'].'</td>';
 	echo '<td>'.$row['name'].'</td>';
