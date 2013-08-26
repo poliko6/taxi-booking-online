@@ -23,8 +23,7 @@ class Listbooking extends CI_Controller {
 			$config['uri_segment']=2;
 			$this->pagination->initialize($config);
 			//$this->table->set_heading('id','name','contact number');
-			$data['query']=$this->listbooking_model->getlistbooking($config['per_page'],$this->uri->segment(2));
-			
+			$data['query']=$this->listbooking_model->getlistbooking($config['per_page'],$this->uri->segment(2));			
 			$this->load->view('header');
 			$this->load->view('listbooking_view',$data);
 			$this->load->view('footer');
