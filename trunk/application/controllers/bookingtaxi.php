@@ -77,19 +77,19 @@ class Bookingtaxi extends CI_Controller {
 				$lastcount=$this->bookingtaxi_model->count_order_temp();
 				if($lastcount>$precount)
 				{
-					echo ('booking success!!!');
+					
 					if($this->input->post('rad_Payment')=='paypal_payment')    
 					{
 						$payment['price']=floatval($this->input->post("txt_Distance"))*'1.617';
 						
 						
 							$this->load->view('header');
-						$this->load->view('paypalonline',$payment);  	
-							
+							$this->load->view('paypalonline',$payment); 						
 							$this->load->view('footer');
 							
 					}
 					else {
+						echo ('booking success!!!');
 						echo '<meta http-equiv="refresh" content="2;'.base_url().'" />';
 					}
 					
