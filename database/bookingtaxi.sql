@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 26, 2013 at 02:47 PM
+-- Generation Time: Aug 29, 2013 at 02:56 PM
 -- Server version: 5.5.28
 -- PHP Version: 5.3.18
 
@@ -73,33 +73,56 @@ INSERT INTO `car_type` (`id`, `type`, `label`, `vans`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `company`
+--
+
+CREATE TABLE IF NOT EXISTS `company` (
+  `Company_Id` smallint(6) NOT NULL,
+  `Company_Name` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Note` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Phone` int(11) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Time_Work` varchar(50) NOT NULL,
+  PRIMARY KEY (`Company_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`Company_Id`, `Company_Name`, `Address`, `Note`, `Phone`, `Email`, `Time_Work`) VALUES
+(2, 'Taxi Viet Nam', '100 , Trường Chinh , Phường Tân Thới Nhất , Quận 12 , HCM', 'thanh lap tu 1991', 2560252, 'haibang_nhc@yahoo.com', '8h30-15h');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customers`
 --
 
 CREATE TABLE IF NOT EXISTS `customers` (
-  `customers_id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `customer_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `title` varchar(5) DEFAULT NULL,
   `fullname` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `suburb` varchar(30) DEFAULT NULL,
+  `address` varchar(50) NOT NULL,
   `unit_or_flat` varchar(10) DEFAULT NULL,
-  `street_number` tinyint(4) DEFAULT NULL,
-  `street` varchar(30) DEFAULT NULL,
-  `phone` int(11) DEFAULT NULL,
-  `mobile` int(11) DEFAULT NULL,
+  `phone` varchar(11) DEFAULT NULL,
+  `mobile` varchar(11) DEFAULT NULL,
   `usertype` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`customers_id`),
+  PRIMARY KEY (`customer_id`),
   KEY `usertype` (`usertype`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customers_id`, `title`, `fullname`, `username`, `password`, `email`, `suburb`, `unit_or_flat`, `street_number`, `street`, `phone`, `mobile`, `usertype`) VALUES
-(2, 'Ms', 'hai do', 'lifog', 'd41d8cd98f00b204e9800998ecf8427e', 'lifog@gmail.com', '1', 'unit', 20, '0', 123456, 123456789, 4);
+INSERT INTO `customers` (`customer_id`, `title`, `fullname`, `username`, `password`, `email`, `address`, `unit_or_flat`, `phone`, `mobile`, `usertype`) VALUES
+(2, 'Ms', 'hai do', 'lifog', 'd41d8cd98f00b204e9800998ecf8427e', 'lifog@gmail.com', '', 'unit', '123456', '123456789', 4),
+(4, 'Mr', 'hai do', 'lifog1', 'e10adc3949ba59abbe56e057f20f883e', 'lifog721989@gmail.com', 'phuong 13 quan go vap tp ho chi minh', 'flat', '0123456789', '01201201201', 4);
 
 -- --------------------------------------------------------
 
@@ -171,13 +194,37 @@ CREATE TABLE IF NOT EXISTS `driver` (
 --
 
 INSERT INTO `driver` (`driver_id`, `fullname`, `username`, `password`, `email`, `address`, `phone`, `usertype`, `driver_status`) VALUES
-(1, 'tài xế 1', 'taixe1', 'e10adc3949ba59abbe56e057f20f883e', 'taixe1@gmail.com', 'tp hồ chí minh', 123456789, 3, 1),
+(1, 'tài xế 1', 'taixe1', 'e10adc3949ba59abbe56e057f20f883e', 'taixe1@gmail.com', 'tp hồ chí minh', 123456789, 3, 2),
 (2, 'tài xế 2', 'taixe2', 'e10adc3949ba59abbe56e057f20f883e', 'taixe2@gmail.com', 'tp hồ chí minh', 123456789, 3, 2),
-(3, 'tài xế 3', 'taixe3', 'e10adc3949ba59abbe56e057f20f883e', 'taixe3@gmail.com', 'binh tan', 123456789, 3, 2),
-(4, 'tài xế 4', 'taixe4', 'e10adc3949ba59abbe56e057f20f883e', 'taixe4@gmail.com', 'tp hồ chí minh', 123456789, 3, 1),
-(5, 'tài xế 5', 'taixe5', 'e10adc3949ba59abbe56e057f20f883e', 'taixe5@gmail.com', 'Go Vap', 123456789, 3, 1),
-(6, 'tài xế 6', 'taixe6', 'e10adc3949ba59abbe56e057f20f883e', 'taixe6@gmail.com', 'Quan 1', 123456789, 3, 1),
-(7, 'tài xế 7', 'taixe7', 'e10adc3949ba59abbe56e057f20f883e', 'taixe7@gmail.com', 'Tan Binh', 123456789, 3, 2);
+(3, 'tài xế 3', 'taixe3', 'e10adc3949ba59abbe56e057f20f883e', 'taixe3@gmail.com', 'binh tan', 123456789, 3, 1),
+(4, 'tài xế 4', 'taixe4', 'e10adc3949ba59abbe56e057f20f883e', 'taixe4@gmail.com', 'tp hồ chí minh', 123456789, 3, 2),
+(5, 'tài xế 5', 'taixe5', 'e10adc3949ba59abbe56e057f20f883e', 'taixe5@gmail.com', 'Go Vap', 123456789, 3, 2),
+(6, 'tài xế 6', 'taixe6', 'e10adc3949ba59abbe56e057f20f883e', 'taixe6@gmail.com', 'Quan 1', 123456789, 3, 2),
+(7, 'tài xế 7', 'taixe7', 'e10adc3949ba59abbe56e057f20f883e', 'taixe7@gmail.com', 'Tan Binh', 123456789, 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `id` smallint(6) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
+  `subject` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `message` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `date` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`id`, `name`, `email`, `subject`, `message`, `date`) VALUES
+(4, 'lifog', 'ngochai182007@yahoo.com', 'customer''s idea', '3213213', '2013-08-06 01:08:34 PM'),
+(5, 'lifog', 'lifog721989@gmail.com', 'customer''s idea', 'ádasdasd', '2013-08-16 02:08:00 PM');
 
 -- --------------------------------------------------------
 
@@ -188,14 +235,31 @@ INSERT INTO `driver` (`driver_id`, `fullname`, `username`, `password`, `email`, 
 CREATE TABLE IF NOT EXISTS `orders` (
   `order_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `customer_id` smallint(6) NOT NULL,
-  `address_start` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `address_end` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `time` datetime NOT NULL,
-  `car_type` tinyint(4) NOT NULL,
+  `end_address` varchar(100) NOT NULL,
+  `distance` varchar(20) NOT NULL,
+  `car_type` varchar(20) NOT NULL,
+  `node_for_driver` varchar(50) NOT NULL,
+  `time_to_go` varchar(30) NOT NULL,
+  `price` float NOT NULL,
+  `status_id` tinyint(4) NOT NULL,
+  `payment` varchar(20) NOT NULL,
+  `driver` smallint(6) NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `customer_id` (`customer_id`),
-  KEY `car_type` (`car_type`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `customer_id_2` (`customer_id`),
+  KEY `customer_id_3` (`customer_id`),
+  KEY `customer_id_4` (`customer_id`),
+  KEY `status_id` (`status_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `customer_id`, `end_address`, `distance`, `car_type`, `node_for_driver`, `time_to_go`, `price`, `status_id`, `payment`, `driver`) VALUES
+(1, 4, 'cho ben thanh quan 1', '11.6 km', 'AnyType', 'Waiting Out Front', '2013-07-22 08:00:00 AM', 18.7572, 1, 'direct_payment', 3),
+(2, 4, 'cho ben thanh quan 1', '11.6 km', 'AnyType', 'Waiting Out Front', '2013-08-22 08:00:00 AM', 18.7572, 1, 'direct_payment', 4),
+(3, 2, 'cho ben thanh quan 1', '11.6 km', 'AnyType', 'Waiting Out Front', '2013-07-22 08:00:00 AM', 18.7572, 1, 'direct_payment', 5);
 
 -- --------------------------------------------------------
 
@@ -271,22 +335,24 @@ CREATE TABLE IF NOT EXISTS `order_temp` (
   PRIMARY KEY (`order_id`),
   KEY `status` (`status_id`),
   KEY `status_id` (`status_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
 
 --
 -- Dumping data for table `order_temp`
 --
 
 INSERT INTO `order_temp` (`order_id`, `passenger`, `name`, `contact_number`, `start_address`, `unit_or_flat`, `building_type`, `business_name`, `remember_detail`, `end_address`, `distance`, `car_type`, `node_for_driver`, `time_to_go`, `price`, `status_id`, `payment`, `driver`) VALUES
-(21, 5, 'ngochai', '0', '', 'Unit', 'Business', 'HUI', 1, '6', '', '0', '2', '2013-01-01 01:00:01', 0, 3, '', 0),
+(21, 5, 'ngochai', '0', '', 'Unit', 'Business', 'HUI', 1, '6', '', '0', '2', '2013-01-01 01:00:01', 0, 1, '', 1),
 (22, 5, 'do ngoc hai', '1883965050', '58 duong so 1go vap', 'Unit', 'Business', 'HUI', 1, 'cho ben thanh quan 1', '', '0', '2', '2013-01-01 01:00:01', 0, 3, '', 0),
-(25, 5, 'nguyen hai bang', '1883965050', 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'cho ben thanh quan 1', '', '0', '2', '2013-07-20 01:00:00 AM', 0, 3, '', 3),
-(26, 5, 'do ngoc hai', '1883965050', '58 duong so 1go vap', 'Unit', 'Unit', '', 0, 'cho ben thanh quan 1', '', '0', 'Waiting Out Front', '2013-07-16 02:07:03 AM', 0, 2, '', 7),
+(25, 5, 'nguyen hai bang', '1883965050', 'hoc mon thanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'cho ben thanh quan 1', '', '0', '2', '2013-07-20 01:00:00 AM', 0, 3, '', 0),
+(26, 5, 'do ngoc hai', '1883965050', '58 duong so 1go vap', 'Unit', 'Unit', '', 0, 'cho ben thanh quan 1', '', '0', 'Waiting Out Front', '2013-07-16 02:07:03 AM', 0, 2, '', 0),
 (27, 5, 'nguyen duc huy', '1268753599', 'nguyen oanh go vapthanh pho ho chi minh', 'Unit', 'Business', 'Microsoft', 1, 'dam sen', '', '0', '2', '2013-07-20 01:00:00 AM', 0, 4, '', 0),
-(30, 4, 'le thi nhung', '1883965050', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Unit', '', 1, '395 Lê Trọng Tấn, Sơn Kỳ, Tân Phú, Ho Chi Minh City, Vietnam', '3.4 km', 'AnyType', 'Waiting Out Front', '2013-07-22 08:00:00 AM', 0, 1, 'direct_payment', 0),
-(31, 4, 'ngo kinh', '1268753599', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Business', 'Apple', 1, '25 Quốc Lộ 1A, Bình Hưng Hòa, Bình Tân, Ho Chi Minh City, Vietnam', '4.3 km', 'AnyType', 'Waiting Out Front', '2013-07-19 03:07:34 PM', 6, 1, 'direct_payment', 0),
-(32, 4, 'lam phong', '1883965050', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Unit', '', 0, '1/8 Trường Chinh, Tân Hưng Thuận, Quận 12, Ho Chi Minh City, Vietnam', '1.6 km', 'AnyType', 'Waiting Out Front', '2013-07-22 06:00:00 AM', 1.607, 1, 'direct_payment', 0),
-(33, 4, 'ho quy ly', '1268753599', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Business', 'Microsoft', 1, '383 Tân Sơn, 15, Tan Binh District, Ho Chi Minh City, Vietnam', '2.9 km', 'AnyType', 'Waiting Out Front', '2013-07-19 03:07:02 PM', 4.6603, 1, 'direct_payment', 0);
+(30, 4, 'le thi nhung', '1883965050', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Unit', '', 1, '395 Lê Trọng Tấn, Sơn Kỳ, Tân Phú, Ho Chi Minh City, Vietnam', '3.4 km', 'AnyType', 'Waiting Out Front', '2013-07-22 08:00:00 AM', 0, 3, 'direct_payment', 4),
+(31, 4, 'ngo kinh', '1268753599', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Business', 'Apple', 1, '25 Quốc Lộ 1A, Bình Hưng Hòa, Bình Tân, Ho Chi Minh City, Vietnam', '4.3 km', 'AnyType', 'Waiting Out Front', '2013-07-19 03:07:34 PM', 6, 3, 'direct_payment', 2),
+(32, 4, 'lam phong', '1883965050', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Unit', '', 0, '1/8 Trường Chinh, Tân Hưng Thuận, Quận 12, Ho Chi Minh City, Vietnam', '1.6 km', 'AnyType', 'Waiting Out Front', '2013-07-22 06:00:00 AM', 1.607, 3, 'direct_payment', 6),
+(33, 4, 'ho quy ly', '1268753599', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Business', 'Microsoft', 1, '383 Tân Sơn, 15, Tan Binh District, Ho Chi Minh City, Vietnam', '2.9 km', 'AnyType', 'Waiting Out Front', '2013-07-19 03:07:02 PM', 4.6603, 3, 'direct_payment', 5),
+(34, 5, 'nguyen hai bang', '01883965050', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Unit', '', 0, 'TL 847, tt. Mỹ An, Thap Muoi District, Dong Thap province, Vietnam', '114 km', 'AnyType', 'Waiting Out Front', '2013-07-29 04:07:23 PM', 184.338, 1, 'direct_payment', 0),
+(35, 4, 'lifog', '01883965050', 'cầu Tham Lương, Phường 15, Tan Binh District, Ho Chi Minh City, Vietnam', 'Unit', 'Business', 'HUI', 0, 'cho ben thanh', '11.6 km', 'AnyType', 'Waiting Out Front', '2013-08-06 09:00:00 AM', 18.7572, 1, 'direct_payment', 0);
 
 -- --------------------------------------------------------
 
@@ -480,14 +546,13 @@ ALTER TABLE `driver`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customers_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`car_type`) REFERENCES `car_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`status_id`) REFERENCES `order_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_details`
 --
 ALTER TABLE `order_details`
-  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`manager`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`driver`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `order_details_ibfk_5` FOREIGN KEY (`status`) REFERENCES `order_status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
