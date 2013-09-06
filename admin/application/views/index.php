@@ -29,13 +29,12 @@
  <br/>
  <?php
  if($this->session->userdata('usertype')=='1'||$this->session->userdata('usertype')=='2')
- echo '<a href="'.base_url().'listbooking">Listbooking</a>';
+ echo '<a href="'.base_url('listbooking').'">Listbooking</a>';
  elseif($this->session->userdata('usertype')=='3')
- echo '<a href="'.base_url().'driver_order?id='.$this->session->userdata('driver_id').'">View my order</a>'; 
+ echo '<a href="'.base_url('driver_order?id='.$this->session->userdata('driver_id')).'">View my order</a>'; 
  else
  {
-	 echo "please login to continue";
-	 echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';		
+ 	header('location:'.base_url('login'));		
  }
  ?>
                 <!-- ============================================

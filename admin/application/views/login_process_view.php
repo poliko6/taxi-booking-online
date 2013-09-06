@@ -21,15 +21,9 @@ foreach($query as $key  => $value)
 	}
 }
 $this->session->set_userdata($data);
-echo 'login success';
 if($this->session->userdata('usertype')=='1'||$this->session->userdata('usertype')=='2'||$this->session->userdata('usertype')=='3')
-echo '<meta http-equiv="refresh" content="1; '.base_url().'" />';
+	echo '<meta http-equiv="refresh" content="0; '.base_url().'" />';
 else {
-	echo 'you cannot access this page!!!';
-echo '<meta http-equiv="refresh" content="1; '.base_url().'login" />';	
+	echo '<meta http-equiv="refresh" content="0; '.base_url('login').'" />';	
 }
-//if($this->session->userdata('usertype')=='1'||$this->session->userdata('usertype')=='2')
-//echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/admin/listbooking" />';	
-//else if($this->session->userdata('usertype')=='3')
-//echo '<meta http-equiv="refresh" content="1; http://localhost:8888/bookingtaxi/admin/driver_order?id='.$this->session->userdata('driver_id').'" />';	
 ?>

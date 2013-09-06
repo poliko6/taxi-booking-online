@@ -53,7 +53,7 @@ echo "Xin chào ".$this->session->userdata('fullname');
 foreach($query as $row)
 {	
 	echo '<tr align="center">';
-	echo '<td><a href="'.base_url().'listbooking_detail/get_detail_booking?id='.$row['order_id'].'">'.$row['order_id'].'</td>';
+	echo '<td><a href="'.base_url('listbooking_detail/get_detail_booking?id='.$row['order_id']).'">'.$row['order_id'].'</td>';
 	echo '<td>'.$row['passenger'].'</td>';
 	echo '<td>'.$row['name'].'</td>';
 	echo '<td>'.$row['contact_number'].'</td>';

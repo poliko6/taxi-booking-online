@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="<?php echo base_url('css/font-awesome.css');?>" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url('css/prettyPhoto.css');?>" type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url('css/responsive.css');?>" type="text/css" />
+    <!--<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
     <!--[if lt IE 9]>
@@ -29,7 +30,7 @@
     <!-- ============================================
         External JavaScripts
     ============================================= -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url('js/jquery.js');?>"></script>
 	<script type="text/javascript" src="<?php echo base_url('js/plugins.js');?>"></script>
     
@@ -79,7 +80,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
             
                 <div class="sticky-logo">
                 
-                    <a href="index.php"><img src="images/stickylogo.png" alt="CoWorker" title="CoWorker" /></a>
+                    <a href="index.php"><img src="<?php echo base_url('images/stickylogo.png');?>" alt="CoWorker" title="CoWorker" /></a>
                 
                 </div>
                 
@@ -244,7 +245,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                         
                         </li>
                         <li><a href="contact.html"><div>Contact</div><span>Get in Touch</span></a></li>
-                        <li><a href="<?php echo base_url(); ?>login"><div>Sign Out</div></a></li>
+                        <li><a href="<?php echo base_url('login'); ?>"><div>Sign Out</div></a></li>
                     
                     </ul>
                 
@@ -328,7 +329,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                 ============================================= -->
               
                  <div id="logo">
-                <a href="<?php echo base_url();?>"><img src="images/BOOKING_TAXI_1024/bg_banner.jpg"/></a>                
+                <a href="<?php echo base_url();?>"><img src="<?php echo base_url('images/BOOKING_TAXI_1024/bg_banner.jpg');?>"/></a>                
                 </div>
                 <!-- ============================================
                     Menu
@@ -338,7 +339,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                 
                     <ul id="main-menu">
                     
-                        <li><a href="<?php echo base_url(); ?>listbooking"><div>Listbooking</div><span>Let's Start here</span></a>
+                        <li><a href="<?php echo base_url('listbooking'); ?>"><div>Listbooking</div><span>Let's Start here</span></a>
     
                             <ul>
                             
@@ -564,7 +565,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                             </ul>
                         
                         </li>                       
-                        <li><a href="<?php echo base_url(); ?>login"><div>Sign Out</div></a></li>
+                        <li><a href="<?php echo base_url('login'); ?>"><div>Sign Out</div></a></li>
                     
                     </ul>
                 
