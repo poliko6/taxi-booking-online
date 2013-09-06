@@ -38,6 +38,11 @@
     <!-- ============================================
         Document Title
     ============================================= -->
+<?php
+	if(isset($this->session->userdata['usertype']))
+	{
+	echo '<SCRIPT SRC="'.base_url('ssm.js').'" language="JavaScript1.2"></SCRIPT>
+<SCRIPT SRC="'.base_url('ssmItems.js').'" language="JavaScript1.2"></SCRIPT>    
 	<style type="text/css">
 <!--
 A.ssmItems:link      {color:black;text-decoration:none;}
@@ -46,7 +51,10 @@ A.ssmItems:active   {color:black;text-decoration:none;}
 A.ssmItems:visited   {color:black;text-decoration:none;}
 //-->
 #info{}
-</style>
+</style>';
+	}
+?>
+
   <script>
 				$("document").ready(function(){
 											 $("tr:even").css("background","url(images/BOOKING_TAXI_1024/bg2.png)");
@@ -54,11 +62,10 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
 											   $("#info").css("background","url(images/BOOKING_TAXI_1024/bg1.png)");
 											 });
 				</script>
-<SCRIPT SRC="<?php echo base_url('ssm.js');?>" language="JavaScript1.2">
 
-</SCRIPT>
 
-<SCRIPT SRC="<?php echo base_url('ssmItems.js');?>" language="JavaScript1.2"></SCRIPT>
+
+
         <title>Booking Taxi</title>
 
 
