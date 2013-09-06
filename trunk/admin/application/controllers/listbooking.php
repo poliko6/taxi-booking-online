@@ -29,8 +29,7 @@ class Listbooking extends CI_Controller {
 			$this->load->view('footer');
 		}
 		else {
-			echo 'please login to continue!!!';
-			echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
+			echo '<meta http-equiv="refresh" content="0;'.base_url('login').'" />';
 		}	
 	}
 }

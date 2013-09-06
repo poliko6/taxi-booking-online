@@ -34,7 +34,7 @@ class Login extends CI_Controller {
 				}
 				else {
 					echo 'wrong password!!!';
-					echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';								
+					echo '<meta http-equiv="refresh" content="1;'.base_url('login').'" />';								
 					
 				}
 			}
@@ -52,7 +52,7 @@ class Login extends CI_Controller {
 						}
 					else {
 						echo 'wrong password!!!';
-						echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';								
+						echo '<meta http-equiv="refresh" content="1;'.base_url('login').'" />';								
 				}	
 			}						
 			}			
