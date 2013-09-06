@@ -22,14 +22,12 @@ class Driver_order extends CI_Controller {
 				$this->load->view('footer');
 			}
 			else {
-				echo 'please login to continue';
-				echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
+				echo '<meta http-equiv="refresh" content="0;'.base_url('login').'" />';
 			}
 		}
 		else 
 			{
-				echo 'please login to continue';
-				echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
+				echo '<meta http-equiv="refresh" content="0;'.base_url('login').'" />';
 			}
 	}
 	public function update_status()
@@ -42,21 +40,16 @@ class Driver_order extends CI_Controller {
 				$this->driver_model->update_status($id);
 				$data['query']=$this->driver_model->get_detail_order($id);
 				$order_id=$this->driver_model->get_order_id($id);
-				$this->driver_model->update_driver_of_order($order_id);
-				echo '<script type="text/javascript">
-				window.onload = function(){
-				alert("update success!!!");}</script>';
-				echo '<meta http-equiv="refresh" content="1;'.base_url().'driver_order?id='.$id.'" />';
+				$this->driver_model->update_driver_of_order($order_id);				
+				echo '<meta http-equiv="refresh" content="0;'.base_url('driver_order?id='.$id).'" />';
 			}
 			else 
 			{
-				echo 'please login before';
-				echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
+				echo '<meta http-equiv="refresh" content="0;'.base_url('login').'" />';
 			}
 		}
 		else{
-			echo 'please login before';
-				echo '<meta http-equiv="refresh" content="1;'.base_url().'login" />';
+				echo '<meta http-equiv="refresh" content="0;'.base_url('login').'" />';
 		}
 	
 	}
