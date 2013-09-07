@@ -48,6 +48,15 @@ if ( ! function_exists('site_url'))
 
 // ------------------------------------------------------------------------
 
+if ( ! function_exists('base_asset_url'))
+{
+	function base_asset_url($uri = '')
+	{
+		$CI =& get_instance();
+		return $CI->config->base_asset_url($uri);
+	}
+}
+  
 /**
  * Base URL
  * 

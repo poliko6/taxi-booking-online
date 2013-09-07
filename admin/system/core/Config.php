@@ -267,6 +267,24 @@ class CI_Config {
 		}
 	}
 
+
+function base_asset_url($uri = '')
+	{
+		if ($uri == '')
+		{
+			return $this->slash_item('base_asset_url');
+		}
+
+		if ($this->item('enable_query_strings') == FALSE)
+		{
+			$suffix = ($this->item('url_suffix') == FALSE) ? '' : $this->item('url_suffix');
+			return $this->slash_item('base_asset_url').$this->_uri_string($uri).$suffix;
+		}
+		else
+		{
+			return $this->slash_item('base_url').'?'.$this->_uri_string($uri);
+		}
+	} 
 	// -------------------------------------------------------------
 
 	/**
