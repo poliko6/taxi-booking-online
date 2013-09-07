@@ -15,7 +15,7 @@
 |
 */
 $config['base_url']	= '';
-
+$config['base_asset_url']='localhost:8888/bookingtaxi/';
 /*
 |--------------------------------------------------------------------------
 | Index File
