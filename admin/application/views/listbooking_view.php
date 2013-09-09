@@ -8,7 +8,7 @@
             
                 <div class="container clearfix">
                 
-                    <h1>Manage booking</span></h1>
+                    <h1>LIST BOOKING</span></h1>
                     
                 </div>
             
@@ -28,23 +28,23 @@
                  
   <table border="1" width="1200px" style="color:#FFF; font-size:14px ; width:1024px ; border:1px solid " >
 	<tr id="info" style="background:url(images/BOOKING_TAXI_1024/bg1.png); font-size:18px" align="center">
-	<td >order id</td>
-	<td>passenger</td>
-	<td>name</td>
-	<td>contact number</td>
-	<td>start address</td>
-	<td>unit/flat</td>
-	<td>building type</td>
-	<td>business name</td>
-	<td>end address</td>
-	<td>distance</td>
-	<td>car type</td>
-	<td>node for driver</td>
-	<td>time to go</td>
-	<td>price</td>
-	<td>status</td>
-	<td>payment</td>
-	<td>driver</td>
+	<td>ORDER ID</td>
+	<td>PASSENGER</td>
+	<td>NAME</td>
+	<td>CONTACT NUMBER</td>
+	<td>START ADDRESS</td>
+	<td>UNIT/FLAT</td>
+	<td>BUILDING TYPE</td>
+	<td>BUSINESSNAME</td>
+	<td>END ADDRESS</td>
+	<td>DISTANCE</td>
+	<td>CAR TYPE</td>
+	<td>NODE FOR DRIVER</td>
+	<td>TIME TO GO</td>
+	<td>PRICE</td>
+	<td>STATUS</td>
+	<td>PAYMENT</td>
+	<td>DRIVER</td>
 	
 	
 	</tr>
