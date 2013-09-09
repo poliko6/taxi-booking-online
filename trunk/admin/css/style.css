@@ -807,11 +807,10 @@ form small {
 #primary-menu,
 #lp-contacts,
 .sticky-menu-wrap {
-    margin-bottom:70px;
-    position: relative;
+	position: relative;
     float: right;
     width: 710px;
-    height: 120px;
+    height: 160px;
 	}
 .rs-menu,
 .select-menu { display: none; }
@@ -1691,14 +1690,15 @@ html[xmlns] .slider-wrap {display: block;}
 
 
 #content { 
-position: relative; 
+	position: relative; 
 	}
 
 .content-wrap {
     position: relative;
-    padding: 40px 0;
+    padding: 20px 0;
 	background-repeat:no-repeat;
 	background-position:center;
+
 }
 
 
@@ -1967,23 +1967,7 @@ ul.landing-features li:hover { font-weight: bold; }
 /* ----------------------------------------------------------------
     Portfolio
 -----------------------------------------------------------------*/
-#register
-{
-	width:800px;
-	background-color:#CCC;
-}
-#left_table
-{
-	margin-right:10px;
-	float:left;
-	background-color:#CCC;
-}
-#right_table
-{
-	background-color:#CCC;
-	float:left;
-}
-#portfolio-filter {
+ortfolio-filter {
     position: relative;
     margin: 0 0 30px 0;
 }

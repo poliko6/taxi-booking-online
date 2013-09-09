@@ -8,7 +8,7 @@
             
                 <div class="container clearfix">
                 
-                    <h1>Manage booking</span></h1>
+                    <h1>HOME PAGE</span></h1>
                     
                 </div>
             

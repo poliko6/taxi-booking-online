@@ -11,14 +11,14 @@
         Stylesheets
     ============================================= -->
 	<link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Open+Sans:400,300,600,700" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url('css/style.css');?>" type="text/css" />
-    <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="<?php echo base_url('css/retina.css');?>" />
-	<link rel="stylesheet" href="<?php echo base_url('css/colors.php');?>" type="text/css" />
-	<link rel="stylesheet" href="<?php echo base_url('css/tipsy.css');?>" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.css');?>" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url('css/font-awesome.css');?>" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url('css/prettyPhoto.css');?>" type="text/css" />
-    <link rel="stylesheet" href="<?php echo base_url('css/responsive.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_asset_url('admin/css/style.css');?>" type="text/css" />
+    <link rel="stylesheet" media="only screen and (-webkit-min-device-pixel-ratio: 2)" type="text/css" href="<?php echo base_asset_url('admin/css/retina.css');?>" />
+	<link rel="stylesheet" href="<?php echo base_asset_url('admin/css/colors.php');?>" type="text/css" />
+	<link rel="stylesheet" href="<?php echo base_asset_url('admin/css/tipsy.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_asset_url('admin/css/bootstrap.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_asset_url('admin/css/font-awesome.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_asset_url('admin/css/prettyPhoto.css');?>" type="text/css" />
+    <link rel="stylesheet" href="<?php echo base_asset_url('admin/css/responsive.css');?>" type="text/css" />
     <!--<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet">-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     
@@ -31,8 +31,8 @@
         External JavaScripts
     ============================================= -->
      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="<?php echo base_url('js/jquery.js');?>"></script>
-	<script type="text/javascript" src="<?php echo base_url('js/plugins.js');?>"></script>
+	<script type="text/javascript" src="<?php echo base_asset_url('admin/js/jquery.js');?>"></script>
+	<script type="text/javascript" src="<?php echo base_asset_url('admin/js/plugins.js');?>"></script>
     
     
     <!-- ============================================
@@ -41,8 +41,8 @@
 <?php
 	if(isset($this->session->userdata['usertype']))
 	{
-	echo '<SCRIPT SRC="'.base_url('ssm.js').'" language="JavaScript1.2"></SCRIPT>
-<SCRIPT SRC="'.base_url('ssmItems.js').'" language="JavaScript1.2"></SCRIPT>    
+	echo '<SCRIPT SRC="'.base_asset_url('admin/ssm.js').'" language="JavaScript1.2"></SCRIPT>
+<SCRIPT SRC="'.base_asset_url('admin/ssmItems.js').'" language="JavaScript1.2"></SCRIPT>    
 	<style type="text/css">
 <!--
 A.ssmItems:link      {color:black;text-decoration:none;}
@@ -87,7 +87,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
             
                 <div class="sticky-logo">
                 
-                    <a href="index.php"><img src="<?php echo base_url('images/stickylogo.png');?>" alt="CoWorker" title="CoWorker" /></a>
+                    <a href="index.php"><img src="<?php echo base_asset_url('admin/images/stickylogo.png');?>" alt="CoWorker" title="CoWorker" /></a>
                 
                 </div>
                 
@@ -336,7 +336,7 @@ A.ssmItems:visited   {color:black;text-decoration:none;}
                 ============================================= -->
               
                  <div id="logo">
-                <a href="<?php echo base_url();?>"><img src="<?php echo base_url('images/BOOKING_TAXI_1024/bg_banner.jpg');?>"/></a>                
+                <a href="<?php echo base_url();?>"><img src="<?php echo base_asset_url('admin/images/BOOKING_TAXI_1024/bg_banner.jpg');?>"/></a>                
                 </div>
                 <!-- ============================================
                     Menu
